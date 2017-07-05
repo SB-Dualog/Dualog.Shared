@@ -1,0 +1,13 @@
+<?xml version="1.0"?>
+<package >
+  <metadata>
+    <id>Dualog.Shared</id>
+    <version>1.0.0.11</version>
+    <title>Dualog shared</title>
+    <authors>Alexander Hanssen</authors>
+    <owners>Dualog</owners>
+    <requireLicenseAcceptance>false</requireLicenseAcceptance>
+    <description>Classes and methods used for Dualog native apps and web apps.</description>
+    <copyright>Copyright 2017</copyright>
+  </metadata>
+</package>
