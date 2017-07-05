@@ -1,7 +1,7 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
-    <TargetFrameworks>netstandard1.1;net40;net45;net46;portable46-net451+win81+wpa81</TargetFrameworks>
+    <TargetFrameworks>netstandard1.1;net45;net46</TargetFrameworks>
     <PackageId>Dualog.Shared</PackageId>
     <PackageVersion>1.0.0</PackageVersion>
     <Authors>Alexander Hanssen</Authors>
@@ -30,16 +30,4 @@
     <EmbeddedResource Include="ReferenceTables\tools.txt" />
     <EmbeddedResource Include="ReferenceTables\Zones.txt" />
   </ItemGroup>
-
-  <ItemGroup Condition="'$(TargetFramework)'=='net40' OR '$(TargetFramework)'=='net45' OR '$(TargetFramework)'=='net46'">
-    <Reference Include="System" />
-    <Reference Include="System.Core" />
-    <Reference Include="Microsoft.CSharp" />
-    <Reference Include="System.Data" />
-  </ItemGroup>
-
-  <ItemGroup Condition="'$(TargetFramework)'=='net45' OR '$(TargetFramework)'=='net46'">
-    <Reference Include="System.ComponentModel.DataAnnotations" />
-  </ItemGroup>
-
 </Project>
