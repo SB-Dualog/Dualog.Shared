@@ -1,9 +1,9 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
-    <TargetFramework>netstandard1.2</TargetFramework>
+    <TargetFrameworks>netstandard1.0;netstandard1.2</TargetFrameworks>
     <PackageId>Dualog.Shared</PackageId>
-    <PackageVersion>1.0.0</PackageVersion>
+    <PackageVersion>1.0.0.12</PackageVersion>
     <Authors>Alexander Hanssen</Authors>
     <Description>Classes and methods used for Dualog native apps and web apps.</Description>
     <PackageRequireLicenseAcceptance>false</PackageRequireLicenseAcceptance>
