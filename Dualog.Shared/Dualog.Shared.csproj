@@ -1,7 +1,7 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
-    <TargetFramework>netstandard1.4</TargetFramework>
+    <TargetFrameworks>netstandard1.1;net40;net45;net46;portable46-net451+win81+wpa81</TargetFrameworks>
     <PackageId>Dualog.Shared</PackageId>
     <PackageVersion>1.0.0</PackageVersion>
     <Authors>Alexander Hanssen</Authors>
