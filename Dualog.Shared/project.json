@@ -5,6 +5,8 @@
     "NETStandard.Library": "1.6.0"
   },
   "frameworks": {
-    "netstandard1.0": {}
+    "netstandard1.0": {
+      "imports": "portable-net45+win8+wpa81+wp8"
+    }
   }
 }
