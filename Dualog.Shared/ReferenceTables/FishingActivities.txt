@@ -1,0 +1,14 @@
+﻿FIS	Fishing	Fiske
+REL	Catch Relocation	Fangst relokalisering
+SCR	Scientific Research	Vitenskapelig forskning
+STE	Steaming	Stimer
+TRX	Transhipping	Omlasting
+SET	Setting Gear	Setting av redskap
+ANC	Anchoring	Ankring
+DRI	Drifting	Driving
+GUD	Guard ship	Vaktskip
+HAU	Hauling	Transport
+PRO	Processing	Produksjon
+INW	Inactivity due to weather conditions	Ingen aktivitet
+SEF	Searching for fish when no gear is used	Leting etter fisk
+OTH	Other	Annet

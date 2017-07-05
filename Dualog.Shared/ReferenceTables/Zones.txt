@@ -1,0 +1,7 @@
+﻿XEU	EU zone	EU-sonen
+FRO	Faroe Islands	Færøyene
+ISL	Island	Island
+NOR	Norway	Norge
+RUS	Russia	Russland
+XSV	Svalbard zone	Svalbardsonen
+XNE	NEAFC	NEAFC

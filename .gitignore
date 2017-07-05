@@ -1,0 +1,169 @@
+*.dotCover
+*.ncrunchsolution
+*.Cache
+*.swp
+.vs/
+# User-specific files
+*.userprefs
+*.suo
+*.user
+*.dbmdl
+*.schemaview
+*.orig
+bin/
+obj/
+_ReSharper.*
+*ReSharper*
+*.sln.docstates
+*.crunchproject.*
+*.ncrunchproject
+*.crunchsolution.*
+*.ncrunchsolution
+[Dd]ebug/
+[Rr]elease/
+x64/
+build/
+[Bb]in/
+[Oo]bj/
+# MSTest test Results
+[Tt]est[Rr]esult*/
+[Bb]uild[Ll]og.*
+*_i.c
+*_p.c
+*.ilk
+AutoTest.*
+.DS_Store
+nCrunchTemp*
+*.mdb
+*.pdb
+*.pgc
+*.pgd
+*.rsp
+*.sbr
+*.tlb
+*.tli
+*.tlh
+*Tests.mdf
+*.tmp_proj
+*_log.ldf
+*.vspscc
+*.vssscc
+.builds
+*.pidb
+*.coverage
+*.scc
+*.vspx
+*.nupkg
+
+# Visual C++ cache files
+ipch/
+UpgradeLog*.*
+_NCrunch_*
+*.opensdf
+*.sdf
+*.cachefile
+
+# Visual Studio profiler
+*.psess
+*.vsp
+*.mdf
+*.ldf
+NDependOut
+# ReSharper is a .NET coding add-in
+_ReSharper*/
+*.[Rr]e[Ss]harper
+
+# TeamCity is a build add-in
+_TeamCity*
+
+# DotCover is a Code Coverage Tool
+*.ndproj
+
+# NCrunch
+*.ncrunch*
+.*crunch*.local.xml
+
+# Installshield output folder
+[Ee]xpress/
+
+# DocProject is a documentation generator add-in
+DocProject/buildhelp/
+DocProject/Help/*.HxT
+DocProject/Help/*.HxC
+DocProject/Help/*.hhc
+DocProject/Help/*.hhk
+DocProject/Help/*.hhp
+DocProject/Help/Html2
+DocProject/Help/html
+
+# Click-Once directory
+publish/
+
+# Publish Web Output
+*.Publish.xml
+
+
+*.build.csdef
+
+
+# Others
+sql/
+*.Cache
+ClientBin/
+[Ss]tyle[Cc]op.*
+~$*
+*~
+*.dbmdl
+*.[Pp]ublish.xml
+*.pfx
+*.publishsettings
+Logs
+# RIA/Silverlight projects
+Generated_Code/
+
+# Backup & report files from converting an old project file to a newer
+# Visual Studio version. Backup files are not needed, because we have git ;-)
+/_UpgradeReport_Files/
+*.DotSettings.User
+UpgradeLog*.XML
+Report*.vspx
+*.sdf
+Testresult.xml
+*.csproj.VisualState.xml
+tmp*.tmp
+App_Data/*.ldf
+
+# =========================
+node_modules/
+# =========================
+
+# Windows image file caches
+Thumbs.db
+ehthumbs.db
+
+scaffolding.config
+.sonar/
+
+# Recycle Bin used on file shares
+$RECYCLE.BIN/
+
+# Mac crap
+.DS_Store
+
+packages/**
+
+# Tabs Studio
+*.tss
+
+# Xamarin Components
+Components/
+
+# Android Studio
+.idea/
+*.apk
+*.log
+
+Resource.Designer.cs
+# Bower
+bower_components/
+lib/

@@ -1,0 +1,15 @@
+<?xml version="1.0"?>
+<package >
+  <metadata>
+    <id>Dualog.Naf</id>
+    <version>$version$</version>
+    <title>$title$</title>
+    <authors>Alexander Hanssen</authors>
+    <owners>Dualog</owners>
+    <projectUrl>https://github.com/SB-Dualog/efangst-bekk</projectUrl>
+    <requireLicenseAcceptance>false</requireLicenseAcceptance>
+    <description>Classes and methods used for Dualog native apps and web apps.</description>
+    <releaseNotes></releaseNotes>
+    <copyright>Copyright 2017</copyright>
+  </metadata>
+</package>

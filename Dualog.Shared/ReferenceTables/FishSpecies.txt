@@ -1,0 +1,134 @@
+﻿SQE	Akkar	Flying squid	Todarodes sagittatus sagittat	
+ALB	Albakor	Albacore	Thunnus alalunga	
+ANE	Ansjos	Anchovy	Engraulis encrasicolus	
+ANS	Antarctic silverfish*	Ant. silverfish	Pleuragramma antarcticum	
+SRR	Antarctic starry skate*	Ant. starry skate	Raja georgiana	
+KCV	Antarctic stone crab*	Ant. stone crab	Paralomis spinosissima	
+KRI	Antarktisk krill	Ant. Krill	Euphausia superba	
+TOA	Antarktisk tannfisk	Toothfish	Dissostichus mawsoni	
+TOT	Antarktisk tannfisk, uspes.	Toothfish, nei	Dissostichus spp	
+USB	Berggylt	Ballan wrasse	Labrus bergylta	
+TBR	Bergnebb	Gold-sinny wrasse	Ctenolabrus rupestris	
+SQC	Blekksprut	Common squids nei	Loglio spp.	
+CEP	Blekksprut uspes.	Cephalopods	Cephalopoda	
+BRF	Blåkjeft	Bluemouth	Helicolenus dactylopterus	
+GHL	Blåkveite	Greenland halibut	Reinhardtius hippoglossoides	
+BLI	Blålange	Blue ling	Molva dypterygia	
+USI	Blåstal/ Rødnebb	Cuckoo wrasse	Labrus (bimaculatus) mixtus	
+CAB	Blåsteinbit	North. wolffish	Anarhichas denticulatus	
+CYH	Blåvinget havmus	Large-eyed rabbitfish	Hydrolagus mirabilis	
+MON	Breiflabb	Angler (= Monk)	Lophius piscatorius	
+SPR	Brisling	European sprat	Sprattus sprattus	
+USK	Brosme	Tusk(= Cusk)	Brosme brosme	
+BSK	Brugde	Basking shark	Cetorhinus maximus	
+CYA	Brun havmus	Smalleyed ratfish	Hydrolagus affinis	
+AKL	Brungylt	Scale-rayed wrasse	Acantholabrus palloni	
+GUQ	Brunhå	Shark gulper, leafscale	Centrophorus squamosus	
+BRW	Brydehval	Bryde?s whale	Balaenoptera edeni	
+SKJ	Bukstripet pelamide	Skipjack tuna	Katsuwonus pelamis	
+CYP	Bunnhå	Longnose velvet dogfish	Centroscymnus crepidater	
+RJA	Burton-skate	White skate	Rostroraja (Raja) alba	
+AJC	Butare	Babberlocks	Alaria esculenta	
+YTK	Butt sandskjell	Blunt gaper	Mya truncata	
+RJU	Bølgeskate	Undulate ray	Raja undulata	
+LQD	Fingertare	Tangle	Laminaria digitata	
+WEG	Fjesing	Greater weever	Trachinus draco	
+RJM	Flekkskate	Spotted ray	Raja montagui	
+CAS	Flekksteinbit	Spotted wolffish (= Catfish)	Anarhichas minor	
+PLA	Gapeflyndre	Amer. plaice	Hippoglossoides platessoides	
+ASN	Grisetang	N. Atl. rockweed	Ascophyllum nodosum	
+CAA	Gråsteinbit	Wolffish (= Catfish)	Anarhichas lupus	
+CMO	Havmus	Rabbit fish (ratfish)	Chimaera monstrosa	
+HOM	Hestmakrell	Horse mackerel	Trachurus trachurus	
+GAR	Horngjel	Garfish	Belone belone	
+LBE	Hummer	Lobster	Homarus gammarus	
+WHG	Hvitting	Whiting	Merlangius merlangus	
+HAD	Hyse	Haddock	Melanogrammus aeglefinus	
+TAS	Høyfinnet havbrasme	Rough pomfret	Taractes asper	
+POR	Håbrann	Porbeagle	Lamna nasus	
+SHO	Hågjel	Blackmouth catshark	Galeus melastomus	
+GSK	Håkjerring	Greenland shark	Somniosus microcephalus	
+ICX	Isfisk, uspes	Icesfishes nei	Channichthyidae	
+RHG	Isgalt	Roughhead grenadier	Macrourus berglax	
+CFB	Islandshå	Black dogfish	Centroscyllium fabriciil	
+RJG	Isskate	Arctic skate	Amblyraja (Raja) hyperborea	
+WHB	Kolmule	Blue whiting	Micromesistius poutassou	
+KCD	Kongekrabbe	Red king crab	Paralithodes camtschaticus	
+WHE	Kongsnegl (Kongesnegl)	Whelk (Common whelk)	Buccinum undatum	
+AJH	Koralldyr	Corals	Anthozoa	
+SYR	Kortpigget hå	Knifetooth dogfish	Scymnodon ringens	
+HXC	Kragehai	Frilled shark	Chlamydoselachus anguineus	
+NKR	Krill	Norw. krill	Meganyctiphanes norvegica	
+LOQ	Krinakrabbe	Squat lobsters	Galathea spp.	
+HAL	Kveite	 halibut	Hippoglossus hippoglossus	
+LIN	Lange	Ling	Molva molva	
+CAP	Lodde	Capelin	Mallotus villosus	
+LEM	Lomre	Lemon sole	Microstomus kitt	
+SFV	Lusuer	Norw. redfish	Sebastes viviparus	
+POL	Lyr	Pollack	Pollachius pollachius	
+HKE	Lysing	European hake	Merluccius merluccius	
+MAC	Makrell	 mackerel	Scomber scombrus	
+SAU	Makrellgjedde	 saury	Scomberesox saurus	
+BFT	Makrellstørje	 Bluefin tuna	Thunnus thynnus	
+TOP	Patagonisk tannfisk	Patag. toothfish	Dissostichus eleginoides	
+DGS	Pigghå	Picked(= Spiny)dogfish	Squalus acanthias	
+RJC	Piggskate	Thornback ray	Raja clavata	
+TUR	Piggvar	Turbot	Psetta maxima	
+POC	Polartorsk	Polar cod	Boreogadus saida	
+JCM	Raudåte	Copepod	Calanus finmarchicus	
+PRA	Reke (dypvanns )	Northern prawn	Pandalus borealis	
+LUM	Rognkjeks (felles)	Lumpfish (=Lumpsucker)	Cyclopterus lumpus	
+RJY	Rundskate	Round ray	Rajella (Raja) fyllae	
+APG	Russisk stør	Danube sturgeon (=Osetr)	Acipenser gueldenstaedtii)	
+CTG	Rutet teppeskjell	Grooved carpet shell	Ruditapes decussatus	
+URS	Rød kråkebolle	European edible sea urchin	Echinus esculentus	
+HKR	Rød lysing	Red hake	Urophycis chuss	
+TVK	Rød sjøpølse	Red sea cucumber	Parastichopus tremulus	
+GUU	Rødknurr	Tub gurnard	Chelidonichthys lucernus (lucerna)	
+PAC	Rødpagell	Common pandora	Pagellus erythrinus	
+PLE	Rødspette	European plaice	Pleuronectes platessa	
+ACH	Røye	Arctic char	Salvelinus alpinus	
+FUU	Sagtang	Toothed wrack	Fucus serratus	
+DAB	Sandflyndre	Common dab	Limanda limanda	
+OBZ	Sandkutling	Sand goby	Pomatoschistus minutus	
+RJI	Sandskate	Sandy ray	Leucoraja (Raja) circularis	
+CLS	Sandskjell	Sand gaper	Mya arenaria	
+SOS	Sandtunge	Sand sole	Solea lascaris	
+JOD	Sanktpetersfisk	John dory	Zeus faber	
+PIL	Sardinella	European pilchard	Sardina pilchardus	
+DAI	Sebrafisk	Zebra danio	Danio rerio	
+POK	Sei	Saithe (= Pollock)	Pollachius virens	
+HER	Sild	Herring	Clupea harengus	
+NEP	Sjøkreps	Norway lobster	Nephrops norvegicus	
+SKA	Skate, uspesifisert	Raja rays nei	Raja spp.	
+BIB	Skjeggtorsk	Pouting	Trisopterus luscus	
+GFB	Skjellbrosme	Greater forkbeard	Phycis blennoides	
+RNG	Skolest	Roundnose grenadier	Coryphaenoides rupestris	
+FLE	Skrubbe	European flounder	Platichthys flesus	
+BLL	Slettvar	Brill	Scophthalmus rhombus	
+MYG	Slimål	Hagfish	Myxine glutinosa	
+WIT	Smørflyndre	Witch flounder	Glyptocephalus cynoglossus	
+ABZ	Småsil	Small sandeel	Ammodytes tobianus	
+RJE	Småøyet skate	Small-eyed ray	Raja microocellata	
+REB	Snabeluer	Beaked redfish	Sebastes mentella	
+CRQ	Snøkrabbe	Queen crab (snow crab)	Chionoecetes opilio	
+RJO	Spisskate	Longnose skate	Dipturus (Raja) oxyrinchus	
+RJB	Storskate	Blue skate	Dipturus (Raja) batis	
+LAH	Stortare	North Eur. kelp	Laminaria hyperborea	
+ARG	Strømsild/Vassild	Argentines	Argentina spp.	
+APU	Stør	Sturgeon	Acipenser sturio	
+STU	Stør	Sturgeons	Acipenseridae	
+LQX	Sukkertare	Sea belt	Laminaria saccharina	
+BTB	Sølvbrasme	Fanfish	Pterycombus brama	
+GDG	Sølvtorsk	Silvery pout	Gadiculus argenteus	
+WGR	Sørlig skolest	Whitson's grenadier	Macrourus whitsoni	
+CRE	Taskekrabbe	Edible crab	Cancer pagurus	
+SAN	Tobis og annen sil	Sandeels (= Sandlances)	Ammodytes spp.	
+COD	Torsk	Cod	Gadus morhua	
+KCT	Trollkrabbe	Stone king crab	Lithodes maja	
+REG	Uer (vanlig)	Golden redfish	Sebastes marinus	
+RED	Uer uspes.	Redfishes	Sebastes spp.	
+ARU	Vassild	Greater argentine	Argentina silus	
+SAL	Villaks	Salmon	Salmo salar	
+NOP	Øyepål	Norway pout	Trisopterus esmarkii	
+ELE	Ål	European eel	Anguilla anguilla	

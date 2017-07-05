@@ -1,0 +1,32 @@
+100	Uspesifisert feil (RS feltet vil vise om meldingen er godtatt eller avvist.	Unspecified error (the RS field will indicate whether the report has been acknowledged or not	
+101	Meldingen er ikke lesbar	Message unreadable 
+102	Dataformat feil	Data value or size is wrong
+104	Påkrevde data mangler	Mandatory data missing
+105	Brukes av NEAFC (XNE) og NAFO(XNW). Denne meldingen er en duplikat, forsøk på å resende en melding som tidligere er avvist. Se også 502	Used by NEAFC(XNE) and NAFO(XNW) This report is a duplicate; attempt to re-send a report previously rejected. 
+106	Uautorisert avsender	Unauthorised data source
+150	Sekvevnsfeil	Sequence error
+151	Data er fram i tid	Date forward in time
+152	Data er for gamle	Data is too old.
+155	Brukes av NEAFC (XNE) og NAFO (XNW). Denne meldingen er en duplikat, forsøk på å resende en melding som tidligere er godkjent.	Used by NEAFC (XNE) and NAFO (XNW) This report is a duplicate; attempt to re-send a report previously accepted
+301	CAT eller DCA mottatt før COE eller DEP	CAT or DCA prior to COE or DEP
+302	TRA mottatt før COE eller DEP	TRA received before COE or DEP
+303	COX mottatt før COE eller DEP	COX received before COE or DEP
+304	POS ikke mottatt (CAT, DCA,TRA, COX)	No POS received (CAT,DCA, TRA, COX)
+350	POS uten at COE er mottatt	POS without COE message
+501	Kansellering/korrigering kan ikke gjennomføres fordi meldingen ikke finnes lagret hos Fiskeridirektoratet	No matching report to cancel/correct
+502	Samme melding har fått status NAK tidligere og avvises derfor med NAK også nå.	This report is a duplicate and has got the status Not Acknowledged (NAK), because this was the status given when received earlier.
+503	Samme melding har fått status ACK tidligere og godtas derfor med ACK også nå.	This report is a duplicate and has got the status Acknowledged (ACK) because that was the status given when received earlier.
+504	DCA melding versjon 1 for denne dagen er generert etter tidsfrist	The first DCA report for this day was generated after the deadline for generating DCA reports.
+505	Kansellering/korrigering ikke gjennomført på grunn av oversatt tidsfrist	The cancellation or correction could not be completed due to exceeding the deadline for generating such report.
+506	Recordnummer er mottatt tidligere. Hele eller deler av meldingsinnholdet avviker, men meldingen kan ikke tolkes som en korrigering/kansellering.	The record number is received earlier, but the report differs and  is not sent as a correction or cancellation.
+507	Meldingen er godkjent etter manuell behandling i Fiskeridirektoratet	The report was Acknowledged (ACK) after manual handling at the FMC.
+508	Meldingen er allerede sendt på annen måte	The report is already sent by other means.
+511	Denne meldingen skal korrigeres (Denne koden skal sendes sammen med en ny utgave av meldingen som skal korrigeres for å vise at meldingen med dette RN skal korrigeres)	This report shall be corrected. (This code shall be sent together with  a new version of a DCA report to show that the DCA report with this RN shall be corrected).
+512	Meldingen er korrigert	The report is corrected
+513	Meldingen kan ikke korrigeres på grunn av feil	The report can not be corrected due to error
+514	Meldingen har et lavere versjonsnummer enn en som allerede er godkjent. Meldingen med det høyeste godkjente versjonsnummer skal alltid betraktes som den gyldige.	This report has a lower version number than a previously accepted report (Used only when version numbers are given).
+516	Meldingen avvist fordi fartøyet mangler gyldig lisens.	The report was not Acknowleded due to invalid licence .
+521	Denne meldingen skal kanselleres. (Denne koden skal sendes sammen med meldingen som skal kanselleres for å vise at en melding med dette RN skal kanselleres)	This report shall be cancelled (This code shall be given for the cancellation of  a report with this RN)
+522	Meldingen er kansellert	The report is cancelled
+523	Meldingen kan ikke kanselleres på grunn av feil	The  report can not be cancelled due to error
+530	Meldingens type TM er ikke implementert i systemet hos mottakende FMC	Not implemented (for example, a test report is received , but an advanced test system is not implemented, or a query was received, but the PULL mechanism is not yet implemented)

@@ -1,0 +1,9 @@
+﻿FPO	Teiner	Traps - pots
+GEN	Garn	Gillnets and entangling nets
+DRB	Skrape, mekanisert	Harvesting machines (not specified)
+LL	Liner	Longlines (not specified)
+OTB	Bunntrål, otter	Bottom trawls - otter trawls
+TBS	Bunntrål, reker	Bottom trawls - prawns
+PS1	Snurpenot/ringnot	Surrounding nets-purse seines
+SSC	Snurrevad	Scottish seines - scottish
+OTM	Flytetrål	Midwater otter trawl
