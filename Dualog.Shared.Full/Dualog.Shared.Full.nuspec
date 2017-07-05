@@ -1,7 +1,7 @@
 <?xml version="1.0"?>
 <package >
   <metadata>
-    <id>Dualog.Naf</id>
+    <id>Dualog.Shared</id>
     <version>$version$</version>
     <title>$title$</title>
     <authors>Alexander Hanssen</authors>
