@@ -3,6 +3,8 @@
     public enum Rank
     {
         Captain,
-        Fisherman
+        Officer,
+        Rating,
+        Specialist
     }
 }
