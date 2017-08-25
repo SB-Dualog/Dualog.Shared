@@ -13,7 +13,7 @@ namespace Dualog.Shared.Services
         {
             if (_countries != null) return _countries;
             var result = new List<string>();
-            using (var stream = ResourceLoader.GetEmbeddedResourceStream(typeof(SimpleHarbourService).GetTypeInfo().Assembly, "Countries.txt"))
+            using (var stream = ResourceLoader.GetEmbeddedResourceStream(typeof(SimpleCountryService).GetTypeInfo().Assembly, "Countries.txt"))
             using (var streamReader = new StreamReader(stream))
             {
                 while (!streamReader.EndOfStream)

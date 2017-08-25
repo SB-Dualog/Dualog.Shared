@@ -12,6 +12,7 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <None Remove="ReferenceTables\Countries.txt" />
     <None Remove="ReferenceTables\ErrorCodes.txt" />
     <None Remove="ReferenceTables\FishingActivities.txt" />
     <None Remove="ReferenceTables\FishSpecies.txt" />
@@ -22,6 +23,7 @@
   </ItemGroup>
 
   <ItemGroup>
+    <EmbeddedResource Include="ReferenceTables\Countries.txt" />
     <EmbeddedResource Include="ReferenceTables\ErrorCodes.txt" />
     <EmbeddedResource Include="ReferenceTables\FishingActivities.txt" />
     <EmbeddedResource Include="ReferenceTables\FishSpecies.txt" />
