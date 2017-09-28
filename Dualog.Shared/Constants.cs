@@ -30,6 +30,9 @@ namespace Dualog.Shared
             public const string NEAFC = "XNE";
             public const string Island = "ISL";
             public const string FaroeIslands = "FRO";
+            public const string SvalbardTerritorialWaters = "XSI";
+            public const string JanMayenFishingZone = "XJM";
+            public const string Skagerrak = "XSK";
         }
 
         public static class SpecifiedToolNeeds
@@ -66,7 +69,7 @@ namespace Dualog.Shared
             /// <summary>
             /// Zones requiring the LA and LO fields. LA using the format N/SGGDD (WGS-84), and LO using the format E/WGGGDD (WGS-84)
             /// </summary>
-            public static readonly string[] LaLo = {Zones.Norway, Zones.Svalbard, Zones.NEAFC};
+            public static readonly string[] LaLo = {Zones.Norway, Zones.Svalbard, Zones.NEAFC, Zones.SvalbardTerritorialWaters};
         }
     }
 }

@@ -5,3 +5,6 @@ NOR	Norway	Norge
 RUS	Russia	Russland
 XSV	Svalbard zone	Svalbardsonen
 XNE	NEAFC	NEAFC
+XSI Svalbard territorial waters	Svalbard territorialfarvann
+XJM	Fishing zone by Jan Mayen	Fiskerisonen ved Jan Mayen
+XSK	Skagerrak	Skagerrak

@@ -16,8 +16,8 @@ namespace Dualog.Shared.Models
         public string VisaNo { get; set; }
         public Rank Rank { get; set; }
         public bool IsCaptain => Rank == Rank.Captain;
-        public string PecNumber { get; set; }
-        public string MaritimeTransportBookNumber { get; set; }
+        //public string PecNumber { get; set; }
+        //public string MaritimeTransportBookNumber { get; set; }
 
     }
 }
