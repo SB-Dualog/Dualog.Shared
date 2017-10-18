@@ -40,7 +40,7 @@ namespace Dualog.Shared
             /// <summary>
             /// ME - Mask width given in MM. This array contains all tool codes that needs to set the ME field.
             /// </summary>
-            public static readonly string[] MaskWidth = {"OTB", "TBS", "SSC", "GEN", "OTM"};
+            public static readonly string[] MaskWidth = {"OTB", "TBS", "SSC", "GEN", "OTM", "PS1"};
             /// <summary>
             /// FO - Number of hooks. This array contains all tool codes that needs to set the FO field
             /// </summary>
