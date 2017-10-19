@@ -15,6 +15,6 @@ namespace Dualog.Shared.Models
         
         public int CompareTo(AnimalAndCount other) => StringComparer.OrdinalIgnoreCase.Compare(Code, other.Code);
 
-        public override string ToString() => $"{Code} {Count}";
+        public override string ToString() => Code;
     }
 }

@@ -24,7 +24,7 @@ namespace Dualog.Shared.Models
 		    HasCoordinates = !string.IsNullOrEmpty(latitude) && !string.IsNullOrEmpty(longitude);
 		}
 
-		public override string ToString() => string.Format("[Harbour: CountryCode={0}, UnloCode={1}, Name={2}]", CountryCode, UnloCode, Name);
+	    public override string ToString() => Name;
 		public override int GetHashCode() => new { CountryCode, UnloCode, Name, Latitude, Longitude }.GetHashCode();
 
 		public override bool Equals(object obj)

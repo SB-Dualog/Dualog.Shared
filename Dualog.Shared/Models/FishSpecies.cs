@@ -20,7 +20,7 @@ namespace Dualog.Shared.Models
 			LatinName = latinName;
 		}
 
-		public override string ToString() => $"[FishSpecies: Code={Code}, NorwegianName={NorwegianName}, EnglishName={EnglishName}, LatinName={LatinName}]";
+	    public override string ToString() => Name;
 
 		public override int GetHashCode()
 		{
