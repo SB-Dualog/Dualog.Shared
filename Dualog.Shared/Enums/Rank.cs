@@ -3,8 +3,11 @@
     public enum Rank
     {
         Captain,
-        Officer,
-        Rating,
-        Specialist
+        ChiefEngineer,
+        ChiefOfficer,
+        SecondOfficer,
+        FirstEngineer,
+        Steward,
+        Fisherman
     }
 }
