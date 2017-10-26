@@ -8,6 +8,7 @@
         SecondOfficer,
         FirstEngineer,
         Steward,
-        Fisherman
+        Fisherman,
+        Specialist
     }
 }
