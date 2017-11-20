@@ -2,13 +2,13 @@
 {
     public enum Rank
     {
-        Captain,
-        ChiefEngineer,
-        ChiefOfficer,
-        SecondOfficer,
-        FirstEngineer,
-        Steward,
-        Fisherman,
-        Specialist
+        Captain,        // Kaptein
+        ChiefEngineer,  // Maskinsjef
+        ChiefOfficer,   // Overstyrmann
+        FirstOfficer,   // 1. styrmann
+        FirstEngineer,  // 1. maskinist
+        Steward,        // Stuert
+        Fisherman,      // Fisker
+        Specialist      // Spesialist
     }
 }
