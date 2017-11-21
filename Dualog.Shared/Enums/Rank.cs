@@ -3,12 +3,8 @@
     public enum Rank
     {
         Captain,        // Skipper
-        ChiefEngineer,  // Maskinsjef
-        Officer,        // Styrmann
-        FirstEngineer,  // 1. maskinist
-        FactoryManager, // Fabrikksjef
-        Steward,        // Stuert
+        Officer,        // Offiser
         Fisherman,      // Fisker
-        Specialist      // Spesialist
+        Other           // Annet
     }
 }
