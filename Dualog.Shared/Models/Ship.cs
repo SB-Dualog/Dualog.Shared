@@ -12,6 +12,7 @@
         public int SequenceNumberXNE { get; set; }
         public int SequenceNumberISL { get; set; }
         public string DisplayName => $"{Name} ({RadioCallSignal})";
+        public bool RecordNumberStartIsUnknown { get; set; }
 
         public Ship(string name, string radioCallSignal, string registrationNumber)
         {
