@@ -39,5 +39,12 @@ namespace Dualog.Shared.Models
             HerringType = herringType;
             AnimalCount = animalCount;
         }
+
+        public int GetDuration()
+        {
+            var startTimeWithoutSeconds = StartTime.Date + new TimeSpan(StartTime.Hour, StartTime.Minute, 0);
+            var stopTimeWithoutSeconds = StopTime.Date + new TimeSpan(StopTime.Hour, StopTime.Minute, 0);
+            return Convert.ToInt32((stopTimeWithoutSeconds - startTimeWithoutSeconds).TotalMinutes);
+        }
     }
 }

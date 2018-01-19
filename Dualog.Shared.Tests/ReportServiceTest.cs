@@ -4,6 +4,7 @@ using System.Linq;
 using Dualog.Shared.Extensions;
 using Dualog.Shared.Messages;
 using Dualog.Shared.Models;
+using FluentAssertions;
 using Xunit;
 
 namespace Dualog.Shared.Tests
@@ -30,8 +31,8 @@ namespace Dualog.Shared.Tests
         public void Can_calculate_catch_report_based_on_DCA_messages()
         {
             var result = CatchReportService.CreateReport(messages);
-            var todayResult = result.Lines.ElementAt(0);
-            var yesterdayResult = result.Lines.ElementAt(1);
+            var todayResult = result.Lines.ElementAt(1);
+            var yesterdayResult = result.Lines.ElementAt(0);
 
             Assert.Equal("MyShip", result.Ship.Name);
 
@@ -79,7 +80,8 @@ namespace Dualog.Shared.Tests
             Assert.Equal(40, result.Totals.ElementAt(0).Weight);
             Assert.Equal(30, result.Totals.ElementAt(1).Weight);
 
-            Assert.Equal(3, result.CastPrDay.ElementAt(0).Lines.Count());
+            result.CastPrDay.ElementAt(0).Lines.Count().Should().Be(1);
+            result.CastPrDay.ElementAt(1).Lines.Count().Should().Be(3);
         }
 
         [Fact]

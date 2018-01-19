@@ -65,8 +65,7 @@ namespace Dualog.Shared.Messages
             sb.Append($"//GP/{cast.Problem}");
             sb.Append($"//XT/{stopLat}");
             sb.Append($"//XG/{stopLon}");
-            var duration = cast.StopTime - cast.StartTime;
-            sb.Append($"//DU/{Math.Round(duration.TotalMinutes)}");
+            sb.Append($"//DU/{cast.GetDuration()}");
 
 
             if (!cast.HerringType.IsNullOrEmpty())
