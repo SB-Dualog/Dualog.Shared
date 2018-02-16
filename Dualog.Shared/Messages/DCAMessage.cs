@@ -15,6 +15,7 @@ namespace Dualog.Shared.Messages
         public string FishingActivity { get; }
         public string FishingPermission { get; }
         public string ArrivalHarbour { get; }
+        public string PumpingFromBoat { get; }
 
         public DCAMessage(
             string fishingPermission, 
@@ -25,12 +26,14 @@ namespace Dualog.Shared.Messages
             string skipperName, 
             Ship ship, 
             int messageVersion = 1,
-            string correctionCode = "") : base(MessageType.DCA, sent, skipperName, ship, errorCode: correctionCode, messageVersion: messageVersion)
+            string correctionCode = "",
+            string pumpingFromBoat = "") : base(MessageType.DCA, sent, skipperName, ship, errorCode: correctionCode, messageVersion: messageVersion)
         {
             this.FishingPermission = fishingPermission;
             this.FishingActivity = fishingActivity;
             ArrivalHarbour = arrivalHarbour;
             Casts = casts;
+            PumpingFromBoat = pumpingFromBoat;
         }
 
 		public IReadOnlyList<FishFAOAndWeight> GetFishAndWeights()
@@ -46,7 +49,7 @@ namespace Dualog.Shared.Messages
             {
                 sb.Append($"//PO/{ArrivalHarbour}");
             }
-            Casts.ForEach(c => WriteCast(sb, c));           
+            Casts.ForEach(c => WriteCast(sb, c));
         }
 
         private void WriteCast(StringBuilder sb, Cast cast)
@@ -90,37 +93,20 @@ namespace Dualog.Shared.Messages
             {
                 sb.Append($"//ME/{cast.MaskWidth}");
             }
+
             if (cast.NumberOfTrawls > 0)
             {
                 sb.Append($"//GS/{cast.NumberOfTrawls}");
             }
+
             if (cast.ExtraToolInfo > 0)
             {
                 sb.Append($"//FO/{cast.ExtraToolInfo}");
             }
-            if (FishingActivity.Equals("REL"))
-            {
-                sb.Append("//TF/RADIOFROM");
-            }
 
-            if (cast.Tool.Equals("HAR") && !cast.Problem.Equals("7"))
+            if (FishingActivity.Equals("REL") && !PumpingFromBoat.IsNullOrEmpty())
             {
-                sb.Append("//IN/12");
-            }
-
-            if (cast.Tool.Equals("HAR") && 
-                (!cast.Problem.Equals("7") && !cast.Problem.Equals("8")))
-            {
-                sb.Append("//SE/1");
-                sb.Append("//LE/46");
-                sb.Append("//CI/32");
-                sb.Append("//BM/21");
-            }
-
-            if (cast.Tool.Equals("HAR"))
-            {
-                sb.Append("//GN/17");
-                sb.Append("//LF/32");
+                sb.Append($"//TF/{PumpingFromBoat}");
             }
         }
 
@@ -153,7 +139,8 @@ namespace Dualog.Shared.Messages
                 values["MA"], 
                 new Ship(values["NA"], values["RC"], values["XR"]),
                 Convert.ToInt32(values["MV"]),
-                values.ContainsKey("RE") ? values["RE"] : string.Empty)
+                values.ContainsKey("RE") ? values["RE"] : string.Empty,
+                values.ContainsKey("TF") ? values["TF"] : string.Empty)
             {
                 Id = id,
                 ForwardTo = values.ContainsKey("FT") ? values["FT"] : string.Empty,
