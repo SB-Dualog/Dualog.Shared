@@ -112,6 +112,13 @@ namespace Dualog.Shared.Messages
 
         public static DCAMessage ParseNAFFormat(int id, DateTime sent, IReadOnlyDictionary<string, string> values, List<IReadOnlyDictionary<string, string>> haulValues)
         {
+            var pumpingFrom = string.Empty;
+            if (haulValues.Any(x => x.ContainsKey("TF")))
+            {
+                var firstHaulWithPumping = haulValues.FirstOrDefault(x => x.ContainsKey("TF"));
+                firstHaulWithPumping?.TryGetValue("TF", out pumpingFrom);
+            }
+
             return new DCAMessage(
                 values["QI"],
                 values["AC"],
@@ -140,7 +147,7 @@ namespace Dualog.Shared.Messages
                 new Ship(values["NA"], values["RC"], values["XR"]),
                 Convert.ToInt32(values["MV"]),
                 values.ContainsKey("RE") ? values["RE"] : string.Empty,
-                values.ContainsKey("TF") ? values["TF"] : string.Empty)
+                pumpingFrom)
             {
                 Id = id,
                 ForwardTo = values.ContainsKey("FT") ? values["FT"] : string.Empty,
