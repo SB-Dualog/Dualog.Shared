@@ -2928,3 +2928,6 @@ FOVAG	Vágur	6128N	00649W
 FOVES	Vestmanhavn		
 FOVID	Vadair		
 FOFUG	Fuglafjordur		
+ESLPA	Las Palmas		
+MRNKC	Nouakchott		
+MRNDB	Nouadhibou		
