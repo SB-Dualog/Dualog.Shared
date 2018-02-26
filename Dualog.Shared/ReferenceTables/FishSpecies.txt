@@ -132,3 +132,4 @@ ARU	Vassild	Greater argentine	Argentina silus
 SAL	Villaks	Salmon	Salmo salar	
 NOP	Øyepål	Norway pout	Trisopterus esmarkii	
 ELE	Ål	European eel	Anguilla anguilla	
+SIX	Annen sardin	Sardinellas	Sardinella spp
