@@ -133,3 +133,7 @@ SAL	Villaks	Salmon	Salmo salar
 NOP	Øyepål	Norway pout	Trisopterus esmarkii	
 ELE	Ål	European eel	Anguilla anguilla	
 SIX	Annen sardin	Sardinellas	Sardinella spp
+MUL	Annen mullet	Other mullets	Mugilidae
+BHG	Nordlig lysprikkfisk	Glacier lanternfish	Benthosema glaciale
+MAV	Laksesild	Silvery lightfish (Pearlsides)	Maurolicus muelleri
+MZZ	Annen marin fisk	Marine fishes	Osteichthyes
