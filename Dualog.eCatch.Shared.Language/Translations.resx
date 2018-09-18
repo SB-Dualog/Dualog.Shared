@@ -201,8 +201,8 @@
 	<data name="Departure" xml:space="preserve">
     <value>Departure</value>
   </data>
-	<data name="Arrival" xml:space="preserve">
-    <value>Arrival</value>
+	<data name="ArrivalAt" xml:space="preserve">
+    <value>Arrival at</value>
   </data>
 	<data name="PlannedActivityIs" xml:space="preserve">
     <value>Planned activity is</value>
@@ -398,5 +398,23 @@
 	</data>
 	<data name="ForwardedTo" xml:space="preserve">
 		<value>Forwarded to</value>
+	</data>
+	<data name="ControlTime" xml:space="preserve">
+		<value>Time for control</value>
+	</data>
+	<data name="DepartureFrom" xml:space="preserve">
+		<value>Departure from</value>
+	</data>
+	<data name="PlannedActivity" xml:space="preserve">
+		<value>Planned activity</value>
+	</data>
+	<data name="EstimatedWeightAtDeparture" xml:space="preserve">
+		<value>Estimated weight at departure</value>
+	</data>
+	<data name="FishOnBoard" xml:space="preserve">
+		<value>Fish on board</value>
+	</data>
+	<data name="DeliveringTo" xml:space="preserve">
+		<value>Delivering to</value>
 	</data>
 </root>

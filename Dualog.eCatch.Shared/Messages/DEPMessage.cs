@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Text;
 using Dualog.eCatch.Shared.Enums;
 using Dualog.eCatch.Shared.Extensions;
@@ -61,6 +62,24 @@ namespace Dualog.eCatch.Shared.Messages
             {
                 sb.Append($"//GE/{Tool}");
             }
+        }
+
+        public Dictionary<string, string> GetSummaryForDictionary(EcatchLangauge lang, string arrivalInfo)
+        {
+            var result = CreateBaseSummaryDictionary(lang);
+
+            result.Add("DepartureFrom".Translate(lang), $"{DepartureHarbourCode.ToHarbourName()} {DepartureDateTime:dd.MM.yyyy HH:mm} UTC");
+            result.Add("Arrival".Translate(lang), $"{arrivalInfo} {ArrivalDateTime:dd.MM.yyyy HH:mm} UTC");
+            result.Add("PlannedActivity".Translate(lang), $"{FishingActivity.ToString().ToFishingActivityName(lang)}");
+            result.Add("TargetSpecies".Translate(lang), $"{TargetFishSpeciesCode.ToFishName(lang)}");
+            result.Add("EstimatedWeightAtDeparture".Translate(lang), FishOnBoard.ToDetailedWeightAndFishNameSummary(lang));
+
+            return result;
+        }
+
+        public override Dictionary<string, string> GetSummaryDictionary(EcatchLangauge lang)
+        {
+            return GetSummaryForDictionary(lang, $"Lat: {Latitude}, Lon: {Longitude}");
         }
 
         public static DEPMessage ParseNAFFormat(int id, DateTime sent, IReadOnlyDictionary<string, string> values)

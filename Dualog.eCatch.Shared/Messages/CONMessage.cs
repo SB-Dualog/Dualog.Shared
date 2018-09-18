@@ -33,6 +33,20 @@ namespace Dualog.eCatch.Shared.Messages
             }
         }
 
+        public override Dictionary<string, string> GetSummaryDictionary(EcatchLangauge lang)
+        {
+            var result = CreateBaseSummaryDictionary(lang);
+
+            result.Add("ControlPoint".Translate(lang), ControlPoint);
+            result.Add("ControlTime".Translate(lang), $"{ControlTime:dd.MM.yyyy HH:mm}");
+            if (ForwardTo != Constants.Zones.Russia)
+            {
+                result.Add("Position".Translate(lang), $"Lat: {Latitude}, Lon: {Longitude}");
+            }
+
+            return result;
+        }
+
         public static CONMessage ParseNAFFormat(int id, DateTime sent, IReadOnlyDictionary<string, string> values)
         {
             return new CONMessage(

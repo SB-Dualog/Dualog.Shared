@@ -172,7 +172,7 @@
     <value>Dette</value>
   </data>
 	<data name="Onboard" xml:space="preserve">
-    <value>Ombord</value>
+    <value>Om bord</value>
   </data>
 	<data name="ReturnMessagesInPlainText" xml:space="preserve">
     <value>Returnmeldinger i ren tekst</value>
@@ -201,8 +201,8 @@
 	<data name="Departure" xml:space="preserve">
     <value>Avgang</value>
   </data>
-	<data name="Arrival" xml:space="preserve">
-    <value>Ankomst</value>
+	<data name="ArrivalAt" xml:space="preserve">
+    <value>Ankomst til</value>
   </data>
 	<data name="PlannedActivityIs" xml:space="preserve">
     <value>Planlagt aktivitet er</value>
@@ -235,7 +235,7 @@
     <value>Sendt</value>
   </data>
 	<data name="WeightOnBoard" xml:space="preserve">
-    <value>Rundvekt ombord</value>
+    <value>Rundvekt om bord</value>
   </data>
 	<data name="Delivering" xml:space="preserve">
     <value>Leverer</value>
@@ -388,7 +388,7 @@
 		<value>Redskapstype</value>
 	</data>
 	<data name="WeightOnBoardAllShips" xml:space="preserve">
-		<value>Rundvekt ombord alle fartøy</value>
+		<value>Rundvekt om bord alle fartøy</value>
 	</data>
 	<data name="FishingDays" xml:space="preserve">
 		<value>Fiskedager</value>
@@ -398,5 +398,23 @@
 	</data>
 	<data name="ForwardedTo" xml:space="preserve">
 		<value>Videresendt til</value>
+	</data>
+	<data name="ControlTime" xml:space="preserve">
+		<value>Tidspunkt for kontroll</value>
+	</data>
+	<data name="DepartureFrom" xml:space="preserve">
+		<value>Avgang fra</value>
+	</data>
+	<data name="PlannedActivity" xml:space="preserve">
+		<value>Planlagt aktivitet</value>
+	</data>
+	<data name="EstimatedWeightAtDeparture" xml:space="preserve">
+		<value>Rundvekt ved avgang</value>
+	</data>
+	<data name="FishOnBoard" xml:space="preserve">
+		<value>Fisk om bord</value>
+	</data>
+	<data name="DeliveringTo" xml:space="preserve">
+		<value>Leverer til</value>
 	</data>
 </root>

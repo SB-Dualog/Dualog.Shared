@@ -101,11 +101,6 @@ namespace Dualog.eCatch.Shared.Messages
 
         }
 
-        public override Dictionary<string, string> GetSummaryDictionary(EcatchLangauge lang)
-        {
-            throw new NotImplementedException();
-        }
-
         public static COEMessage ParseNAFFormat(int id, DateTime sent, IReadOnlyDictionary<string, string> values)
         {
             var forwardTo = values.ContainsKey("FT") ? values["FT"] : string.Empty;

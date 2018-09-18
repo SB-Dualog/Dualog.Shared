@@ -81,6 +81,21 @@ namespace Dualog.eCatch.Shared.Messages
             }            
         }
 
+        public override Dictionary<string, string> GetSummaryDictionary(EcatchLangauge lang)
+        {
+            var result = CreateBaseSummaryDictionary(lang);
+
+            result.Add("ArrivalAt".Translate(lang), $"{ArrivalHarbourCode.ToHarbourName()}, {ArrivalDateTime:dd.MM.yyyy HH:mm} UTC");
+            result.Add("FishOnBoard".Translate(lang), FishOnBoard.ToDetailedWeightAndFishNameSummary(lang));
+
+            if (FishToDeliver.Count > 0)
+            {
+                result.Add("DeliveringTo".Translate(lang), $"{DeliveryFacility}, {FishToDeliver.ToDetailedWeightAndFishNameSummary(lang)}");
+            }
+
+            return result;
+        }
+
         public static PORMessage ParseNAFFormat(int id, DateTime sent, IReadOnlyDictionary<string, string> values)
         {
             return new PORMessage(
