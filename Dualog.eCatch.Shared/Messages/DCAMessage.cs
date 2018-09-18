@@ -52,6 +52,25 @@ namespace Dualog.eCatch.Shared.Messages
             Casts.ForEach(c => WriteCast(sb, c));
         }
 
+        public override Dictionary<string, string> GetSummaryDictionary(EcatchLangauge lang)
+        {
+            var result = CreateBaseSummaryDictionary(lang);
+            //result.Add("FishingPermission".Translate(lang), FishingPermission); //TODO Import FishingPermissions to get translation working
+            result.Add("FishingActivity".Translate(lang), FishingActivity.ToString().ToFishingActivityName(lang));
+            var i = 1;
+            foreach (var cast in Casts)
+            {
+                result.Add($"{"Haul".Translate(lang)} {i}", $"{cast.StartTime:dd.MM.yyyy HH:mm} - {cast.StopTime:dd.MM.yyyy HH:mm} ({cast.GetDuration()} {"Minutes".Translate(lang).ToLowerInvariant()})");
+                result.Add("Catch".Translate(lang), cast.FishDistribution.ToDetailedWeightAndFishNameSummary(lang));
+            }
+
+            if (!string.IsNullOrEmpty(ArrivalHarbour))
+            {
+                result.Add("Arriving".Translate(lang), ArrivalHarbour.ToHarbourName());
+            }
+            return result;
+        }
+
         private void WriteCast(StringBuilder sb, Cast cast)
         {
             var startLat = cast.StartLatitude.ToWgs84Format(CoordinateType.Latitude);

@@ -31,7 +31,6 @@ namespace Dualog.eCatch.Shared.Messages
             sb.Append($"//PR/{fishLanding.Condition}");
             sb.Append($"//TY/{fishLanding.UnitType}");
             sb.Append($"//NU/{fishLanding.NumberOfUnits}");
-            //var formattedAverageWeight = $"{string.Format("{0:0.#}",fishLanding.UnitAverageWeight)}".Replace(".", ",");
             sb.Append($"//AW/{fishLanding.UnitAverageWeight}");
         }
 
@@ -41,6 +40,22 @@ namespace Dualog.eCatch.Shared.Messages
             sb.Append($"//HL/{LandingTime.ToFormattedTime()}");
             sb.Append($"//PO/{Harbour}");
             FishLandings.ForEach(x => WriteFishLanding(sb, x));
+        }
+
+        public override Dictionary<string, string> GetSummaryDictionary(EcatchLangauge lang)
+        {
+            var result = CreateBaseSummaryDictionary(lang);
+
+            result.Add("Landed".Translate(lang), $"{Harbour.ToHarbourName()} {LandingTime:dd.MM.yyyy HH:mm}");
+            int i = 1;
+            foreach (var fishLanding in FishLandings)
+            {
+                result.Add($"{"Product".Translate(lang)} {i}", $"{fishLanding.Weight.WithThousandSeparator()} kg {fishLanding.FishSpecies.ToFishName(lang)}");
+                //TODO Add more details about each product, such as conservation, condition, unittype, number of units etc
+                i++;
+            }
+
+            return result;
         }
 
         public static LANMessage ParseNAFFormat(int id, DateTime sent, IReadOnlyDictionary<string, string> values,

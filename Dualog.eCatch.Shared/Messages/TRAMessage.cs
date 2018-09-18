@@ -60,6 +60,21 @@ namespace Dualog.eCatch.Shared.Messages
             sb.Append($"//PT/{ReloadDateTime.ToFormattedTime()}");
         }
 
+        public override Dictionary<string, string> GetSummaryDictionary(EcatchLangauge lang)
+        {
+            var result = CreateBaseSummaryDictionary(lang);
+
+            result.Add("Position".Translate(lang), $"Lat: {Latitude}, Lon: {Longitude}");
+            result.Add(
+                ReloadingPurpose == ReloadingPurpose.Receiving
+                    ? "TransferedFrom".Translate(lang)
+                    : "TransferedTo".Translate(lang), $"{RadioCallSignalForOtherParty} {ReloadDateTime:dd.MM.yyyy HH:mm}");
+            result.Add("TransferedFish".Translate(lang), TransferedFish.ToDetailedWeightAndFishNameSummary(lang));
+            result.Add("FishOnBoard".Translate(lang), FishOnBoard.ToDetailedWeightAndFishNameSummary(lang));
+
+            return result;
+        }
+
         public static TRAMessage ParseNAFFormat(int id, DateTime sent, IReadOnlyDictionary<string, string> values)
         {
             var lat = "";

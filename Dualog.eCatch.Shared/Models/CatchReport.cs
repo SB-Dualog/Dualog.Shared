@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using Dualog.eCatch.Shared.Enums;
 using Dualog.eCatch.Shared.Extensions;
 
 namespace Dualog.eCatch.Shared.Models
@@ -39,12 +40,7 @@ namespace Dualog.eCatch.Shared.Models
                 select new FishFAOAndWeight(keyValue.Key, keyValue.Value));
         }
 
-        public string ToHtml()
-        {
-            return ToHtml(s => s);
-        }
-
-        public string ToHtml(Func<string, string> translate, bool darkTheme = false, bool excelFormat = false, int languageIndex = 1)
+        public string ToHtml(EcatchLangauge lang, bool darkTheme = false, bool excelFormat = false, int languageIndex = 1)
         {
             var theme = darkTheme ? "themeDark" : "themeLight";
             var sb = new StringBuilder();
@@ -95,10 +91,10 @@ namespace Dualog.eCatch.Shared.Models
             sb.AppendLine("<table>");
             sb.AppendLine("<thead>");
             sb.AppendLine("<tr>");
-            sb.AppendFormat("<th>{0}</th>", translate("Date"));
+            sb.AppendFormat("<th>{0}</th>", "Date".Translate(lang));
             foreach (var fish in Totals)
             {
-                sb.AppendFormat("<th>{0}</th>", fish.FAOCode.ToFishName(languageIndex));
+                sb.AppendFormat("<th>{0}</th>", fish.FAOCode.ToFishName(lang));
             }
             sb.AppendLine("<th>Sum</th>");
             sb.AppendLine("</tr>");

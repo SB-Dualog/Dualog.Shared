@@ -43,12 +43,8 @@ namespace Dualog.eCatch.Shared.Models
                 select new FishFAOAndWeight(keyValue.Key, keyValue.Value));
         }
 
-        public string ToHtml()
-        {
-            return ToHtml(s => s);
-        }
 
-        public string ToHtml(Func<string, string> translate, bool darkTheme = false, bool excelFormat = false, int languageIndex = 1)
+        public string ToHtml(EcatchLangauge lang, bool darkTheme = false, bool excelFormat = false)
         {
             var theme = darkTheme ? "themeDark" : "themeLight";
             var sb = new StringBuilder();
@@ -99,20 +95,20 @@ namespace Dualog.eCatch.Shared.Models
             sb.AppendLine("<table>");
             sb.AppendLine("<thead>");
             sb.AppendLine("<tr>");
-            sb.AppendFormat("<th>{0}</th>", translate("Date"));
-            sb.AppendFormat("<th>{0}</th>", translate("Haul"));
+            sb.AppendFormat("<th>{0}</th>", "Date".Translate(lang));
+            sb.AppendFormat("<th>{0}</th>", "Haul".Translate(lang));
             sb.AppendLine("<th>Sum</th>");
             foreach (var fish in Totals)
             {
-                sb.AppendFormat("<th>{0}</th>", fish.FAOCode.ToFishName(languageIndex));
+                sb.AppendFormat("<th>{0}</th>", fish.FAOCode.ToFishName(lang));
             }
-            sb.AppendFormat("<th>{0}</th>", translate("StartTime"));
-            sb.AppendFormat("<th>{0}</th>", translate("EndTime"));
-            sb.AppendFormat("<th>{0}</th>", translate("Duration"));
-            sb.AppendFormat("<th>{0}</th>", translate("StartPosition"));
-            sb.AppendFormat("<th>{0}</th>", translate("EndPosition"));
-            sb.AppendFormat("<th>{0}</th>", translate("Gear"));
-            sb.AppendFormat("<th>{0}</th>", translate("Zone"));
+            sb.AppendFormat("<th>{0}</th>", "StartTime".Translate(lang));
+            sb.AppendFormat("<th>{0}</th>", "EndTime".Translate(lang));
+            sb.AppendFormat("<th>{0}</th>", "Duration".Translate(lang));
+            sb.AppendFormat("<th>{0}</th>", "StartPosition".Translate(lang));
+            sb.AppendFormat("<th>{0}</th>", "EndPosition".Translate(lang));
+            sb.AppendFormat("<th>{0}</th>", "Gear".Translate(lang));
+            sb.AppendFormat("<th>{0}</th>", "Zone".Translate(lang));
             sb.AppendLine("</tr>");
             sb.AppendLine("</thead>");
 
@@ -136,8 +132,8 @@ namespace Dualog.eCatch.Shared.Models
                     {
                         sb.AppendFormat("<td class='one-line'>{0}</td>", excelFormat ? fish.Weight.ToString() : fish.Weight.WithThousandSeparator());
                     }
-                    sb.AppendFormat("<td>{0}</td>", line.Cast.StartTime.ToString("dd.MM.yyyy HH:mm"));
-                    sb.AppendFormat("<td>{0}</td>", line.Cast.StopTime.ToString("dd.MM.yyyy HH:mm"));
+                    sb.AppendFormat("<td>{0:dd.MM.yyyy HH:mm}</td>", line.Cast.StartTime);
+                    sb.AppendFormat("<td>{0:dd.MM.yyyy HH:mm}</td>", line.Cast.StopTime);
                     var duration = line.Cast.StopTime - line.Cast.StartTime;
                     var hoursString = Math.Floor(duration.TotalHours);
                     sb.AppendFormat("<td>{0}</td>", hoursString + duration.ToString(@"\:mm"));
@@ -145,8 +141,8 @@ namespace Dualog.eCatch.Shared.Models
                         line.Cast.StartLongitude.ToWgs84Format(CoordinateType.Longitude));
                     sb.AppendFormat("<td>{0} {1}</td>", line.Cast.StopLatitude.ToWgs84Format(CoordinateType.Latitude),
                         line.Cast.StopLongitude.ToWgs84Format(CoordinateType.Longitude));
-                    sb.AppendFormat("<td>{0}</td>", line.Cast.Tool.ToToolName());
-                    sb.AppendFormat("<td>{0}</td>", line.Cast.Zone.ToZoneName());
+                    sb.AppendFormat("<td>{0}</td>", line.Cast.Tool.ToToolName(lang));
+                    sb.AppendFormat("<td>{0}</td>", line.Cast.Zone.ToZoneName(lang));
                     sb.AppendLine("</tr>");
                     ++i;
                 }

@@ -1,4 +1,5 @@
-﻿using Dualog.eCatch.Shared.Extensions;
+﻿using Dualog.eCatch.Shared.Enums;
+using Dualog.eCatch.Shared.Extensions;
 using Xunit;
 
 namespace Dualog.eCatch.Shared.Tests
@@ -8,21 +9,22 @@ namespace Dualog.eCatch.Shared.Tests
         [Fact]
         public void Can_get_fish_name_from_code()
         {
-            Assert.Equal("Akkar", "SQE".ToFishName());
-            Assert.Equal("Albakor", "ALB".ToFishName());
+            Assert.Equal("Akkar", "SQE".ToFishName(EcatchLangauge.Norwegian));
+            Assert.Equal("Albakor", "ALB".ToFishName(EcatchLangauge.Norwegian));
         }
 
         [Fact]
         public void Can_get_tool_name_from_code()
         {
-            Assert.Equal("Teiner", "FPO".ToToolName());
+            Assert.Equal("Teiner", "FPO".ToToolName(EcatchLangauge.Norwegian));
         }
 
 
         [Fact]
         public void Can_get_zone_name_from_code()
         {
-            Assert.Equal("Norway", "NOR".ToZoneName());
+            Assert.Equal("Norway", "NOR".ToZoneName(EcatchLangauge.English));
+            Assert.Equal("Norge", "NOR".ToZoneName(EcatchLangauge.Norwegian));
         }
     }
 }

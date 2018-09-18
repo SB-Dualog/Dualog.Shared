@@ -417,4 +417,43 @@
 	<data name="DeliveringTo" xml:space="preserve">
 		<value>Delivering to</value>
 	</data>
+	<data name="FishStart" xml:space="preserve">
+		<value>Fish start</value>
+	</data>
+	<data name="Catch" xml:space="preserve">
+		<value>Catch</value>
+	</data>
+	<data name="DeliveryHarbour" xml:space="preserve">
+		<value>Delivery harbour</value>
+	</data>
+	<data name="TransferedFrom" xml:space="preserve">
+		<value>Transfered from</value>
+	</data>
+	<data name="TransferedTo" xml:space="preserve">
+		<value>Transfered to</value>
+	</data>
+	<data name="TransferedFish" xml:space="preserve">
+		<value>Transfered fish</value>
+	</data>
+	<data name="Landed" xml:space="preserve">
+		<value>Landed</value>
+	</data>
+	<data name="Product" xml:space="preserve">
+		<value>Product</value>
+	</data>
+	<data name="FishingActivity" xml:space="preserve">
+		<value>Fishing activity</value>
+	</data>
+	<data name="Minutes" xml:space="preserve">
+		<value>Minutes</value>
+	</data>
+	<data name="Arrival" xml:space="preserve">
+		<value>Arrival</value>
+	</data>
+	<data name="StartTime" xml:space="preserve">
+		<value>Start time</value>
+	</data>
+	<data name="EndTime" xml:space="preserve">
+		<value>End time</value>
+	</data>
 </root>

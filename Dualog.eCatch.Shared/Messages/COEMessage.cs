@@ -101,6 +101,37 @@ namespace Dualog.eCatch.Shared.Messages
 
         }
 
+        public override Dictionary<string, string> GetSummaryDictionary(EcatchLangauge lang)
+        {
+            var result = CreateBaseSummaryDictionary(lang);
+
+            if (!string.IsNullOrEmpty(FishStartLatitude) && !string.IsNullOrEmpty(FishStartLongitude))
+            {
+                result.Add("FishStart".Translate(lang), $"Lat: {FishStartLatitude}, Lon: {FishStartLongitude}");
+            }
+
+            result.Add("ArrivingAtPosition".Translate(lang), $"{FishStart:dd.MM.yyyy HH:mm} UTC");
+
+            if (!string.IsNullOrEmpty(CurrentLatitude) && !string.IsNullOrEmpty(CurrentLongitude))
+            {
+                result.Add("Position".Translate(lang), $"Lat: {CurrentLatitude}, Lon: {CurrentLongitude}");
+            }
+
+            if (!string.IsNullOrEmpty(CatchArea))
+            {
+                result.Add("CatchArea".Translate(lang), CatchArea);
+            }
+
+            if (!string.IsNullOrEmpty(TargetSpecies))
+            {
+                result.Add("TargetSpecies".Translate(lang), TargetSpecies.ToFishName(lang));
+            }
+
+            result.Add("FishOnBoard".Translate(lang), FishOnBoard.ToDetailedWeightAndFishNameSummary(lang));
+
+            return result;
+        }
+
         public static COEMessage ParseNAFFormat(int id, DateTime sent, IReadOnlyDictionary<string, string> values)
         {
             var forwardTo = values.ContainsKey("FT") ? values["FT"] : string.Empty;

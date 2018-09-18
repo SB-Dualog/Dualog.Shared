@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Globalization;
+using System.Linq;
 using System.Text;
 using Dualog.eCatch.Shared.Enums;
 using Dualog.eCatch.Shared.Extensions;
@@ -38,13 +39,7 @@ namespace Dualog.eCatch.Shared.Messages
             if (Zone == Constants.Zones.NEAFC)
             {
                 sb.Append($"//RA/{CatchArea}");
-            }
-            if (Zone == Constants.Zones.NEAFC)
-            {
                 sb.Append($"//DF/{DaysFishing}");
-            }
-            if (Zone == Constants.Zones.NEAFC)
-            {
                 sb.Append($"//CA/{CatchSummarized.ToNAF()}");
             }
             if (Zone == Constants.Zones.Russia)
@@ -58,6 +53,30 @@ namespace Dualog.eCatch.Shared.Messages
             {
                 sb.Append($"//OB/{CatchOnBoard.ToNAF()}");
             }
+        }
+
+        public override Dictionary<string, string> GetSummaryDictionary(EcatchLangauge lang)
+        {
+            var result = CreateBaseSummaryDictionary(lang);
+
+            if (Zone == Constants.Zones.NEAFC)
+            {
+                result.Add("CatchArea".Translate(lang), CatchArea);
+                result.Add("FishingDays".Translate(lang), DaysFishing.ToString());
+                result.Add("Catch".Translate(lang), CatchSummarized.ToDetailedWeightAndFishNameSummary(lang));
+            }
+
+            if (!string.IsNullOrEmpty(DeliveryHarbour))
+            {
+                result.Add("DeliveryHarbour".Translate(lang), DeliveryHarbour.ToHarbourName());
+            }
+
+            if (Zone == Constants.Zones.Russia || Zone == Constants.Zones.Island || Zone == Constants.Zones.FaroeIslands)
+            {
+                result.Add("FishOnBoard".Translate(lang), CatchOnBoard.ToDetailedWeightAndFishNameSummary(lang));
+            }
+
+            return result;
         }
 
         public static COXMessage ParseNAFFormat(int id, DateTime sent, IReadOnlyDictionary<string, string> values)

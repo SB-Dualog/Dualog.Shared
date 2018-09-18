@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using Dualog.eCatch.Shared.Enums;
 using Dualog.eCatch.Shared.Extensions;
 using Dualog.eCatch.Shared.Messages;
 using Dualog.eCatch.Shared.Models;
@@ -60,13 +61,13 @@ namespace Dualog.eCatch.Shared.Tests
         public void Can_calculate_catch_report_based_on_DCA_messages_for_a_given_date_intervall()
         {
             var result = CatchReportService.CreateReport(messages, DateTime.Today, DateTime.Today);
-            Assert.Equal(1, result.Lines.Count());
+            Assert.Single(result.Lines);
         }
 
         [Fact]
         public void Can_transform_catch_report_to_HTML()
         {
-            var html = CatchReportService.CreateReport(messages, DateTime.Today, DateTime.Today).ToHtml();
+            var html = CatchReportService.CreateReport(messages, DateTime.Today, DateTime.Today).ToHtml(EcatchLangauge.Norwegian);
             Assert.StartsWith("<!doctype html>", html);
         }
 
@@ -88,13 +89,13 @@ namespace Dualog.eCatch.Shared.Tests
         public void Can_calculate_cast_report_based_on_DCA_messages_for_a_given_date_intervall()
         {
             var result = CastReportService.CreateReport(messages, DateTime.Today, DateTime.Today);
-            Assert.Equal(1, result.CastPrDay.Count());
+            Assert.Single(result.CastPrDay);
         }
 
         [Fact]
         public void Can_transform_cast_report_to_HTML()
         {
-            var html = CastReportService.CreateReport(messages, DateTime.Today, DateTime.Today).ToHtml();
+            var html = CastReportService.CreateReport(messages, DateTime.Today, DateTime.Today).ToHtml(EcatchLangauge.Norwegian);
             Assert.StartsWith("<!doctype html>", html);
         }
 
