@@ -27,6 +27,11 @@ namespace Dualog.eCatch.Shared.Messages
             sb.Append($"//MS/{Text}");
         }
 
+        protected override List<string> GetSummaryList(EcatchLangauge lang)
+        {
+            throw new NotImplementedException();
+        }
+
         public static AUDMessage ParseNAFFormat(int id, DateTime sent, IReadOnlyDictionary<string, string> values)
         {
             return new AUDMessage(values["MS"], sent, values["MA"], new Ship(values["NA"], values["RC"], values["XR"]))

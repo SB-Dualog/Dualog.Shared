@@ -1,4 +1,6 @@
 ﻿using System;
+using System.Collections.Generic;
+using System.Globalization;
 using System.Text;
 using Dualog.eCatch.Shared.Enums;
 using Dualog.eCatch.Shared.Extensions;
@@ -129,5 +131,29 @@ namespace Dualog.eCatch.Shared.Messages
             WriteFooter(sb);
             return sb.ToString();
         }
+
+        /// <summary>
+        /// Generates a human readable summary of the NAF message.
+        /// It is localized by passing in the appropriate language.
+        /// </summary>
+        /// <returns>A string with the summary, which includes new lines.</returns>
+        protected string GetSummary(EcatchLangauge lang)
+        {
+            var sb = new StringBuilder();
+            foreach (var item in GetSummaryList(lang))
+            {
+                sb.AppendLine(item);
+            }
+
+            return sb.ToString();
+        }
+
+
+        /// <summary>
+        /// Generates a human readable summary of the NAF message, localized.
+        /// It is localized by passing in the appropriate language.
+        /// </summary>
+        /// <returns>A summary where each item is one new line of text</returns>
+        protected abstract List<string> GetSummaryList(EcatchLangauge lang);
     }
 }

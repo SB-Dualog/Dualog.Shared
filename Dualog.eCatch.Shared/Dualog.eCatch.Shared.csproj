@@ -32,4 +32,8 @@
     <EmbeddedResource Include="ReferenceTables\tools.txt" />
     <EmbeddedResource Include="ReferenceTables\Zones.txt" />
   </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\Dualog.eCatch.Shared.Language\Dualog.eCatch.Shared.Language.csproj" />
+  </ItemGroup>
 </Project>
