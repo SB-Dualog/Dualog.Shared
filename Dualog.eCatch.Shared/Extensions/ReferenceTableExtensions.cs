@@ -7,56 +7,66 @@ namespace Dualog.eCatch.Shared.Extensions
 {
     public static class ReferenceTableExtensions
     {
-        private static Dictionary<string, string> _fishNames;
-        private static Dictionary<string, string> _toolNames;
-        private static Dictionary<string, string> _zoneNames;
-        private static Dictionary<string, DmCoordinate> _harbours;
-        private static Dictionary<string, string> _harbourNames;
-        private static Dictionary<string, string> _animalNames; 
-        private static Dictionary<string, string> _fishingActivityNames;
-        private static Dictionary<string, string> _errorCodes;
+        #region Reference tables with Norwegian and English texts
+        private static Dictionary<EcatchLangauge, Dictionary<string, string>> _fishNames;
+        private static Dictionary<EcatchLangauge, Dictionary<string, string>> _toolNames;
+        private static Dictionary<EcatchLangauge, Dictionary<string, string>> _zoneNames;
+        private static Dictionary<EcatchLangauge, Dictionary<string, string>> _fishingActivityNames;
+        private static Dictionary<EcatchLangauge, Dictionary<string, string>> _errorCodes;
 
         public static string ToFishName(this string code, EcatchLangauge lang)
         {
-            if (_fishNames == null)
+            if (_fishNames[lang] == null)
             {
-                _fishNames = Services.KeyValueReferenceTableLoader.Load("FishSpecies.txt", lang);
+                _fishNames[lang] = Services.KeyValueReferenceTableLoader.Load("FishSpecies.txt", lang);
             }
 
-            return _fishNames.ContainsKey(code) ? _fishNames[code] : code;
-        }
-
-        /// <summary>
-        /// Call this method to clear all language translations after changing language
-        /// </summary>
-        public static void ClearLanguageCache()
-        {
-            _fishNames = null;
-            _toolNames = null;
-            _fishingActivityNames = null;
-            _errorCodes = null;
-            _zoneNames = null;
+            return _fishNames[lang].ContainsKey(code) ? _fishNames[lang][code] : code;
         }
 
         public static string ToToolName(this string code, EcatchLangauge lang)
         {
-            if (_toolNames == null)
+            if (_toolNames[lang] == null)
             {
-                _toolNames = Services.KeyValueReferenceTableLoader.Load("tools.txt", lang);
+                _toolNames[lang] = Services.KeyValueReferenceTableLoader.Load("tools.txt", lang);
             }
 
-            return _toolNames.ContainsKey(code) ? _toolNames[code] : code;
+            return _toolNames[lang].ContainsKey(code) ? _toolNames[lang][code] : code;
         }
 
         public static string ToZoneName(this string code, EcatchLangauge lang)
         {
-            if (_zoneNames == null)
+            if (_zoneNames[lang] == null)
             {
-                _zoneNames = Services.KeyValueReferenceTableLoader.Load("Zones.txt", lang);
+                _zoneNames[lang] = Services.KeyValueReferenceTableLoader.Load("Zones.txt", lang);
             }
 
-            return _zoneNames.ContainsKey(code) ? _zoneNames[code] : code;
+            return _zoneNames[lang].ContainsKey(code) ? _zoneNames[lang][code] : code;
         }
+
+        public static string ToFishingActivityName(this string code, EcatchLangauge lang)
+        {
+            if (_fishingActivityNames[lang] == null)
+            {
+                _fishingActivityNames[lang] = Services.KeyValueReferenceTableLoader.Load("FishingActivities.txt", lang);
+            }
+            return _fishingActivityNames[lang].ContainsKey(code) ? _fishingActivityNames[lang][code] : code;
+        }
+
+        public static string ToDetailedErrorCode(this string code, EcatchLangauge lang)
+        {
+            if (_errorCodes[lang] == null)
+            {
+                _errorCodes[lang] = Services.KeyValueReferenceTableLoader.Load("ErrorCodes.txt", lang);
+            }
+            return _errorCodes[lang].ContainsKey(code) ? _errorCodes[lang][code] : code;
+        }
+        #endregion
+
+        #region Reference tables with only Norwegian texts
+        private static Dictionary<string, DmCoordinate> _harbours;
+        private static Dictionary<string, string> _harbourNames;
+        private static Dictionary<string, string> _animalNames;
 
         public static string ToHarbourName(this string code)
         {
@@ -84,30 +94,13 @@ namespace Dualog.eCatch.Shared.Extensions
                 _harbours = Services.HarbourCoordinateLoader.Load();
             }
 
-            if(!_harbours.ContainsKey(code)) throw new KeyNotFoundException("Could not find harbour with key {0}".FormatWith(code));
+            if (!_harbours.ContainsKey(code)) throw new KeyNotFoundException("Could not find harbour with key {0}".FormatWith(code));
 
             var dmCoordinate = _harbours[code];
             var lat = LocationUtils.DmCoordinateToDecimal(dmCoordinate.Latitude);
             var lon = LocationUtils.DmCoordinateToDecimal(dmCoordinate.Longitude);
             return new SimpleCoordinate(lat, lon);
         }
-
-        public static string ToFishingActivityName(this string code, EcatchLangauge lang)
-        {
-            if (_fishingActivityNames == null)
-            {
-                _fishingActivityNames = Services.KeyValueReferenceTableLoader.Load("FishingActivities.txt", lang);
-            }
-            return _fishingActivityNames.ContainsKey(code) ? _fishingActivityNames[code] : code;
-        }
-
-        public static string ToDetailedErrorCode(this string code, EcatchLangauge lang)
-        {
-            if (_errorCodes == null)
-            {
-                _errorCodes = Services.KeyValueReferenceTableLoader.Load("ErrorCodes.txt", lang);
-            }
-            return _errorCodes.ContainsKey(code) ? _errorCodes[code] : code;
-        }
+        #endregion
     }
 }
