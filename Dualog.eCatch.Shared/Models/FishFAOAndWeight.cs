@@ -1,4 +1,6 @@
 ﻿using System;
+using Dualog.eCatch.Shared.Enums;
+using Dualog.eCatch.Shared.Extensions;
 
 namespace Dualog.eCatch.Shared.Models
 {
@@ -21,5 +23,10 @@ namespace Dualog.eCatch.Shared.Models
 	    public int CompareTo(FishFAOAndWeight other) => StringComparer.OrdinalIgnoreCase.Compare(FAOCode, other.FAOCode);
 
 	    public override string ToString() => $"{FAOCode} {Weight}";
+
+	    public string ToReadableFormat(EcatchLangauge lang)
+	    {
+	        return $"{Weight} kg {FAOCode.ToFishName(lang)}";
+	    }
 	}
 }

@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Globalization;
+using System.Linq;
 using System.Text;
 using Dualog.eCatch.Shared.Enums;
 using Dualog.eCatch.Shared.Extensions;
@@ -136,11 +137,13 @@ namespace Dualog.eCatch.Shared.Messages
         /// Generates a human readable summary of the NAF message.
         /// It is localized by passing in the appropriate language.
         /// </summary>
+        /// <param name="lang">The language in which you want the summary</param>
+        /// <param name="separator">Optional parameter, by default it is ": "</param>
         /// <returns>A string with the summary, which includes new lines.</returns>
-        protected string GetSummary(EcatchLangauge lang)
+        public string GetSummary(EcatchLangauge lang, string separator = ": ")
         {
             var sb = new StringBuilder();
-            foreach (var item in GetSummaryList(lang))
+            foreach (var item in GetSummaryList(lang, separator))
             {
                 sb.AppendLine(item);
             }
@@ -148,12 +151,24 @@ namespace Dualog.eCatch.Shared.Messages
             return sb.ToString();
         }
 
-
         /// <summary>
-        /// Generates a human readable summary of the NAF message, localized.
+        /// Generates a human readable summary of the NAF message.
         /// It is localized by passing in the appropriate language.
         /// </summary>
+        /// <param name="lang">The language in which you want the summary</param>
+        /// <param name="separator">Optional parameter, by default it is ": "</param>
         /// <returns>A summary where each item is one new line of text</returns>
-        protected abstract List<string> GetSummaryList(EcatchLangauge lang);
+        public List<string> GetSummaryList(EcatchLangauge lang, string separator = ": ")
+        {
+            return GetSummaryDictionary(lang).Select(x => $"{x.Key}{separator}{x.Value}").ToList();
+        }
+
+        /// <summary>
+        /// Generates a human readable summary of the NAF message.
+        /// It is localized by passing in the appropriate language.
+        /// </summary>
+        /// <param name="lang">The language in which you want the summary</param>
+        /// <returns>A summary where each item is one new line of text</returns>
+        public abstract Dictionary<string, string> GetSummaryDictionary(EcatchLangauge lang);
     }
 }

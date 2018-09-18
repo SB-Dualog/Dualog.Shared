@@ -390,4 +390,10 @@
 	<data name="WeightOnBoardAllShips" xml:space="preserve">
 		<value>Weight on board all ships</value>
 	</data>
+	<data name="FishingDays" xml:space="preserve">
+		<value>Fishing days</value>
+	</data>
+	<data name="DailyCatch" xml:space="preserve">
+		<value>Daily catch</value>
+	</data>
 </root>

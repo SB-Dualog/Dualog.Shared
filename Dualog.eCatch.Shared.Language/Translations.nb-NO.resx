@@ -390,4 +390,10 @@
 	<data name="WeightOnBoardAllShips" xml:space="preserve">
 		<value>Rundvekt ombord alle fartøy</value>
 	</data>
+	<data name="FishingDays" xml:space="preserve">
+		<value>Fiskedager</value>
+	</data>
+	<data name="DailyCatch" xml:space="preserve">
+		<value>Daglig fangst</value>
+	</data>
 </root>

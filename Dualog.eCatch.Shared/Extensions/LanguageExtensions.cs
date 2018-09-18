@@ -9,6 +9,7 @@ namespace Dualog.eCatch.Shared.Extensions
 {
     public static class LanguageExtensions
     {
+
         public static string Translate(this string text, EcatchLangauge lang, bool isPlural = false)
         {
             var localizedString = Translations.ResourceManager.GetString(text, lang.ToUiCulture());
@@ -27,6 +28,40 @@ namespace Dualog.eCatch.Shared.Extensions
                     throw new ArgumentException($"{lang} is not supported");
             }
         }
+
+        /// <summary>
+        /// We use reference table .txt files with lists of fish species etc, and they are tab separated with "code" "norwegianName" "englishName". They are inconsistent so we need to switch on what index is used for what file.
+        /// </summary>
+        /// <param name="ecatchLangauge"></param>
+        /// <param name="referenceTableName"></param>
+        /// <returns></returns>
+        public static int ToReferenceTableIndex(this EcatchLangauge ecatchLangauge, string referenceTableName)
+        {
+            if (!referenceTableName.Contains(".txt"))
+            {
+                referenceTableName += ".txt";
+            }
+
+            switch (referenceTableName.ToUpperInvariant())
+            {
+                case "FISHSPECIES.TXT":
+                case "ERRORCODES.TXT":
+                case "TOOLS.TXT":
+                    return ecatchLangauge == EcatchLangauge.Norwegian ? 1 : 2;
+
+                case "FISHINGACTIVITIES.TXT":
+                case "ZONES.TXT":
+                    return ecatchLangauge == EcatchLangauge.Norwegian ? 2 : 1;
+
+                case "HARBOURS.TXT":
+                case "MAMMALSANDBIRDS.TXT":
+                    return 1; //These two files only have one langauge, norwegian.
+
+                default:
+                    throw new Exception($"Could not find a reference table name with the name {referenceTableName}. It might not have support for different languages or it might not have been implemented in this method.");
+            }
+        }
+
         public static EcatchLangauge ToEcatchLanguage(this CultureInfo currentInfo)
         {
             if (currentInfo.Name == "NO") return EcatchLangauge.Norwegian;

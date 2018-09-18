@@ -28,6 +28,17 @@ namespace Dualog.eCatch.Shared.Messages
             sb.Append($"//DF/{FishingDaysTotal}");
         }
 
+        public override Dictionary<string, string> GetSummaryDictionary(EcatchLangauge lang)
+        {
+            return new Dictionary<string, string>
+            {
+                {"FishingDays".Translate(lang), FishingDaysTotal.ToString()},
+                {"CatchArea".Translate(lang), CatchArea},
+                {"DailyCatch".Translate(lang), CatchSummarized}
+            };
+        }
+
+
         public static CATMessage ParseNAFFormat(int id, DateTime sent, IReadOnlyDictionary<string, string> values)
         {
             return new CATMessage(

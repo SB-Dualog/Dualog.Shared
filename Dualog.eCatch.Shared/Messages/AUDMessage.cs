@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Text;
 using Dualog.eCatch.Shared.Enums;
+using Dualog.eCatch.Shared.Extensions;
 using Dualog.eCatch.Shared.Models;
 
 namespace Dualog.eCatch.Shared.Messages
@@ -27,9 +28,12 @@ namespace Dualog.eCatch.Shared.Messages
             sb.Append($"//MS/{Text}");
         }
 
-        protected override List<string> GetSummaryList(EcatchLangauge lang)
+        public override Dictionary<string, string> GetSummaryDictionary(EcatchLangauge lang)
         {
-            throw new NotImplementedException();
+            return new Dictionary<string, string>
+            {
+                {"Content".Translate(lang), Text}
+            };
         }
 
         public static AUDMessage ParseNAFFormat(int id, DateTime sent, IReadOnlyDictionary<string, string> values)
