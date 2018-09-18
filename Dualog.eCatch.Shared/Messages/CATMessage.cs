@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Text;
 using Dualog.eCatch.Shared.Enums;
 using Dualog.eCatch.Shared.Extensions;
@@ -30,14 +31,14 @@ namespace Dualog.eCatch.Shared.Messages
 
         public override Dictionary<string, string> GetSummaryDictionary(EcatchLangauge lang)
         {
-            return new Dictionary<string, string>
-            {
-                {"FishingDays".Translate(lang), FishingDaysTotal.ToString()},
-                {"CatchArea".Translate(lang), CatchArea},
-                {"DailyCatch".Translate(lang), CatchSummarized}
-            };
-        }
+            var result = CreateBaseSummaryDictionary(lang);
 
+            result.Add("FishingDays".Translate(lang), FishingDaysTotal.ToString());
+            result.Add("CatchArea".Translate(lang), CatchArea);
+            result.Add("DailyCatch".Translate(lang), string.Join(", ", CatchSummarized.Select(x => x.ToReadableFormat(lang))));
+
+            return result;
+        }
 
         public static CATMessage ParseNAFFormat(int id, DateTime sent, IReadOnlyDictionary<string, string> values)
         {

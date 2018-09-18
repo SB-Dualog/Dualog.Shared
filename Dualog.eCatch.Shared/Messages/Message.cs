@@ -170,5 +170,17 @@ namespace Dualog.eCatch.Shared.Messages
         /// <param name="lang">The language in which you want the summary</param>
         /// <returns>A summary where each item is one new line of text</returns>
         public abstract Dictionary<string, string> GetSummaryDictionary(EcatchLangauge lang);
+
+        protected Dictionary<string, string> CreateBaseSummaryDictionary(EcatchLangauge lang)
+        {
+            var dict = new Dictionary<string, string>();
+
+            if (!string.IsNullOrEmpty(ForwardTo))
+            {
+                dict.Add("ForwardedTo".Translate(lang), ForwardTo.ToZoneName(lang));
+            }
+
+            return dict;
+        }
     }
 }

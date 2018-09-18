@@ -396,4 +396,7 @@
 	<data name="DailyCatch" xml:space="preserve">
 		<value>Daily catch</value>
 	</data>
+	<data name="ForwardedTo" xml:space="preserve">
+		<value>Forwarded to</value>
+	</data>
 </root>

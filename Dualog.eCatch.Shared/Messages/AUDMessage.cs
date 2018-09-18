@@ -30,10 +30,9 @@ namespace Dualog.eCatch.Shared.Messages
 
         public override Dictionary<string, string> GetSummaryDictionary(EcatchLangauge lang)
         {
-            return new Dictionary<string, string>
-            {
-                {"Content".Translate(lang), Text}
-            };
+            var result = CreateBaseSummaryDictionary(lang);
+            result.Add("Content".Translate(lang), Text);
+            return result;
         }
 
         public static AUDMessage ParseNAFFormat(int id, DateTime sent, IReadOnlyDictionary<string, string> values)
