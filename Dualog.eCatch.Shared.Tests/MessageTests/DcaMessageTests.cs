@@ -1,4 +1,6 @@
 ﻿using System;
+using Dualog.eCatch.Shared.Enums;
+using Dualog.eCatch.Shared.Messages;
 using Dualog.eCatch.Shared.Models;
 using FluentAssertions;
 using Xunit;
@@ -59,6 +61,38 @@ namespace Dualog.eCatch.Shared.Tests.MessageTests
             var duration = haul.GetDuration();
 
             duration.Should().Be(0); //We expect 0 minutes since the time started at minute 48 and ended at minute 48
+        }
+
+        [Fact]
+        public void GetSummaryShouldNotContainHaulsIfThereAreNoHauls()
+        {
+            var dca = new DCAMessage("", "", "NOTOS", new Cast[]{}, DateTime.Now, "Skipper", _ship);
+
+            var summaryDict = dca.GetSummaryDictionary(EcatchLangauge.English);
+
+            summaryDict.Should().NotContainKey("Haul 1");
+        }
+
+        [Fact]
+        public void GetSummaryShouldContainHaul()
+        {
+            var haul1 = new Cast(DateTime.Now, DateTime.Now, 0, 0, 0, 0, "", "", new FishFAOAndWeight[0], 0, 0, 0, "", "",
+                new AnimalAndCount[0]);
+            var dca = new DCAMessage("", "", "NOTOS", new Cast[] {haul1 }, DateTime.Now, "Skipper", _ship);
+
+            var summaryDict = dca.GetSummaryDictionary(EcatchLangauge.English);
+            summaryDict.Should().ContainKey("Haul 1");
+
+            var haul2 = new Cast(DateTime.Now, DateTime.Now, 0, 0, 0, 0, "", "", new FishFAOAndWeight[0], 0, 0, 0, "", "",
+                new AnimalAndCount[0]);
+
+            var dca2 = new DCAMessage("", "", "NOTOS", new Cast[] { haul1, haul2 }, DateTime.Now, "Skipper", _ship);
+
+            var dca2SummaryDict = dca2.GetSummaryDictionary(EcatchLangauge.English);
+
+            dca2SummaryDict.Should().ContainKey("Haul 1");
+            dca2SummaryDict.Should().ContainKey("Haul 2");
+
         }
     }
 }

@@ -61,7 +61,8 @@ namespace Dualog.eCatch.Shared.Messages
             foreach (var cast in Casts)
             {
                 result.Add($"{"Haul".Translate(lang)} {i}", $"{cast.StartTime:dd.MM.yyyy HH:mm} - {cast.StopTime:dd.MM.yyyy HH:mm} ({cast.GetDuration()} {"Minutes".Translate(lang).ToLowerInvariant()})");
-                result.Add("Catch".Translate(lang), cast.FishDistribution.ToDetailedWeightAndFishNameSummary(lang));
+                result.Add($"{"Catch".Translate(lang)} for {"Haul".Translate(lang).ToLowerInvariant()} {i}", cast.FishDistribution.ToDetailedWeightAndFishNameSummary(lang));
+                i++;
             }
 
             if (!string.IsNullOrEmpty(ArrivalHarbour))
