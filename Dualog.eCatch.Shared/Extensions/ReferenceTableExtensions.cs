@@ -8,17 +8,22 @@ namespace Dualog.eCatch.Shared.Extensions
     public static class ReferenceTableExtensions
     {
         #region Reference tables with Norwegian and English texts
-        private static Dictionary<EcatchLangauge, Dictionary<string, string>> _fishNames;
-        private static Dictionary<EcatchLangauge, Dictionary<string, string>> _toolNames;
-        private static Dictionary<EcatchLangauge, Dictionary<string, string>> _zoneNames;
-        private static Dictionary<EcatchLangauge, Dictionary<string, string>> _fishingActivityNames;
-        private static Dictionary<EcatchLangauge, Dictionary<string, string>> _errorCodes;
+        private static readonly Dictionary<EcatchLangauge, Dictionary<string, string>> _fishNames 
+            = new Dictionary<EcatchLangauge, Dictionary<string, string>>();
+        private static readonly Dictionary<EcatchLangauge, Dictionary<string, string>> _toolNames 
+            = new Dictionary<EcatchLangauge, Dictionary<string, string>>();
+        private static readonly Dictionary<EcatchLangauge, Dictionary<string, string>> _zoneNames 
+            = new Dictionary<EcatchLangauge, Dictionary<string, string>>();
+        private static readonly Dictionary<EcatchLangauge, Dictionary<string, string>> _fishingActivityNames 
+            = new Dictionary<EcatchLangauge, Dictionary<string, string>>();
+        private static readonly Dictionary<EcatchLangauge, Dictionary<string, string>> _errorCodes 
+            = new Dictionary<EcatchLangauge, Dictionary<string, string>>();
 
         public static string ToFishName(this string code, EcatchLangauge lang)
         {
-            if (_fishNames[lang] == null)
+            if (!_fishNames.ContainsKey(lang))
             {
-                _fishNames[lang] = Services.KeyValueReferenceTableLoader.Load("FishSpecies.txt", lang);
+                _fishNames.Add(lang, Services.KeyValueReferenceTableLoader.Load("FishSpecies.txt", lang));
             }
 
             return _fishNames[lang].ContainsKey(code) ? _fishNames[lang][code] : code;
@@ -26,9 +31,9 @@ namespace Dualog.eCatch.Shared.Extensions
 
         public static string ToToolName(this string code, EcatchLangauge lang)
         {
-            if (_toolNames[lang] == null)
+            if (!_toolNames.ContainsKey(lang))
             {
-                _toolNames[lang] = Services.KeyValueReferenceTableLoader.Load("tools.txt", lang);
+                _toolNames.Add(lang, Services.KeyValueReferenceTableLoader.Load("tools.txt", lang));
             }
 
             return _toolNames[lang].ContainsKey(code) ? _toolNames[lang][code] : code;
@@ -36,9 +41,9 @@ namespace Dualog.eCatch.Shared.Extensions
 
         public static string ToZoneName(this string code, EcatchLangauge lang)
         {
-            if (_zoneNames[lang] == null)
+            if (!_zoneNames.ContainsKey(lang))
             {
-                _zoneNames[lang] = Services.KeyValueReferenceTableLoader.Load("Zones.txt", lang);
+                _zoneNames.Add(lang, Services.KeyValueReferenceTableLoader.Load("Zones.txt", lang));
             }
 
             return _zoneNames[lang].ContainsKey(code) ? _zoneNames[lang][code] : code;
@@ -46,18 +51,18 @@ namespace Dualog.eCatch.Shared.Extensions
 
         public static string ToFishingActivityName(this string code, EcatchLangauge lang)
         {
-            if (_fishingActivityNames[lang] == null)
+            if (!_fishingActivityNames.ContainsKey(lang))
             {
-                _fishingActivityNames[lang] = Services.KeyValueReferenceTableLoader.Load("FishingActivities.txt", lang);
+                _fishingActivityNames.Add(lang, Services.KeyValueReferenceTableLoader.Load("FishingActivities.txt", lang));
             }
             return _fishingActivityNames[lang].ContainsKey(code) ? _fishingActivityNames[lang][code] : code;
         }
 
         public static string ToDetailedErrorCode(this string code, EcatchLangauge lang)
         {
-            if (_errorCodes[lang] == null)
+            if (!_errorCodes.ContainsKey(lang))
             {
-                _errorCodes[lang] = Services.KeyValueReferenceTableLoader.Load("ErrorCodes.txt", lang);
+                _errorCodes.Add(lang, Services.KeyValueReferenceTableLoader.Load("ErrorCodes.txt", lang));
             }
             return _errorCodes[lang].ContainsKey(code) ? _errorCodes[lang][code] : code;
         }
