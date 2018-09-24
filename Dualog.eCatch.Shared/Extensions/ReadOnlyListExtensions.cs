@@ -23,7 +23,7 @@ namespace Dualog.eCatch.Shared.Extensions
             var result = $"{totalWeight.WithThousandSeparator()} kg";
             if (totalWeight > 0)
             {
-                result += $"({string.Join(", ", source.Select(x => x.ToReadableFormat(lang)))})";
+                result += $" ({string.Join(", ", source.Select(x => x.ToReadableFormat(lang)))})";
             }
 
             return result;

@@ -26,7 +26,7 @@ namespace Dualog.eCatch.Shared.Models
 
 	    public string ToReadableFormat(EcatchLangauge lang)
 	    {
-	        return $"{Weight.WithThousandSeparator()} kg {FAOCode.ToFishName(lang)}";
+	        return $"{Weight.WithThousandSeparator()} kg {FAOCode.ToFishName(lang).ToLowerInvariant()}";
 	    }
 	}
 }
