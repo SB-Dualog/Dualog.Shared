@@ -2,9 +2,8 @@
 {
     public class LoginRequest
     {
-        public LoginRequest()
-        {
-        }
+        public LoginRequest() { }
+
         public LoginRequest(string userName, string password, string grantType = "password")
         {
             UserName = userName;

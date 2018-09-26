@@ -2,6 +2,8 @@
 {
     public class RegisterMessageRequest
     {
+        public RegisterMessageRequest() { }
+
         public RegisterMessageRequest(string plainTextNaf, string gzippedSignatureData, string authCode)
         {
             PlainTextNaf = plainTextNaf;
