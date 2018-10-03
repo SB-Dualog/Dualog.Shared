@@ -64,8 +64,8 @@ namespace Dualog.eCatch.Shared.Extensions
 
         public static EcatchLangauge ToEcatchLanguage(this CultureInfo currentInfo)
         {
-            if (currentInfo.Name == "NO") return EcatchLangauge.Norwegian;
-            if (currentInfo.Name == "US" || currentInfo.Name == "GB") return EcatchLangauge.English;
+            if (currentInfo.Name == "nb-NO") return EcatchLangauge.Norwegian;
+            if (currentInfo.Name == "en-US" || currentInfo.Name == "en-GB") return EcatchLangauge.English;
 
             throw new ArgumentException($"{currentInfo.DisplayName} is not supported for localization of Dualog eCatch sources");
         }
