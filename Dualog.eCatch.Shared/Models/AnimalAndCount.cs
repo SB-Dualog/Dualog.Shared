@@ -15,6 +15,6 @@ namespace Dualog.eCatch.Shared.Models
         
         public int CompareTo(AnimalAndCount other) => StringComparer.OrdinalIgnoreCase.Compare(Code, other.Code);
 
-        public override string ToString() => Code;
+        public override string ToString() => $"{Code} {Count}";
     }
 }
