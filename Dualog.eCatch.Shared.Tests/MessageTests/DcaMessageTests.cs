@@ -96,7 +96,7 @@ namespace Dualog.eCatch.Shared.Tests.MessageTests
         }
 
         [Fact]
-        public void x()
+        public void DCAToStringShouldReturnCorrectNAFFormatWhenCatchContainsUninntendedCatch()
         {
             var unintendedCatch = new AnimalAndCount("EGF", 3);
             var unintendedCatch2 = new AnimalAndCount("SXX", 3);
