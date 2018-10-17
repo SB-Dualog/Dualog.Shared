@@ -5,6 +5,7 @@ using System.Text.RegularExpressions;
 using Dualog.eCatch.Shared.Enums;
 using Dualog.eCatch.Shared.Extensions;
 using Dualog.eCatch.Shared.Messages;
+using Dualog.eCatch.Shared.Messages.HiSampling;
 
 namespace Dualog.eCatch.Shared
 {
@@ -63,6 +64,7 @@ namespace Dualog.eCatch.Shared
             var messageType = EnumHelper.Parse<MessageType>(values["TM"]);
             var sent = (values["DA"] + values["TI"]).FromFormattedDateTime();
 
+            var casts = new List<IReadOnlyDictionary<string, string>>();
             switch (messageType)
             {
                 case MessageType.DEP:
@@ -74,7 +76,7 @@ namespace Dualog.eCatch.Shared
                 case MessageType.POR:
                     return PORMessage.ParseNAFFormat(id, sent, values);
                 case MessageType.DCA:
-                    var casts = ParseTSCollectionToDictionaryList(naf);
+                    casts = ParseTSCollectionToDictionaryList(naf);
                     return DCAMessage.ParseNAFFormat(id, sent, values, casts);
                 case MessageType.AUD:
                     return AUDMessage.ParseNAFFormat(id, sent, values);
@@ -84,6 +86,12 @@ namespace Dualog.eCatch.Shared
                     return CATMessage.ParseNAFFormat(id, sent, values);
                 case MessageType.CON:
                     return CONMessage.ParseNAFFormat(id, sent, values);
+                case MessageType.HIA:
+                    return HIAMessage.ParseNAFFormat(id, sent, values);
+                case MessageType.HIF:
+                    return HIFMessage.ParseNAFFormat(id, sent, values, casts);
+                case MessageType.HIL:
+                    return HILMessage.ParseNAFFormat(id, sent, values);
                 case MessageType.LAN:
                     var fishLandings = ParseTSCollectionToDictionaryList(naf);
                     return LANMessage.ParseNAFFormat(id, sent, values, fishLandings);

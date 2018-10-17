@@ -48,6 +48,20 @@
         /// <summary>
         /// Return message
         /// </summary>
-        RET
+        RET,
+        /// <summary>
+        /// HiSampling message entering ship in pole 1
+        /// Message is sent with DEP
+        /// </summary>
+        HIA,
+        /// <summary>
+        /// HiSampling message entering ship in pole 2
+        /// Message is sent with DCA
+        /// </summary>
+        HIF,
+        /// <summary>
+        /// HiSampling message informing HI that samples has been landed
+        /// </summary>
+        HIL
     }
 }

@@ -34,6 +34,32 @@ namespace Dualog.eCatch.Shared
             return new ReadOnlyCollection<FishFAOAndWeight>(result);
         }
 
+        public static IReadOnlyList<HISample> ParseHISamples(string hiSamples)
+        {
+            var result = new List<HISample>();
+            if (string.IsNullOrEmpty(hiSamples))
+            {
+                return new ReadOnlyCollection<HISample>(result);
+            }
+            hiSamples = hiSamples.TrimStart();
+            var samples = hiSamples.Split(',');
+            foreach (var sample in samples)
+            {
+                var values = sample.Split('-');
+                var radioCallSignal = values[0];
+                var recordNumber = values[1];
+                var sequenceNumber = values[2];
+                result.Add(
+                    new HISample(
+                        Convert.ToInt32(radioCallSignal),
+                        Convert.ToInt32(recordNumber),
+                        Convert.ToInt32(sequenceNumber)
+                    ));
+            }
+          
+            return new ReadOnlyCollection<HISample>(result);
+        }
+
         public static IReadOnlyList<AnimalAndCount> ParseAnimalCount(string animalCount)
         {
             var result = new List<AnimalAndCount>();
