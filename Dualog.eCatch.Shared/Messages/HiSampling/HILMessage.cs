@@ -34,9 +34,10 @@ namespace Dualog.eCatch.Shared.Messages.HiSampling
             {
                 if (string.IsNullOrWhiteSpace(deliveryFacility))
                 {
-                    throw new ArgumentException("Delivery facility is required when delivering fish", nameof(deliveryFacility));
+                    throw new ArgumentException("Delivery facility is required when delivering samples", nameof(deliveryFacility));
                 }
-                else if (deliveryFacility.Length > 60)
+
+                if (deliveryFacility.Length > 60)
                 {
                     throw new ArgumentException("Delivery facility has a max length of 60 characters", nameof(deliveryFacility));
                 }
@@ -75,8 +76,8 @@ namespace Dualog.eCatch.Shared.Messages.HiSampling
                 values.ContainsKey("RE") ? values["RE"] : string.Empty)
             {
                 Id = id,
-                ForwardTo = values["FT"], // Should fail if missing?
-                SequenceNumber = Convert.ToInt32(values["SQ"]) // // Should fail if missing?
+                ForwardTo = values["FT"],
+                SequenceNumber = Convert.ToInt32(values["SQ"])
             };
         }
     }
