@@ -9,30 +9,20 @@ namespace Dualog.eCatch.Shared.Messages.HiSampling
 {
     public class HIAMessage : Message
     {
-		public AC_FishingActivity FishingActivity { get; }
-		public string TargetFishSpeciesCode { get; }
-		public string DepartureHarbourCode { get; }
-		public DateTime DepartureDateTime { get; }
-		public DateTime ArrivalDateTime { get; }
-		public string Latitude { get; }
-		public string Longitude { get; }
-		public IReadOnlyList<FishFAOAndWeight> FishOnBoard { get; }
-        public string Tool { get; }
-
-		public HIAMessage(
-                        DateTime sent,
-                        AC_FishingActivity activity, 
-						string targetFishSpeciesCode, 
-						string harbourCode, 
-						DateTime departurDateTime, 
-						DateTime arrivalDateTime, 
-						string latitude, 
-						string longitude, 
-			            IReadOnlyList<FishFAOAndWeight> fishOnBoard,
-                        string skipperName,
-                        Ship ship,
-                        string cancelCode = "",
-                        string tool = "") : base(MessageType.HIA, sent, skipperName, ship, errorCode: cancelCode)
+        public HIAMessage(
+            DateTime sent,
+            AC_FishingActivity activity,
+            string targetFishSpeciesCode,
+            string harbourCode,
+            DateTime departurDateTime,
+            DateTime arrivalDateTime,
+            string latitude,
+            string longitude,
+            IReadOnlyList<FishFAOAndWeight> fishOnBoard,
+            string skipperName,
+            Ship ship,
+            string cancelCode = "",
+            string tool = "") : base(MessageType.HIA, sent, skipperName, ship, cancelCode)
         {
             FishingActivity = activity;
             TargetFishSpeciesCode = targetFishSpeciesCode;
@@ -41,10 +31,20 @@ namespace Dualog.eCatch.Shared.Messages.HiSampling
             ArrivalDateTime = arrivalDateTime;
             Latitude = latitude;
             Longitude = longitude;
-		    FishOnBoard = fishOnBoard;
-		    Tool = tool;
+            FishOnBoard = fishOnBoard;
+            Tool = tool;
             ForwardTo = Constants.Zones.Havforskningsinstituttet;
         }
+
+        public AC_FishingActivity FishingActivity { get; }
+        public string TargetFishSpeciesCode { get; }
+        public string DepartureHarbourCode { get; }
+        public DateTime DepartureDateTime { get; }
+        public DateTime ArrivalDateTime { get; }
+        public string Latitude { get; }
+        public string Longitude { get; }
+        public IReadOnlyList<FishFAOAndWeight> FishOnBoard { get; }
+        public string Tool { get; }
 
         protected override void WriteBody(StringBuilder sb)
         {
@@ -58,10 +58,7 @@ namespace Dualog.eCatch.Shared.Messages.HiSampling
             sb.Append($"//AC/{FishingActivity}");
             sb.Append($"//DS/{TargetFishSpeciesCode}");
             sb.Append($"//OB/{FishOnBoard.ToNAF()}");
-            if (!string.IsNullOrEmpty(Tool))
-            {
-                sb.Append($"//GE/{Tool}");
-            }
+            if (!string.IsNullOrEmpty(Tool)) sb.Append($"//GE/{Tool}");
         }
 
         public Dictionary<string, string> GetSummaryForDictionary(EcatchLangauge lang, string arrivalInfo)
@@ -87,7 +84,7 @@ namespace Dualog.eCatch.Shared.Messages.HiSampling
                 values["LA"],
                 values["LO"],
                 MessageParsing.ParseFishWeights(values["OB"]),
-                values["MA"], 
+                values["MA"],
                 new Ship(values["NA"], values["RC"], values["XR"]),
                 values.ContainsKey("RE") ? values["RE"] : string.Empty,
                 values.ContainsKey("GE") ? values["GE"] : string.Empty)

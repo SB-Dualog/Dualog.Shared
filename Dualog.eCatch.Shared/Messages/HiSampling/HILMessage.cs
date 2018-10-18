@@ -66,12 +66,12 @@ namespace Dualog.eCatch.Shared.Messages.HiSampling
             return new HILMessage(
                 sent,
                 values["PO"],
-                arrivalDateTime: (values["PD"] + values["PT"]).FromFormattedDateTime(),
-                samplesToDeliver: MessageParsing.ParseHISamples(values["MS"]),
-                deliveryFacility: values.ContainsKey("LS") ? values["LS"] : string.Empty,
-                skipperName: values["MA"],
-                ship: new Ship(values["NA"], values["RC"], values["XR"]),
-                cancelCode: values.ContainsKey("RE") ? values["RE"] : string.Empty)
+                (values["PD"] + values["PT"]).FromFormattedDateTime(),
+                MessageParsing.ParseHISamples(values["MS"]),
+                values.ContainsKey("LS") ? values["LS"] : string.Empty,
+                values["MA"],
+                new Ship(values["NA"], values["RC"], values["XR"]),
+                values.ContainsKey("RE") ? values["RE"] : string.Empty)
             {
                 Id = id,
                 ForwardTo = values["FT"],
