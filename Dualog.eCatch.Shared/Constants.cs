@@ -33,6 +33,7 @@ namespace Dualog.eCatch.Shared
             public const string SvalbardTerritorialWaters = "XSI";
             public const string JanMayenFishingZone = "XJM";
             public const string Skagerrak = "XSK";
+            public const string Havforskningsinstituttet = "ZZH";
         }
 
         public static class SpecifiedToolNeeds
