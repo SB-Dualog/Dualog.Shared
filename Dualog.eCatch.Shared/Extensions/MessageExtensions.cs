@@ -5,18 +5,30 @@ namespace Dualog.eCatch.Shared.Extensions
     public static class MessageExtensions
     {
         /// <summary>
-        /// When sending a HIA message, if the return message returns the code "631" it means that the current trip needs
-        /// to send HIF and HIL messages.
+        /// When sending a HIA message, if the return message returns the code "631" it means that the current
+        /// trip needs to send HIF and HIL messages.
         /// </summary>
         /// <param name="retMessage"></param>
         /// <returns></returns>
         public static bool TripSelectedForSampling(this RETMessage retMessage)
         {
             return retMessage.ErrorCode == "631";
+        }  
+        
+        /// <summary>
+        /// When sending a HIA message, if the return message returns the code "632" it means that the current
+        /// trip does not need to send HIF and HIL messages.
+        /// </summary>
+        /// <param name="retMessage"></param>
+        /// <returns></returns>
+        public static bool TripNotSelectedForSampling(this RETMessage retMessage)
+        {
+            return retMessage.ErrorCode == "632";
         }
 
         /// <summary>
-        /// If the RET message for a HIF message returns the code "641" it means that this catch needs to have a sample delivered
+        /// If the RET message for a HIF message returns the code "641" it means that this catch needs to have
+        /// a sample delivered 
         /// </summary>
         /// <param name="retMessage"></param>
         /// <returns></returns>
@@ -26,7 +38,8 @@ namespace Dualog.eCatch.Shared.Extensions
         }
 
         /// <summary>
-        /// If the RET message for a HIF message returns the code "642" it means that this catch does not need to create a sample
+        /// If the RET message for a HIF message returns the code "642" it means that this catch does not need
+        /// to create a sample
         /// </summary>
         /// <param name="retMessage"></param>
         /// <returns></returns>
@@ -36,7 +49,8 @@ namespace Dualog.eCatch.Shared.Extensions
         }
 
         /// <summary>
-        /// If the RET message for a HIF message returns the code "643", there is no need to send in any more HIF messages
+        /// If the RET message for a HIF message returns the code "643", there is no need to send in any more
+        /// HIF messages
         /// for current trip
         /// </summary>
         /// <param name="retMessage"></param>
