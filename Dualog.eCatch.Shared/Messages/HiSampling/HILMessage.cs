@@ -13,7 +13,7 @@ namespace Dualog.eCatch.Shared.Messages.HiSampling
             DateTime sent,
             string arrivalHarbourCode,
             DateTime arrivalDateTime,
-            IReadOnlyList<HISample> samplesToDeliver,
+            IReadOnlyList<HiSample> samplesToDeliver,
             string deliveryFacility,
             string skipperName,
             Ship ship,
@@ -38,7 +38,7 @@ namespace Dualog.eCatch.Shared.Messages.HiSampling
         }
 
         public string ArrivalHarbourCode { get; }
-        public IReadOnlyList<HISample> SamplesToDeliver { get; }
+        public IReadOnlyList<HiSample> SamplesToDeliver { get; }
         public string DeliveryFacility { get; }
         public DateTime ArrivalDateTime { get; }
 

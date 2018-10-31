@@ -12,7 +12,7 @@ namespace Dualog.eCatch.Shared.Extensions
             return string.Join(" ", source);
         }
 
-        public static string ToNAF(this IEnumerable<HISample> source)
+        public static string ToNAF(this IEnumerable<HiSample> source)
         {
             return string.Join(",", source);
         }
