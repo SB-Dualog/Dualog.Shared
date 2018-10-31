@@ -56,6 +56,13 @@ namespace Dualog.eCatch.Shared.Messages.HiSampling
         public override Dictionary<string, string> GetSummaryDictionary(EcatchLangauge lang)
         {
             var result = CreateBaseSummaryDictionary(lang);
+            var i = 1;
+            foreach (var cast in Casts)
+            {
+                result.Add($"{"Haul".Translate(lang)} {i}", $"{cast.StartTime:dd.MM.yyyy HH:mm} - {cast.StopTime:dd.MM.yyyy HH:mm} ({cast.GetDuration()} {"Minutes".Translate(lang).ToLowerInvariant()})");
+                result.Add($"{"Catch".Translate(lang)} for {"Haul".Translate(lang).ToLowerInvariant()} {i}", cast.FishDistribution.ToDetailedWeightAndFishNameSummary(lang));
+                i++;
+            }
             return result;
         }
 
