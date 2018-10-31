@@ -89,6 +89,7 @@ namespace Dualog.eCatch.Shared
                 case MessageType.HIA:
                     return HIAMessage.ParseNAFFormat(id, sent, values);
                 case MessageType.HIF:
+                    casts = ParseTSCollectionToDictionaryList(naf);
                     return HIFMessage.ParseNAFFormat(id, sent, values, casts);
                 case MessageType.HIL:
                     return HILMessage.ParseNAFFormat(id, sent, values);
