@@ -12,7 +12,7 @@ namespace Dualog.eCatch.Shared.Extensions
         /// <returns></returns>
         public static bool TripSelectedForSampling(this RETMessage retMessage)
         {
-            return retMessage.ErrorCode == "631";
+            return retMessage.ErrorCode == Constants.HiReturnCodes.TripSelectedForSampling;
         }  
         
         /// <summary>
@@ -23,7 +23,7 @@ namespace Dualog.eCatch.Shared.Extensions
         /// <returns></returns>
         public static bool TripNotSelectedForSampling(this RETMessage retMessage)
         {
-            return retMessage.ErrorCode == "632";
+            return retMessage.ErrorCode == Constants.HiReturnCodes.TripNotSelectedForSampling;
         }
 
         /// <summary>
@@ -34,7 +34,7 @@ namespace Dualog.eCatch.Shared.Extensions
         /// <returns></returns>
         public static bool CatchSelectedForSampling(this RETMessage retMessage)
         {
-            return retMessage.ErrorCode == "641";
+            return retMessage.ErrorCode == Constants.HiReturnCodes.CatchSelectedForSampling;
         }
 
         /// <summary>
@@ -45,7 +45,7 @@ namespace Dualog.eCatch.Shared.Extensions
         /// <returns></returns>
         public static bool CatchNotSelectedForSampling(this RETMessage retMessage)
         {
-            return retMessage.ErrorCode == "642";
+            return retMessage.ErrorCode == Constants.HiReturnCodes.CatchNotSelectedForSampling;
         }
 
         /// <summary>
@@ -57,7 +57,7 @@ namespace Dualog.eCatch.Shared.Extensions
         /// <returns></returns>
         public static bool CatchSamplingIsOverForTrip(this RETMessage retMessage)
         {
-            return retMessage.ErrorCode == "643";
+            return retMessage.ErrorCode == Constants.HiReturnCodes.CatchSamplingIsOverForTrip;
         }
     }
 }

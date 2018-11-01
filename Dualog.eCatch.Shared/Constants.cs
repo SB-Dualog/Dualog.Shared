@@ -21,6 +21,15 @@ namespace Dualog.eCatch.Shared
             public static readonly string[] CodesForCorrectedOrCancelledMessage = {"100", "501", "505", "512", "513", "522", "523"};
         }
 
+        public static class HiReturnCodes
+        {
+            public const string TripSelectedForSampling = "631";
+            public const string TripNotSelectedForSampling = "632";
+            public const string CatchSelectedForSampling = "641";
+            public const string CatchNotSelectedForSampling = "642";
+            public const string CatchSamplingIsOverForTrip = "643";
+        }
+
         public static class Zones
         {
             public const string Norway = "NOR";
