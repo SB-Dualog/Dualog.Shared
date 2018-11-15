@@ -38,6 +38,10 @@
         /// </summary>
         TRA,
         /// <summary>
+        /// Manual position message
+        /// </summary>
+        MAN,
+        /// <summary>
         /// Test message
         /// </summary>
         AUD,
