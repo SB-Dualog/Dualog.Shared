@@ -82,6 +82,8 @@ namespace Dualog.eCatch.Shared
                     return AUDMessage.ParseNAFFormat(id, sent, values);
                 case MessageType.TRA:
                     return TRAMessage.ParseNAFFormat(id, sent, values);
+                case MessageType.MAN:
+                    return MANMessage.ParseNAFFormat(id, sent, values);
                 case MessageType.CAT:
                     return CATMessage.ParseNAFFormat(id, sent, values);
                 case MessageType.CON:
