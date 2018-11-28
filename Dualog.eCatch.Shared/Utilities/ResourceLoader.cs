@@ -30,7 +30,6 @@ namespace Dualog.eCatch.Shared.Utilities
 			{
 				throw new Exception($"Multiple resources ending with {resourceFileName} found: {Environment.NewLine}{string.Join(Environment.NewLine, resourcePaths)}");
 			}
-
 			return assembly.GetManifestResourceStream(resourcePaths.Single());
 		}
 
