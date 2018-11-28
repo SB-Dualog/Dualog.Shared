@@ -3,7 +3,7 @@ using System.Collections.Generic;
 
 namespace Dualog.eCatch.Shared.Models
 {
-    public class Cast
+    public class Haul
     {
         public DateTime StartTime { get; }
         public DateTime StopTime { get; }
@@ -21,7 +21,7 @@ namespace Dualog.eCatch.Shared.Models
         public string HerringType { get; }
         public IReadOnlyList<AnimalAndCount> AnimalCount { get; } 
 
-        public Cast(DateTime startTime, DateTime stopTime, double startLatitude, double startLongitude, double stopLatitude, double stopLongitude, string tool, string problem, IReadOnlyList<FishFAOAndWeight> fishDistribution, int maskWidth, int numberOfTrawls, int extraToolInfo, string zone, string herringType, IReadOnlyList<AnimalAndCount> animalCount)
+        public Haul(DateTime startTime, DateTime stopTime, double startLatitude, double startLongitude, double stopLatitude, double stopLongitude, string tool, string problem, IReadOnlyList<FishFAOAndWeight> fishDistribution, int maskWidth, int numberOfTrawls, int extraToolInfo, string zone, string herringType, IReadOnlyList<AnimalAndCount> animalCount)
         {
             StartTime = startTime;
             StopTime = stopTime;

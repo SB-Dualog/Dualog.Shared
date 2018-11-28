@@ -25,24 +25,24 @@ namespace Dualog.eCatch.Shared
                 throw new ArgumentException("No DCA messages. You need minimum one to generate catch report.");
             }
 
-            var casts = messages.SelectMany(m => m.Casts).Where(c => c.StopTime.Date >= from && c.StopTime.Date <= to);
+            var hauls = messages.SelectMany(m => m.Hauls).Where(c => c.StopTime.Date >= from && c.StopTime.Date <= to);
 
-            var species = new HashSet<string>(from cast in casts
-                                              from fish in cast.FishDistribution
+            var species = new HashSet<string>(from haul in hauls
+                                              from fish in haul.FishDistribution
                                               select fish.FAOCode);
 
-            var groupedCasts =
-                from cast in casts
-                group cast by cast.StopTime.Date into g
-                select new { Date = g.Key, Casts = g };
+            var groupedHauls =
+                from haul in hauls
+                group haul by haul.StopTime.Date into g
+                select new { Date = g.Key, Hauls = g };
 
             var catchReportLines = new List<CatchReportLine>();
-            foreach (var castGroup in groupedCasts)
+            foreach (var haulGroup in groupedHauls)
             {
                 var dict = new Dictionary<string, int>();
-                foreach (var cast in castGroup.Casts)
+                foreach (var haul in haulGroup.Hauls)
                 {
-                    foreach (var fish in cast.FishDistribution)
+                    foreach (var fish in haul.FishDistribution)
                     {
                         if (dict.ContainsKey(fish.FAOCode))
                         {
@@ -59,7 +59,7 @@ namespace Dualog.eCatch.Shared
                         dict.Add(s, 0);
                     }                    
                 }
-                catchReportLines.Add(new CatchReportLine(castGroup.Date, dict));
+                catchReportLines.Add(new CatchReportLine(haulGroup.Date, dict));
             }
 
             return new CatchReport(ship ?? messages.First().Ship, catchReportLines.OrderBy(x => x.Date));

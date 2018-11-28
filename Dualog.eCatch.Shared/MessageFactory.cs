@@ -64,7 +64,7 @@ namespace Dualog.eCatch.Shared
             var messageType = EnumHelper.Parse<MessageType>(values["TM"]);
             var sent = (values["DA"] + values["TI"]).FromFormattedDateTime();
 
-            var casts = new List<IReadOnlyDictionary<string, string>>();
+            var hauls = new List<IReadOnlyDictionary<string, string>>();
             switch (messageType)
             {
                 case MessageType.DEP:
@@ -76,8 +76,8 @@ namespace Dualog.eCatch.Shared
                 case MessageType.POR:
                     return PORMessage.ParseNAFFormat(id, sent, values);
                 case MessageType.DCA:
-                    casts = ParseTSCollectionToDictionaryList(naf);
-                    return DCAMessage.ParseNAFFormat(id, sent, values, casts);
+                    hauls = ParseTSCollectionToDictionaryList(naf);
+                    return DCAMessage.ParseNAFFormat(id, sent, values, hauls);
                 case MessageType.AUD:
                     return AUDMessage.ParseNAFFormat(id, sent, values);
                 case MessageType.TRA:
@@ -91,8 +91,8 @@ namespace Dualog.eCatch.Shared
                 case MessageType.HIA:
                     return HIAMessage.ParseNAFFormat(id, sent, values);
                 case MessageType.HIF:
-                    casts = ParseTSCollectionToDictionaryList(naf);
-                    return HIFMessage.ParseNAFFormat(id, sent, values, casts);
+                    hauls = ParseTSCollectionToDictionaryList(naf);
+                    return HIFMessage.ParseNAFFormat(id, sent, values, hauls);
                 case MessageType.HIL:
                     return HILMessage.ParseNAFFormat(id, sent, values);
                 case MessageType.LAN:
@@ -113,7 +113,7 @@ namespace Dualog.eCatch.Shared
                 var key = match.Groups[1].Value;
                 var value = match.Groups.Count > 2 ? match.Groups[2].Value : string.Empty;
 
-                //If it is a DCA Message and we've reached the TS key, end the loop since casts will be read in a separate method
+                //If it is a DCA Message and we've reached the TS key, end the loop since hauls will be read in a separate method
                 if (key == "TS" && values["TM"] == "DCA")
                 {
                     values.Add("ER", "");
@@ -135,11 +135,11 @@ namespace Dualog.eCatch.Shared
         public static List<IReadOnlyDictionary<string, string>> ParseTSCollectionToDictionaryList(string naf)
         {
             var list = new List<IReadOnlyDictionary<string, string>>();
-            var castMatches = TSRegex.Matches(naf);
-            foreach (Match castMatch in castMatches)
+            var haulMatches = TSRegex.Matches(naf);
+            foreach (Match haulMatch in haulMatches)
             {
                 var values = new Dictionary<string, string>();
-                var matches = NAFRegex.Matches(castMatch.Value);
+                var matches = NAFRegex.Matches(haulMatch.Value);
                 foreach (Match match in matches)
                 {
                     var key = match.Groups[1].Value;

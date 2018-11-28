@@ -20,7 +20,7 @@ namespace Dualog.eCatch.Shared.Tests.MessageTests
             //This is a 191 minute and 15 second duration
             (endTime - startTime).TotalMinutes.Should().Be(191.25);
 
-            var haul = new Cast(startTime, endTime, 0, 0, 0, 0, "", "", new FishFAOAndWeight[0], 0, 0, 0, "", "",
+            var haul = new Haul(startTime, endTime, 0, 0, 0, 0, "", "", new FishFAOAndWeight[0], 0, 0, 0, "", "",
                 new AnimalAndCount[0]);
 
             var duration = haul.GetDuration();
@@ -38,7 +38,7 @@ namespace Dualog.eCatch.Shared.Tests.MessageTests
             (endTime - startTime).TotalMinutes.Should().Be(0.25);
             (endTime - startTime).TotalSeconds.Should().Be(15);
 
-            var haul = new Cast(startTime, endTime, 0, 0, 0, 0, "", "", new FishFAOAndWeight[0], 0, 0, 0, "", "",
+            var haul = new Haul(startTime, endTime, 0, 0, 0, 0, "", "", new FishFAOAndWeight[0], 0, 0, 0, "", "",
                 new AnimalAndCount[0]);
 
             var duration = haul.GetDuration();
@@ -55,7 +55,7 @@ namespace Dualog.eCatch.Shared.Tests.MessageTests
             //This is a 59 second duration
             (endTime - startTime).TotalSeconds.Should().Be(59);
 
-            var haul = new Cast(startTime, endTime, 0, 0, 0, 0, "", "", new FishFAOAndWeight[0], 0, 0, 0, "", "",
+            var haul = new Haul(startTime, endTime, 0, 0, 0, 0, "", "", new FishFAOAndWeight[0], 0, 0, 0, "", "",
                 new AnimalAndCount[0]);
 
             var duration = haul.GetDuration();
@@ -66,7 +66,7 @@ namespace Dualog.eCatch.Shared.Tests.MessageTests
         [Fact]
         public void GetSummaryShouldNotContainHaulsIfThereAreNoHauls()
         {
-            var dca = new DCAMessage("", "", "NOTOS", new Cast[]{}, DateTime.Now, "Skipper", _ship);
+            var dca = new DCAMessage("", "", "NOTOS", new Haul[]{}, DateTime.Now, "Skipper", _ship);
 
             var summaryDict = dca.GetSummaryDictionary(EcatchLangauge.English);
 
@@ -76,17 +76,17 @@ namespace Dualog.eCatch.Shared.Tests.MessageTests
         [Fact]
         public void GetSummaryShouldContainHaul()
         {
-            var haul1 = new Cast(DateTime.Now, DateTime.Now, 0, 0, 0, 0, "", "", new FishFAOAndWeight[0], 0, 0, 0, "", "",
+            var haul1 = new Haul(DateTime.Now, DateTime.Now, 0, 0, 0, 0, "", "", new FishFAOAndWeight[0], 0, 0, 0, "", "",
                 new AnimalAndCount[0]);
-            var dca = new DCAMessage("", "", "NOTOS", new Cast[] {haul1 }, DateTime.Now, "Skipper", _ship);
+            var dca = new DCAMessage("", "", "NOTOS", new Haul[] {haul1 }, DateTime.Now, "Skipper", _ship);
 
             var summaryDict = dca.GetSummaryDictionary(EcatchLangauge.English);
             summaryDict.Should().ContainKey("Haul 1");
 
-            var haul2 = new Cast(DateTime.Now, DateTime.Now, 0, 0, 0, 0, "", "", new FishFAOAndWeight[0], 0, 0, 0, "", "",
+            var haul2 = new Haul(DateTime.Now, DateTime.Now, 0, 0, 0, 0, "", "", new FishFAOAndWeight[0], 0, 0, 0, "", "",
                 new AnimalAndCount[0]);
 
-            var dca2 = new DCAMessage("", "", "NOTOS", new Cast[] { haul1, haul2 }, DateTime.Now, "Skipper", _ship);
+            var dca2 = new DCAMessage("", "", "NOTOS", new Haul[] { haul1, haul2 }, DateTime.Now, "Skipper", _ship);
 
             var dca2SummaryDict = dca2.GetSummaryDictionary(EcatchLangauge.English);
 
@@ -100,11 +100,11 @@ namespace Dualog.eCatch.Shared.Tests.MessageTests
         {
             var unintendedCatch = new AnimalAndCount("EGF", 3);
             var unintendedCatch2 = new AnimalAndCount("SXX", 3);
-            var haul1 = new Cast(new DateTime(2018,10,16,15,3,30), 
+            var haul1 = new Haul(new DateTime(2018,10,16,15,3,30), 
                 new DateTime(2018, 10, 16, 15, 3, 30), 0, 0, 0, 0, "", "", 
                 new FishFAOAndWeight[0], 0, 0, 0, "", "", new[]{ unintendedCatch });
 
-            var dca1 = new DCAMessage("", "", "NOTOS", new Cast[] { haul1 }, 
+            var dca1 = new DCAMessage("", "", "NOTOS", new Haul[] { haul1 }, 
                 new DateTime(2018, 10, 16, 15, 3, 30), "Skipper", _ship);
 
             dca1.ToString().ShouldBeEquivalentTo("//SR//TM/DCA//RN/0//MV/1//AD/NOR//RC/RC1//NA/Ship1//XR/REG1" +
@@ -112,10 +112,10 @@ namespace Dualog.eCatch.Shared.Tests.MessageTests
                                                  "BD/20181016//BT/1503//ZO///LT/00.000//LG/000.000//GE///GP///" +
                                                  "XT/00.000//XG/000.000//DU/0//CA/EGF 3//ER//");
 
-            var haul2 = new Cast(new DateTime(2018, 10, 16, 15, 3, 30), new DateTime(2018, 10, 16, 15, 3, 30)
+            var haul2 = new Haul(new DateTime(2018, 10, 16, 15, 3, 30), new DateTime(2018, 10, 16, 15, 3, 30)
                 , 0, 0, 0, 0, "", "", new FishFAOAndWeight[0], 0, 0, 0, "", "",
                 new[] { unintendedCatch, unintendedCatch2 });
-            var dca2 = new DCAMessage("", "", "NOTOS", new Cast[] { haul2 }, 
+            var dca2 = new DCAMessage("", "", "NOTOS", new Haul[] { haul2 }, 
                 new DateTime(2018, 10, 16, 15, 3, 30), "Skipper", _ship);
             
             dca2.ToString().ShouldBeEquivalentTo("//SR//TM/DCA//RN/0//MV/1//AD/NOR//RC/RC1//NA/Ship1//XR/REG1" +

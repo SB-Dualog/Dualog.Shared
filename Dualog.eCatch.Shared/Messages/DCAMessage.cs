@@ -11,7 +11,7 @@ namespace Dualog.eCatch.Shared.Messages
 {
     public class DCAMessage : Message
     {
-        public IReadOnlyCollection<Cast> Casts { get; }
+        public IReadOnlyCollection<Haul> Hauls { get; }
         public string FishingActivity { get; }
         public string FishingPermission { get; }
         public string ArrivalHarbour { get; }
@@ -21,7 +21,7 @@ namespace Dualog.eCatch.Shared.Messages
             string fishingPermission, 
             string fishingActivity, 
             string arrivalHarbour, 
-            IReadOnlyCollection<Cast> casts, 
+            IReadOnlyCollection<Haul> hauls, 
             DateTime sent, 
             string skipperName, 
             Ship ship, 
@@ -32,13 +32,13 @@ namespace Dualog.eCatch.Shared.Messages
             this.FishingPermission = fishingPermission;
             this.FishingActivity = fishingActivity;
             ArrivalHarbour = arrivalHarbour;
-            Casts = casts;
+            Hauls = hauls;
             PumpingFromBoat = pumpingFromBoat;
         }
 
 		public IReadOnlyList<FishFAOAndWeight> GetFishAndWeights()
 		{
-			return Casts.SelectMany(m => m.FishDistribution).ToList();
+			return Hauls.SelectMany(m => m.FishDistribution).ToList();
 		}
 
         protected override void WriteBody(StringBuilder sb)
@@ -49,7 +49,7 @@ namespace Dualog.eCatch.Shared.Messages
             {
                 sb.Append($"//PO/{ArrivalHarbour}");
             }
-            Casts.ForEach(c => WriteCast(sb, c));
+            Hauls.ForEach(c => WriteHaul(sb, c));
         }
 
         public override Dictionary<string, string> GetSummaryDictionary(EcatchLangauge lang)
@@ -58,10 +58,10 @@ namespace Dualog.eCatch.Shared.Messages
             //result.Add("FishingPermission".Translate(lang), FishingPermission); //TODO Import FishingPermissions to get translation working
             result.Add("FishingActivity".Translate(lang), FishingActivity.ToString().ToFishingActivityName(lang));
             var i = 1;
-            foreach (var cast in Casts)
+            foreach (var haul in Hauls)
             {
-                result.Add($"{"Haul".Translate(lang)} {i}", $"{cast.StartTime:dd.MM.yyyy HH:mm} - {cast.StopTime:dd.MM.yyyy HH:mm} ({cast.GetDuration()} {"Minutes".Translate(lang).ToLowerInvariant()})");
-                result.Add($"{"Catch".Translate(lang)} for {"Haul".Translate(lang).ToLowerInvariant()} {i}", cast.FishDistribution.ToDetailedWeightAndFishNameSummary(lang));
+                result.Add($"{"Haul".Translate(lang)} {i}", $"{haul.StartTime:dd.MM.yyyy HH:mm} - {haul.StopTime:dd.MM.yyyy HH:mm} ({haul.GetDuration()} {"Minutes".Translate(lang).ToLowerInvariant()})");
+                result.Add($"{"Catch".Translate(lang)} for {"Haul".Translate(lang).ToLowerInvariant()} {i}", haul.FishDistribution.ToDetailedWeightAndFishNameSummary(lang));
                 i++;
             }
 
@@ -72,56 +72,56 @@ namespace Dualog.eCatch.Shared.Messages
             return result;
         }
 
-        private void WriteCast(StringBuilder sb, Cast cast)
+        private void WriteHaul(StringBuilder sb, Haul haul)
         {
-            var startLat = cast.StartLatitude.ToWgs84Format(CoordinateType.Latitude);
-            var startLon = cast.StartLongitude.ToWgs84Format(CoordinateType.Longitude);
-            var stopLat = cast.StopLatitude.ToWgs84Format(CoordinateType.Latitude);
-            var stopLon = cast.StopLongitude.ToWgs84Format(CoordinateType.Longitude);
+            var startLat = haul.StartLatitude.ToWgs84Format(CoordinateType.Latitude);
+            var startLon = haul.StartLongitude.ToWgs84Format(CoordinateType.Longitude);
+            var stopLat = haul.StopLatitude.ToWgs84Format(CoordinateType.Latitude);
+            var stopLon = haul.StopLongitude.ToWgs84Format(CoordinateType.Longitude);
             sb.Append("//TS");
-            sb.Append($"//BD/{cast.StartTime.ToFormattedDate()}");
-            sb.Append($"//BT/{cast.StartTime.ToFormattedTime()}");
-            sb.Append($"//ZO/{cast.Zone}");
+            sb.Append($"//BD/{haul.StartTime.ToFormattedDate()}");
+            sb.Append($"//BT/{haul.StartTime.ToFormattedTime()}");
+            sb.Append($"//ZO/{haul.Zone}");
             sb.Append($"//LT/{startLat}");
             sb.Append($"//LG/{startLon}");
-            sb.Append($"//GE/{cast.Tool}");
-            sb.Append($"//GP/{cast.Problem}");
+            sb.Append($"//GE/{haul.Tool}");
+            sb.Append($"//GP/{haul.Problem}");
             sb.Append($"//XT/{stopLat}");
             sb.Append($"//XG/{stopLon}");
-            sb.Append($"//DU/{cast.GetDuration()}");
+            sb.Append($"//DU/{haul.GetDuration()}");
 
 
-            if (!cast.HerringType.IsNullOrEmpty())
+            if (!haul.HerringType.IsNullOrEmpty())
             {
-                sb.Append($"//SS/{cast.HerringType}");
+                sb.Append($"//SS/{haul.HerringType}");
             }
 
-            sb.Append($"//CA/{cast.FishDistribution.ToNAF()}");
-            if (cast.AnimalCount.Any())
+            sb.Append($"//CA/{haul.FishDistribution.ToNAF()}");
+            if (haul.AnimalCount.Any())
             {
-                if (cast.FishDistribution.Any())
+                if (haul.FishDistribution.Any())
                 {
-                    sb.Append(" " + cast.AnimalCount.ToNAF());
+                    sb.Append(" " + haul.AnimalCount.ToNAF());
                 }
                 else
                 {
-                    sb.Append(cast.AnimalCount.ToNAF());
+                    sb.Append(haul.AnimalCount.ToNAF());
                 }
             }
 
-            if (cast.MaskWidth > 0)
+            if (haul.MaskWidth > 0)
             {
-                sb.Append($"//ME/{cast.MaskWidth}");
+                sb.Append($"//ME/{haul.MaskWidth}");
             }
 
-            if (cast.NumberOfTrawls > 0)
+            if (haul.NumberOfTrawls > 0)
             {
-                sb.Append($"//GS/{cast.NumberOfTrawls}");
+                sb.Append($"//GS/{haul.NumberOfTrawls}");
             }
 
-            if (cast.ExtraToolInfo > 0)
+            if (haul.ExtraToolInfo > 0)
             {
-                sb.Append($"//FO/{cast.ExtraToolInfo}");
+                sb.Append($"//FO/{haul.ExtraToolInfo}");
             }
 
             if (FishingActivity.Equals("REL") && !PumpingFromBoat.IsNullOrEmpty())
@@ -144,7 +144,7 @@ namespace Dualog.eCatch.Shared.Messages
                 values["AC"],
                 values.ContainsKey("PO") ? values["PO"] : string.Empty,
                 haulValues.Select(haul => 
-                    new Cast(
+                    new Haul(
                         (haul["BD"] + haul["BT"]).FromFormattedDateTime(),
                         (haul["BD"] + haul["BT"]).FromFormattedDateTime().AddMinutes(Convert.ToDouble(haul["DU"], CultureInfo.InvariantCulture)),
                         Convert.ToDouble(haul["LT"], CultureInfo.InvariantCulture), 

@@ -3,18 +3,18 @@ using System.Linq;
 
 namespace Dualog.eCatch.Shared.Models
 {
-    public class CastReportLine
+    public class HaulReportLine
     {
         public int Number { get; }
-        public Cast Cast { get; }
+        public Haul Haul { get; }
         public SortedSet<FishFAOAndWeight> Catch { get; }
 
         public int TotalWeight => Catch.Select(c => c.Weight).Sum();
 
-        public CastReportLine(int number, Cast cast, Dictionary<string, int> fishWeight)
+        public HaulReportLine(int number, Haul haul, Dictionary<string, int> fishWeight)
         {
             Number = number;
-            Cast = cast;
+            Haul = haul;
             
             var query =
                 from pair in fishWeight

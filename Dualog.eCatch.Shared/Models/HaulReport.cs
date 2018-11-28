@@ -7,22 +7,22 @@ using Dualog.eCatch.Shared.Extensions;
 
 namespace Dualog.eCatch.Shared.Models
 {
-    public class CastReport
+    public class HaulReport
     {
         public Ship Ship { get; }
-        public IEnumerable<CastReportDay> CastPrDay { get; }
+        public IEnumerable<HaulReportDay> HaulPrDay { get; }
         public SortedSet<FishFAOAndWeight> Totals { get; }
         public int TotalWeight => Totals.Select(c => c.Weight).Sum();
 
-        public CastReport(Ship ship, IEnumerable<CastReportDay> castPrDay)
+        public HaulReport(Ship ship, IEnumerable<HaulReportDay> haulPrDay)
         {
             Ship = ship;
-            CastPrDay = castPrDay;
+            HaulPrDay = haulPrDay;
 
             var dict = new Dictionary<string, int>();
-            foreach (var castDay in castPrDay)
+            foreach (var haulDay in haulPrDay)
             {
-                foreach (var line in castDay.Lines)
+                foreach (var line in haulDay.Lines)
                 {
                     foreach (var @catch in line.Catch)
                     {
@@ -113,7 +113,7 @@ namespace Dualog.eCatch.Shared.Models
             sb.AppendLine("</thead>");
 
             sb.AppendLine("<tbody>");
-            foreach (var day in CastPrDay.OrderByDescending(x => x.Date))
+            foreach (var day in HaulPrDay.OrderByDescending(x => x.Date))
             {
                 var i = 0;
                 foreach (var line in day.Lines)
@@ -132,17 +132,17 @@ namespace Dualog.eCatch.Shared.Models
                     {
                         sb.AppendFormat("<td class='one-line'>{0}</td>", excelFormat ? fish.Weight.ToString() : fish.Weight.WithThousandSeparator());
                     }
-                    sb.AppendFormat("<td>{0:dd.MM.yyyy HH:mm}</td>", line.Cast.StartTime);
-                    sb.AppendFormat("<td>{0:dd.MM.yyyy HH:mm}</td>", line.Cast.StopTime);
-                    var duration = line.Cast.StopTime - line.Cast.StartTime;
+                    sb.AppendFormat("<td>{0:dd.MM.yyyy HH:mm}</td>", line.Haul.StartTime);
+                    sb.AppendFormat("<td>{0:dd.MM.yyyy HH:mm}</td>", line.Haul.StopTime);
+                    var duration = line.Haul.StopTime - line.Haul.StartTime;
                     var hoursString = Math.Floor(duration.TotalHours);
                     sb.AppendFormat("<td>{0}</td>", hoursString + duration.ToString(@"\:mm"));
-                    sb.AppendFormat("<td>{0} {1}</td>", line.Cast.StartLatitude.ToWgs84Format(CoordinateType.Latitude),
-                        line.Cast.StartLongitude.ToWgs84Format(CoordinateType.Longitude));
-                    sb.AppendFormat("<td>{0} {1}</td>", line.Cast.StopLatitude.ToWgs84Format(CoordinateType.Latitude),
-                        line.Cast.StopLongitude.ToWgs84Format(CoordinateType.Longitude));
-                    sb.AppendFormat("<td>{0}</td>", line.Cast.Tool.ToToolName(lang));
-                    sb.AppendFormat("<td>{0}</td>", line.Cast.Zone.ToZoneName(lang));
+                    sb.AppendFormat("<td>{0} {1}</td>", line.Haul.StartLatitude.ToWgs84Format(CoordinateType.Latitude),
+                        line.Haul.StartLongitude.ToWgs84Format(CoordinateType.Longitude));
+                    sb.AppendFormat("<td>{0} {1}</td>", line.Haul.StopLatitude.ToWgs84Format(CoordinateType.Latitude),
+                        line.Haul.StopLongitude.ToWgs84Format(CoordinateType.Longitude));
+                    sb.AppendFormat("<td>{0}</td>", line.Haul.Tool.ToToolName(lang));
+                    sb.AppendFormat("<td>{0}</td>", line.Haul.Zone.ToZoneName(lang));
                     sb.AppendLine("</tr>");
                     ++i;
                 }
@@ -168,12 +168,12 @@ namespace Dualog.eCatch.Shared.Models
         }
     }
 
-    public class CastReportDay
+    public class HaulReportDay
     {
         public DateTime Date { get; }
-        public IEnumerable<CastReportLine> Lines { get; }
+        public IEnumerable<HaulReportLine> Lines { get; }
 
-        public CastReportDay(DateTime date, IEnumerable<CastReportLine> lines)
+        public HaulReportDay(DateTime date, IEnumerable<HaulReportLine> lines)
         {
             Date = date;
             Lines = lines;

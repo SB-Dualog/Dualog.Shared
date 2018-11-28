@@ -72,30 +72,30 @@ namespace Dualog.eCatch.Shared.Tests
         }
 
         [Fact]
-        public void Can_calculate_cast_report_based_on_DCA_messages()
+        public void Can_calculate_haul_report_based_on_DCA_messages()
         {
-            var result = CastReportService.CreateReport(messages);
+            var result = HaulReportService.CreateReport(messages);
             Assert.NotNull(result);
             Assert.Equal("MyShip", result.Ship.Name);
 
             Assert.Equal(40, result.Totals.ElementAt(0).Weight);
             Assert.Equal(30, result.Totals.ElementAt(1).Weight);
 
-            result.CastPrDay.ElementAt(0).Lines.Count().Should().Be(1);
-            result.CastPrDay.ElementAt(1).Lines.Count().Should().Be(3);
+            result.HaulPrDay.ElementAt(0).Lines.Count().Should().Be(1);
+            result.HaulPrDay.ElementAt(1).Lines.Count().Should().Be(3);
         }
 
         [Fact]
-        public void Can_calculate_cast_report_based_on_DCA_messages_for_a_given_date_intervall()
+        public void Can_calculate_haul_report_based_on_DCA_messages_for_a_given_date_intervall()
         {
-            var result = CastReportService.CreateReport(messages, DateTime.Today, DateTime.Today);
-            Assert.Single(result.CastPrDay);
+            var result = HaulReportService.CreateReport(messages, DateTime.Today, DateTime.Today);
+            Assert.Single(result.HaulPrDay);
         }
 
         [Fact]
-        public void Can_transform_cast_report_to_HTML()
+        public void Can_transform_haul_report_to_HTML()
         {
-            var html = CastReportService.CreateReport(messages, DateTime.Today, DateTime.Today).ToHtml(EcatchLangauge.Norwegian);
+            var html = HaulReportService.CreateReport(messages, DateTime.Today, DateTime.Today).ToHtml(EcatchLangauge.Norwegian);
             Assert.StartsWith("<!doctype html>", html);
         }
 
