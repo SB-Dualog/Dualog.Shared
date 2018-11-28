@@ -51,7 +51,7 @@ namespace Dualog.eCatch.Shared.Messages.HiSampling
             if (SamplesToDeliver.Count > 0)
             {
                 sb.Append($"//LS/{DeliveryFacility}");
-                sb.Append($"//MS/{SamplesToDeliver.ToNAF()}");
+                sb.Append($"//SH/{SamplesToDeliver.ToNAF()}");
             }
         }
 
@@ -67,7 +67,7 @@ namespace Dualog.eCatch.Shared.Messages.HiSampling
                 sent,
                 values["PO"],
                 (values["PD"] + values["PT"]).FromFormattedDateTime(),
-                MessageParsing.ParseHISamples(values["MS"]),
+                MessageParsing.ParseHISamples(values["SH"]),
                 values.ContainsKey("LS") ? values["LS"] : string.Empty,
                 values["MA"],
                 new Ship(values["NA"], values["RC"], values["XR"]),

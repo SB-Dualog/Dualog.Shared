@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Linq;
+using System.Text.RegularExpressions;
 using Dualog.eCatch.Shared.Models;
 
 namespace Dualog.eCatch.Shared
@@ -42,19 +43,28 @@ namespace Dualog.eCatch.Shared
                 return new ReadOnlyCollection<HiSample>(result);
             }
             hiSamples = hiSamples.TrimStart();
-            var samples = hiSamples.Split(',');
-            foreach (var sample in samples)
+
+            // parses RADIO50-40-1 N to (RADIO50)-(40)-(1) (N)
+            Regex rx = new Regex(@"([A-Z0-9]{4,7})-(\d{1,4})-(\d{1,4})[ ]*([Y|N])[ ]?", 
+                RegexOptions.IgnoreCase);
+
+            MatchCollection matches = rx.Matches(hiSamples);
+            foreach (Match match in matches)
             {
-                var values = sample.Split('-');
-                var radioCallSignal = values[0];
-                var recordNumber = values[1];
-                var sequenceNumber = values[2];
+                var groups = match.Groups;
+                var radioCallSignal = groups[1].Value;
+                var recordNumber = groups[2].Value;
+                var sequenceNumber = groups[3].Value;
+                var status = groups[4].Value;
                 result.Add(
                     new HiSample(
                         radioCallSignal,
                         Convert.ToInt32(recordNumber),
                         Convert.ToInt32(sequenceNumber)
-                    ));
+                    )
+                    {
+                        Status = status
+                    });
             }
           
             return new ReadOnlyCollection<HiSample>(result);

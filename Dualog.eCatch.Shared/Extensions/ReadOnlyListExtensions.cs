@@ -14,7 +14,7 @@ namespace Dualog.eCatch.Shared.Extensions
 
         public static string ToNAF(this IEnumerable<HiSample> source)
         {
-            return string.Join(",", source);
+            return string.Join(" ", source);
         }
 
         public static string ToNAF(this IEnumerable<AnimalAndCount> source)

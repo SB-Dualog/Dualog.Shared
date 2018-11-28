@@ -9,13 +9,14 @@ namespace Dualog.eCatch.Shared.Models
         public int SequenceNumber { get; set; }
         public int RecordNumber { get; set; }
         public string RadioCallSignal { get; set; }
+        public string Status { get; set; }
         public HiSample(string radioCallSignal, int recordNumber, int sequenceNumber)
         {
             RadioCallSignal = radioCallSignal;
             RecordNumber = recordNumber;
             SequenceNumber = sequenceNumber;
         }
-        public override string ToString() => $"{RadioCallSignal}-{RecordNumber}-{SequenceNumber}";
+        public override string ToString() => $"{RadioCallSignal}-{RecordNumber}-{SequenceNumber} {Status}";
 
         public override int GetHashCode()
         {
@@ -28,6 +29,5 @@ namespace Dualog.eCatch.Shared.Models
             if (sample == null) return false;
             return sample.GetHashCode() == GetHashCode();
         }
-
     }
 }
