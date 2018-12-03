@@ -11,7 +11,7 @@ namespace Dualog.eCatch.Shared.Models
         public int RecordNumber { get; set; }
         public string RadioCallSignal { get; set; }
 
-        public string Status { get; set; } = "N";
+        public string Status { get; set; } = "Y";
 
         public HiSample(string radioCallSignal, int recordNumber, int sequenceNumber)
         {
@@ -20,7 +20,9 @@ namespace Dualog.eCatch.Shared.Models
             SequenceNumber = sequenceNumber;
         }
 
-        public bool Delivered => Status.ToUpperInvariant().Equals("Y");
+        public bool Taken => Status.ToUpperInvariant().Equals("Y");
+        public void SetNotTaken () => Status = "N";
+        public void SetTaken () => Status = "Y";
      
         public override string ToString() => $"{RadioCallSignal}-{RecordNumber}-{SequenceNumber} {Status}";
 
