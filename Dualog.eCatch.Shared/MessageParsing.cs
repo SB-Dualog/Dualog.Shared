@@ -60,11 +60,9 @@ namespace Dualog.eCatch.Shared
                     new HiSample(
                         radioCallSignal,
                         Convert.ToInt32(recordNumber),
-                        Convert.ToInt32(sequenceNumber)
-                    )
-                    {
-                        Status = status
-                    });
+                        Convert.ToInt32(sequenceNumber),
+                        status
+                    ));
             }
           
             return new ReadOnlyCollection<HiSample>(result);
