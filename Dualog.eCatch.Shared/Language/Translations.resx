@@ -456,4 +456,10 @@
 	<data name="EndTime" xml:space="preserve">
 		<value>End time</value>
 	</data>
+	<data name="Speed" xml:space="preserve">
+		<value>Speed</value>
+	</data>
+	<data name="Heading" xml:space="preserve">
+		<value>Heading</value>
+	</data>
 </root>
