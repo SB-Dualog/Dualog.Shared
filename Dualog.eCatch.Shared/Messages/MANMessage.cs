@@ -15,19 +15,19 @@ namespace Dualog.eCatch.Shared.Messages
         public string Latitude { get; }
         public string Longitude { get; }
         /// <summary>
-        /// Heading from 1 to 360 degrees
+        /// Course from 0 to 360 degrees
         /// </summary>
-        public int Heading { get; }
+        public int Course { get; }
         /// <summary>
         /// Speed in knots. Set as Knots * 10 (10.5 knots * 10 = 105) 
         /// </summary>
         public int Speed { get; }
-        public MANMessage(DateTime sent, string latitude, string longitude, string skipperName, Ship ship, int heading, int speed) 
+        public MANMessage(DateTime sent, string latitude, string longitude, string skipperName, Ship ship, int course, int speed) 
             : base(MessageType.MAN, sent, skipperName, ship)
         {
             Latitude = latitude;
             Longitude = longitude;
-            Heading = heading;
+            Course = course;
             Speed = speed;
         }
 
@@ -35,7 +35,7 @@ namespace Dualog.eCatch.Shared.Messages
         {
             sb.Append($"//LA/{Latitude}");
             sb.Append($"//LO/{Longitude}");
-            sb.Append($"//CO/{Heading}");
+            sb.Append($"//CO/{Course}");
             sb.Append($"//SP/{Speed}");
         }
 
@@ -44,7 +44,7 @@ namespace Dualog.eCatch.Shared.Messages
             var result = CreateBaseSummaryDictionary(lang);
             result.Add("Latitude".Translate(lang), Latitude);
             result.Add("Longitude".Translate(lang), Longitude);
-            result.Add("Heading".Translate(lang), $"{Heading}°");
+            result.Add("Course".Translate(lang), $"{Course}°");
             result.Add("Speed".Translate(lang), $"{Speed / 10} kn");
             return result;
         }

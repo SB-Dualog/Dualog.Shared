@@ -459,7 +459,7 @@
 	<data name="Speed" xml:space="preserve">
 		<value>Hastighet</value>
 	</data>
-	<data name="Heading" xml:space="preserve">
-		<value>Retning</value>
+	<data name="Course" xml:space="preserve">
+		<value>Kurs</value>
 	</data>
 </root>
