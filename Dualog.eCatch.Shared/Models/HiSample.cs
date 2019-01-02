@@ -22,6 +22,8 @@
      
         public override string ToString() => $"{RadioCallSignal}-{RecordNumber}-{SequenceNumber} {Status}";
 
+        public string Name => $"{RadioCallSignal}-{RecordNumber}-{SequenceNumber}";
+
         public override int GetHashCode() => new { RadioCallSignal, RecordNumber, SequenceNumber }.GetHashCode();
 
         public override bool Equals(object obj)
