@@ -58,6 +58,10 @@ namespace Dualog.eCatch.Shared.Messages.HiSampling
         public override Dictionary<string, string> GetSummaryDictionary(EcatchLangauge lang)
         {
             var result = CreateBaseSummaryDictionary(lang);
+
+            result.Add("ArrivalAt".Translate(lang), $"{ArrivalHarbourCode.ToHarbourName()}, {ArrivalDateTime:dd.MM.yyyy HH:mm} UTC");
+            result.Add("DeliveringTo".Translate(lang), $"{DeliveryFacility}, {SamplesToDeliver.Count}");
+
             return result;
         }
 
