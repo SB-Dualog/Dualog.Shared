@@ -61,12 +61,12 @@ namespace Dualog.eCatch.Shared.Messages.HiSampling
 
             result.Add("ArrivalAt".Translate(lang), $"{ArrivalHarbourCode.ToHarbourName()}, {ArrivalDateTime:dd.MM.yyyy HH:mm} UTC");
             result.Add("DeliveringTo".Translate(lang), $"{DeliveryFacility}, {"Reporting".Translate(lang)} {SamplesToDeliver.Count} {"Samples".Translate(lang).ToLowerInvariant()}");
-            var sb = new StringBuilder();
-            sb.Append($"{"Delivering".Translate(lang)}: ");
+            var samplesBeingDelivered = new StringBuilder();
             foreach (var sample in SamplesToDeliver)
             {
-                sb.Append(sample.Taken ? sample.Name + ", " : "");
+                samplesBeingDelivered.Append(sample.Taken ? sample.Name + ", " : "");
             }
+            result.Add("Delivering".Translate(lang), samplesBeingDelivered.ToString());
 
             return result;
         }
