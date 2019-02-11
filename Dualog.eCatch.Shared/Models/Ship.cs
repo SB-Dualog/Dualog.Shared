@@ -7,6 +7,7 @@
         public string RegistrationNumber { get; set; }
         public int RecordNumberStart { get; set; }
         public int SequenceNumberXEU { get; set; }
+        public int SequenceNumberGBR { get; set; }
         public int SequenceNumberFRO { get; set; }
         public int SequenceNumberRUS { get; set; }
         public int SequenceNumberXNE { get; set; }
