@@ -43,6 +43,7 @@ namespace Dualog.eCatch.Shared
             public const string JanMayenFishingZone = "XJM";
             public const string Skagerrak = "XSK";
             public const string Havforskningsinstituttet = "ZZH";
+            public const string GBR = "GBR";
         }
 
         public static class SpecifiedToolNeeds
@@ -74,12 +75,25 @@ namespace Dualog.eCatch.Shared
             /// <summary>
             /// Zones requiring the LT and LG fields. LT using the format +/- DD.ddd (WGS-84), and LG using the format +/- DDD.ddd (WGS-84)
             /// </summary>
-            public static readonly string[] LtLg = {Zones.EU, Zones.FaroeIslands, Zones.Island, Zones.Russia};
+            public static readonly string[] LtLg =
+            {
+                Zones.EU,
+                Zones.FaroeIslands,
+                Zones.Island,
+                Zones.Russia,
+                Zones.GBR
+            };
 
             /// <summary>
             /// Zones requiring the LA and LO fields. LA using the format N/SGGDD (WGS-84), and LO using the format E/WGGGDD (WGS-84)
             /// </summary>
-            public static readonly string[] LaLo = {Zones.Norway, Zones.Svalbard, Zones.NEAFC, Zones.SvalbardTerritorialWaters};
+            public static readonly string[] LaLo =
+            {
+                Zones.Norway,
+                Zones.Svalbard,
+                Zones.NEAFC,
+                Zones.SvalbardTerritorialWaters
+            };
         }
     }
 }

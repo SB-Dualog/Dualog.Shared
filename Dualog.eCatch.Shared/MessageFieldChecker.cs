@@ -18,8 +18,20 @@ namespace Dualog.eCatch.Shared
             /// </summary>
             public static bool LaLo(string forwardTo) => ZonesUsingLaLo.Contains(forwardTo) || string.IsNullOrEmpty(forwardTo);
 
-            private static readonly string[] ZonesUsingLtLg = { Constants.Zones.EU, Constants.Zones.FaroeIslands, Constants.Zones.Island, Constants.Zones.Russia };
-            private static readonly string[] ZonesUsingLaLo = { Constants.Zones.Norway, Constants.Zones.Svalbard, Constants.Zones.NEAFC };
+            private static readonly string[] ZonesUsingLtLg =
+            {
+                Constants.Zones.EU,
+                Constants.Zones.FaroeIslands,
+                Constants.Zones.Island,
+                Constants.Zones.Russia,
+                Constants.Zones.GBR
+            };
+            private static readonly string[] ZonesUsingLaLo =
+            {
+                Constants.Zones.Norway,
+                Constants.Zones.Svalbard,
+                Constants.Zones.NEAFC
+            };
         }
 
         public static class Coe
@@ -29,7 +41,11 @@ namespace Dualog.eCatch.Shared
             /// </summary>
             /// <param name="forwardTo"></param>
             /// <returns></returns>
-            public static bool XtXg(string forwardTo) => forwardTo != Constants.Zones.Russia && forwardTo != Constants.Zones.EU && forwardTo != Constants.Zones.NEAFC;
+            public static bool XtXg(string forwardTo) => 
+                forwardTo != Constants.Zones.Russia 
+                && forwardTo != Constants.Zones.EU 
+                && forwardTo != Constants.Zones.GBR 
+                && forwardTo != Constants.Zones.NEAFC;
             /// <summary>
             /// Checks if target species is required
             /// </summary>
