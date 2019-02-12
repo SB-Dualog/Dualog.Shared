@@ -9,4 +9,4 @@ XSI	Svalbard territorial waters	Svalbard territorialfarvann
 XJM	Fishing zone by Jan Mayen	Fiskerisonen ved Jan Mayen
 XSK	Skagerrak	Skagerrak
 ZZH	Institute of Marine Research	Havforskningsinstituttet
-GBR	UK Economic Zone	Britisk (økonomisk) sone
+GBR	UK Economic Zone	Britisk økonomisk sone
