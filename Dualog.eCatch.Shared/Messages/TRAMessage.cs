@@ -16,6 +16,7 @@ namespace Dualog.eCatch.Shared.Messages
         public IReadOnlyList<FishFAOAndWeight> FishOnBoard { get; }
         public IReadOnlyList<FishFAOAndWeight> TransferedFish { get; }
         public string RadioCallSignalForOtherParty { get; }
+        public string HarbourCode { get; }
 
         public TRAMessage(
             DateTime sent, 
@@ -28,7 +29,8 @@ namespace Dualog.eCatch.Shared.Messages
             string radioCallSignalForOtherParty,
             string skipperName,
             Ship ship,
-            string cancelCode = "") : base(MessageType.TRA, sent, skipperName, ship, errorCode:cancelCode)
+            string cancelCode = "",
+            string harbourCode = "") : base(MessageType.TRA, sent, skipperName, ship, errorCode:cancelCode)
         {
             this.ReloadingPurpose = reloadingPurpose;
             Latitude = latitude;
@@ -37,6 +39,7 @@ namespace Dualog.eCatch.Shared.Messages
             FishOnBoard = fishOnBoard;
             TransferedFish = transferedFish;
             RadioCallSignalForOtherParty = radioCallSignalForOtherParty;
+            HarbourCode = harbourCode;
         }
 
         protected override void WriteBody(StringBuilder sb)
@@ -56,6 +59,10 @@ namespace Dualog.eCatch.Shared.Messages
             sb.Append(ReloadingPurpose == ReloadingPurpose.Receiving
                 ? $"//TF/{RadioCallSignalForOtherParty.ToUpper().Trim()}"
                 : $"//TT/{RadioCallSignalForOtherParty.ToUpper().Trim()}");
+            if (!HarbourCode.IsNullOrEmpty())
+            {
+                sb.Append($"//PO/{HarbourCode}");
+            }
             sb.Append($"//PD/{ReloadDateTime.ToFormattedDate()}");
             sb.Append($"//PT/{ReloadDateTime.ToFormattedTime()}");
         }
