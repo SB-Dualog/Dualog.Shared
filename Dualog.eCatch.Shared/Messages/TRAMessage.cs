@@ -78,6 +78,10 @@ namespace Dualog.eCatch.Shared.Messages
                     : "TransferedTo".Translate(lang), $"{RadioCallSignalForOtherParty} {ReloadDateTime:dd.MM.yyyy HH:mm}");
             result.Add("TransferedFish".Translate(lang), TransferedFish.ToDetailedWeightAndFishNameSummary(lang));
             result.Add("FishOnBoard".Translate(lang), FishOnBoard.ToDetailedWeightAndFishNameSummary(lang));
+            if (!HarbourCode.IsNullOrEmpty())
+            {
+                result.Add("Harbour".Translate(lang), HarbourCode);
+            }
 
             return result;
         }
@@ -117,7 +121,8 @@ namespace Dualog.eCatch.Shared.Messages
                 purpose == ReloadingPurpose.Receiving ? values["TF"] : values["TT"],
                 values["MA"], 
                 new Ship(values["NA"], values["RC"], values["XR"]),
-                values.ContainsKey("RE") ? values["RE"] : string.Empty)
+                values.ContainsKey("RE") ? values["RE"] : string.Empty,
+                values.ContainsKey("PO") ? values["PO"] : string.Empty)
             {
                 Id = id,
                 ForwardTo = values.ContainsKey("FT") ? values["FT"] : string.Empty,
