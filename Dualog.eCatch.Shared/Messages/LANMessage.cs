@@ -13,11 +13,20 @@ namespace Dualog.eCatch.Shared.Messages
         public IReadOnlyCollection<FishLanding> FishLandings { get; } 
         public string Harbour { get; }
         public DateTime LandingTime { get; }
-        public LANMessage(DateTime sent, string harbour, DateTime landingTime, IReadOnlyCollection<FishLanding> fishLandings, string skipperName, Ship ship) : base(MessageType.LAN, sent, skipperName, ship)
+        public string FishingLicense { get; }
+        public LANMessage(
+            DateTime sent, 
+            string harbour, 
+            DateTime landingTime, 
+            IReadOnlyCollection<FishLanding> fishLandings, 
+            string skipperName, 
+            Ship ship,
+            string fishingLicense = "") : base(MessageType.LAN, sent, skipperName, ship)
         {
             Harbour = harbour;
             LandingTime = landingTime;
             FishLandings = fishLandings;
+            FishingLicense = fishingLicense;
         }
 
         private void WriteFishLanding(StringBuilder sb, FishLanding fishLanding)
@@ -54,6 +63,10 @@ namespace Dualog.eCatch.Shared.Messages
                 //TODO Add more details about each product, such as conservation, condition, unittype, number of units etc
                 i++;
             }
+            if (!FishingLicense.IsNullOrEmpty())
+            {
+                result.Add("FishingLicense".Translate(lang), FishingLicense);
+            }
 
             return result;
         }
@@ -77,8 +90,8 @@ namespace Dualog.eCatch.Shared.Messages
                         f["RA"]
                         )).ToList(),
                 values["MA"],
-                new Ship(values["NA"], values["RC"], values["XR"])
-                )
+                new Ship(values["NA"], values["RC"], values["XR"]),
+                fishingLicense: values.ContainsKey("FL") ? values["FL"] : string.Empty)
             {
                 Id = id,
                 ForwardTo = values.ContainsKey("FT") ? values["FT"] : string.Empty,

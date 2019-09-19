@@ -21,6 +21,7 @@ namespace Dualog.eCatch.Shared.Messages
         public DateTime CrossBorderTime { get; private set; }
         public string CrossBorderLatitude { get; private set; }
         public string CrossBorderLongitude { get; private set; }
+        public string FishingLicense { get; private set; }
 
         public COEMessage(
                         DateTime sent,
@@ -34,7 +35,8 @@ namespace Dualog.eCatch.Shared.Messages
                         IReadOnlyList<FishFAOAndWeight> fishOnBoard,
                         string skipperName,
                         Ship ship,
-                        string cancelCode = "") : base(MessageType.COE, sent, skipperName, ship, errorCode: cancelCode)
+                        string cancelCode = "",
+                        string fishingLicense = "") : base(MessageType.COE, sent, skipperName, ship, errorCode: cancelCode)
         {
             CatchArea = catchArea;
             FishStart = fishStart;
@@ -44,6 +46,7 @@ namespace Dualog.eCatch.Shared.Messages
 		    FishOnBoard = fishOnBoard;
             FishStartLatitude = fishStartLatitude;
             FishStartLongitude = fishStartLongitude;
+            FishingLicense = fishingLicense;
         }
 
         public void SetCrossBorderInfo(DateTime crossBorderTime, string crossBorderLat, string crossBorderLon)
@@ -98,7 +101,10 @@ namespace Dualog.eCatch.Shared.Messages
             {
                 sb.Append($"//DS/{TargetSpecies}");
             }
-
+            if (!FishingLicense.IsNullOrEmpty())
+            {
+                sb.Append($"//FL/{FishingLicense}");
+            }
         }
 
         public override Dictionary<string, string> GetSummaryDictionary(EcatchLangauge lang)
@@ -125,6 +131,11 @@ namespace Dualog.eCatch.Shared.Messages
             if (!string.IsNullOrEmpty(TargetSpecies))
             {
                 result.Add("TargetSpecies".Translate(lang), TargetSpecies.ToFishName(lang));
+            }
+
+            if (!string.IsNullOrEmpty(FishingLicense))
+            {
+                result.Add("FishingLicense".Translate(lang), FishingLicense);
             }
 
             result.Add("FishOnBoard".Translate(lang), FishOnBoard.ToDetailedWeightAndFishNameSummary(lang));
@@ -176,7 +187,8 @@ namespace Dualog.eCatch.Shared.Messages
                 MessageParsing.ParseFishWeights(values["OB"]),
                 values["MA"],
                 new Ship(values["NA"], values["RC"], values["XR"]),
-                values.ContainsKey("RE") ? values["RE"] : string.Empty)
+                values.ContainsKey("RE") ? values["RE"] : string.Empty,
+                fishingLicense: values.ContainsKey("FL") ? values["FL"] : string.Empty)
             {
                 Id = id,
                 ForwardTo = forwardTo,

@@ -17,8 +17,18 @@ namespace Dualog.eCatch.Shared.Messages
         public string MessageStatus { get; }
         public int SequenceNumber { get; }
         public string SentFrom { get; }
+        public string FishingLicense { get; }
 
-        public RETMessage(int id, DateTime sent, string radioCallSignal, string messageStatus, string errorCode = "", int sequenceNumber = 0, int messageVersion = 0, string from = "NOR")
+        public RETMessage(
+            int id,
+            DateTime sent,
+            string radioCallSignal,
+            string messageStatus,
+            string errorCode = "",
+            int sequenceNumber = 0,
+            int messageVersion = 0,
+            string from = "NOR",
+            string fishingLicense = "")
         {
             Id = id;
             Sent = sent;
@@ -28,6 +38,7 @@ namespace Dualog.eCatch.Shared.Messages
             SequenceNumber = sequenceNumber;
             MessageVersion = messageVersion;
             SentFrom = from;
+            FishingLicense = fishingLicense;
         }
 
         public override string ToString()
@@ -56,13 +67,17 @@ namespace Dualog.eCatch.Shared.Messages
             sb.Append($"//TI/{Sent.ToFormattedTime()}");
             sb.Append("//ER//");
 
+            if (!FishingLicense.IsNullOrEmpty())
+            {
+                sb.Append($"//FL/{FishingLicense}");
+            }
             return sb.ToString();
         }
 
-        
+
         public override int GetHashCode()
         {
-            return new {Id, SentFrom, Sent, RadioCallSignal, ErrorCode, SequenceNumber, MessageVersion, MessageStatus}.GetHashCode();
+            return new { Id, SentFrom, Sent, RadioCallSignal, ErrorCode, SequenceNumber, MessageVersion, MessageStatus }.GetHashCode();
         }
 
         public override bool Equals(object obj)
@@ -74,13 +89,14 @@ namespace Dualog.eCatch.Shared.Messages
 
         public static RETMessage ParseNAFFormat(int id, DateTime sent, IReadOnlyDictionary<string, string> values)
         {
-            return new RETMessage(id, sent, 
+            return new RETMessage(id, sent,
                 values["RC"],
                 values["RS"],
                 values.ContainsKey("RE") ? values["RE"] : string.Empty,
                 values.ContainsKey("SQ") ? int.Parse(values["SQ"]) : 0,
                 values.ContainsKey("MV") ? int.Parse(values["MV"]) : 0,
-                values.ContainsKey("FR") ? values["FR"] : "NOR" 
+                values.ContainsKey("FR") ? values["FR"] : "NOR",
+                fishingLicense: values.ContainsKey("FL") ? values["FL"] : string.Empty
                 );
         }
     }

@@ -37,6 +37,8 @@ namespace Dualog.eCatch.Shared.Messages
         /// </summary>
         public DateTime ArrivalDateTime { get; }
 
+        public string FishingLicense { get; }
+
         public PORMessage(             
             DateTime sent,
             string arrivalHarbourCode,
@@ -46,13 +48,15 @@ namespace Dualog.eCatch.Shared.Messages
             string deliveryFacility, 
             string skipperName, 
             Ship ship,
-            string cancelCode = "") : base(MessageType.POR, sent, skipperName, ship, errorCode: cancelCode)
+            string cancelCode = "",
+            string fishingLicense = "") : base(MessageType.POR, sent, skipperName, ship, errorCode: cancelCode)
         {
             ArrivalHarbourCode = arrivalHarbourCode;
             FishOnBoard = fishOnBoard;
             FishToDeliver = fishToDeliver;
             DeliveryFacility = deliveryFacility;
             ArrivalDateTime = arrivalDateTime;
+            FishingLicense = fishingLicense;
 
             if (FishToDeliver.Count > 0)
             {
@@ -78,7 +82,12 @@ namespace Dualog.eCatch.Shared.Messages
             {
                 sb.Append($"//LS/{DeliveryFacility}");
                 sb.Append($"//KG/{FishToDeliver.ToNAF()}");
-            }            
+            }
+
+            if (!FishingLicense.IsNullOrEmpty())
+            {
+                sb.Append($"//FL/{FishingLicense}");
+            }
         }
 
         public override Dictionary<string, string> GetSummaryDictionary(EcatchLangauge lang)
@@ -91,6 +100,11 @@ namespace Dualog.eCatch.Shared.Messages
             if (FishToDeliver.Count > 0)
             {
                 result.Add("DeliveringTo".Translate(lang), $"{DeliveryFacility}, {FishToDeliver.ToDetailedWeightAndFishNameSummary(lang)}");
+            }
+
+            if (!FishingLicense.IsNullOrEmpty())
+            {
+                result.Add("FishingLicense".Translate(lang), FishingLicense);
             }
 
             return result;
@@ -107,7 +121,8 @@ namespace Dualog.eCatch.Shared.Messages
                 values.ContainsKey("LS") ? values["LS"] : string.Empty,
                 values["MA"], 
                 new Ship(values["NA"], values["RC"], values["XR"]),
-                values.ContainsKey("RE") ? values["RE"] : string.Empty)
+                values.ContainsKey("RE") ? values["RE"] : string.Empty,
+                fishingLicense: values.ContainsKey("FL") ? values["FL"] : string.Empty)
             {
                 Id = id,
                 ForwardTo = values.ContainsKey("FT") ? values["FT"] : string.Empty,

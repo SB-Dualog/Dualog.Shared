@@ -19,6 +19,7 @@ namespace Dualog.eCatch.Shared.Messages
 		public string Longitude { get; }
 		public IReadOnlyList<FishFAOAndWeight> FishOnBoard { get; }
         public string Tool { get; }
+        public string FishingLicense { get; }
 
 		public DEPMessage(
                         DateTime sent,
@@ -33,7 +34,8 @@ namespace Dualog.eCatch.Shared.Messages
                         string skipperName,
                         Ship ship,
                         string cancelCode = "",
-                        string tool = "") : base(MessageType.DEP, sent, skipperName, ship, errorCode: cancelCode)
+                        string tool = "",
+                        string fishingLicense = "") : base(MessageType.DEP, sent, skipperName, ship, errorCode: cancelCode)
         {
             FishingActivity = activity;
             TargetFishSpeciesCode = targetFishSpeciesCode;
@@ -44,6 +46,7 @@ namespace Dualog.eCatch.Shared.Messages
             Longitude = longitude;
 			FishOnBoard = fishOnBoard;
 		    Tool = tool;
+            FishingLicense = fishingLicense;
         }
 
         protected override void WriteBody(StringBuilder sb)
@@ -62,6 +65,10 @@ namespace Dualog.eCatch.Shared.Messages
             {
                 sb.Append($"//GE/{Tool}");
             }
+            if (!FishingLicense.IsNullOrEmpty())
+            {
+                sb.Append($"//FL/{FishingLicense}");
+            }
         }
 
         public Dictionary<string, string> GetSummaryForDictionary(EcatchLangauge lang, string arrivalInfo)
@@ -73,6 +80,10 @@ namespace Dualog.eCatch.Shared.Messages
             result.Add("PlannedActivity".Translate(lang), $"{FishingActivity.ToString().ToFishingActivityName(lang)}");
             result.Add("TargetSpecies".Translate(lang), $"{TargetFishSpeciesCode.ToFishName(lang)}");
             result.Add("EstimatedWeightAtDeparture".Translate(lang), FishOnBoard.ToDetailedWeightAndFishNameSummary(lang));
+            if (!FishingLicense.IsNullOrEmpty())
+            {
+                result.Add("FishingLicense".Translate(lang), FishingLicense);
+            }
 
             return result;
         }
@@ -97,7 +108,8 @@ namespace Dualog.eCatch.Shared.Messages
                 values["MA"], 
                 new Ship(values["NA"], values["RC"], values["XR"]),
                 values.ContainsKey("RE") ? values["RE"] : string.Empty,
-                values.ContainsKey("GE") ? values["GE"] : string.Empty)
+                values.ContainsKey("GE") ? values["GE"] : string.Empty,
+                fishingLicense: values.ContainsKey("FL") ? values["FL"] : string.Empty)
             {
                 Id = id,
                 ForwardTo = values.ContainsKey("FT") ? values["FT"] : string.Empty,

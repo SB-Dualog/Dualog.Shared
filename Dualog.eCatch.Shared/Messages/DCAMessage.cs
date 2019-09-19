@@ -16,6 +16,7 @@ namespace Dualog.eCatch.Shared.Messages
         public string FishingPermission { get; }
         public string ArrivalHarbour { get; }
         public string PumpingFromBoat { get; }
+        public string FishingLicense { get; }
 
         public DCAMessage(
             string fishingPermission, 
@@ -27,13 +28,15 @@ namespace Dualog.eCatch.Shared.Messages
             Ship ship, 
             int messageVersion = 1,
             string correctionCode = "",
-            string pumpingFromBoat = "") : base(MessageType.DCA, sent, skipperName, ship, errorCode: correctionCode, messageVersion: messageVersion)
+            string pumpingFromBoat = "",
+            string fishingLicense = "") : base(MessageType.DCA, sent, skipperName, ship, errorCode: correctionCode, messageVersion: messageVersion)
         {
             this.FishingPermission = fishingPermission;
             this.FishingActivity = fishingActivity;
             ArrivalHarbour = arrivalHarbour;
             Hauls = hauls;
             PumpingFromBoat = pumpingFromBoat;
+            FishingLicense = fishingLicense;
         }
 
 		public IReadOnlyList<FishFAOAndWeight> GetFishAndWeights()
@@ -48,6 +51,10 @@ namespace Dualog.eCatch.Shared.Messages
             if (!ArrivalHarbour.IsNullOrEmpty())
             {
                 sb.Append($"//PO/{ArrivalHarbour}");
+            }
+            if (!FishingLicense.IsNullOrEmpty())
+            {
+                sb.Append($"//FL/{FishingLicense}");
             }
             Hauls.ForEach(c => WriteHaul(sb, c));
         }
@@ -68,6 +75,10 @@ namespace Dualog.eCatch.Shared.Messages
             if (!string.IsNullOrEmpty(ArrivalHarbour))
             {
                 result.Add("Arriving".Translate(lang), ArrivalHarbour.ToHarbourName());
+            }
+            if (!FishingLicense.IsNullOrEmpty())
+            {
+                result.Add("FishingLicense".Translate(lang), FishingLicense);
             }
             return result;
         }
@@ -128,6 +139,11 @@ namespace Dualog.eCatch.Shared.Messages
             {
                 sb.Append($"//TF/{PumpingFromBoat}");
             }
+
+            if (!FishingLicense.IsNullOrEmpty())
+            {
+                sb.Append($"//FL/{FishingLicense}");
+            }
         }
 
         public static DCAMessage ParseNAFFormat(int id, DateTime sent, IReadOnlyDictionary<string, string> values, List<IReadOnlyDictionary<string, string>> haulValues)
@@ -167,7 +183,8 @@ namespace Dualog.eCatch.Shared.Messages
                 new Ship(values["NA"], values["RC"], values["XR"]),
                 Convert.ToInt32(values["MV"]),
                 values.ContainsKey("RE") ? values["RE"] : string.Empty,
-                pumpingFrom)
+                pumpingFrom,
+                fishingLicense: values.ContainsKey("FL") ? values["FL"] : string.Empty)
             {
                 Id = id,
                 ForwardTo = values.ContainsKey("FT") ? values["FT"] : string.Empty,

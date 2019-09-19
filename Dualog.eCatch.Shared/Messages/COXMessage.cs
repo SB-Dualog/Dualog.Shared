@@ -18,8 +18,21 @@ namespace Dualog.eCatch.Shared.Messages
         public PositionAndTime PositionAndTime { get;}
         public IReadOnlyList<FishFAOAndWeight> CatchOnBoard { get;} 
         public int DaysFishing { get; }
+        public string FishingLicense { get; }
 
-        public COXMessage(DateTime sent, string zone, string skipperName, Ship ship, IReadOnlyList<FishFAOAndWeight> catchSummarized, IReadOnlyList<FishFAOAndWeight> catchOnBoard, PositionAndTime positionAndTime = null, int daysFishing = 0, string deliveryHarbour = "", string catchArea = "", string errorCode = "") : base(MessageType.COX, sent, skipperName, ship, errorCode)
+        public COXMessage(
+            DateTime sent, 
+            string zone, 
+            string skipperName, 
+            Ship ship, 
+            IReadOnlyList<FishFAOAndWeight> catchSummarized, 
+            IReadOnlyList<FishFAOAndWeight> catchOnBoard, 
+            PositionAndTime positionAndTime = null, 
+            int daysFishing = 0, 
+            string deliveryHarbour = "", 
+            string catchArea = "", 
+            string errorCode = "",
+            string fishingLicense = "") : base(MessageType.COX, sent, skipperName, ship, errorCode)
         {
             Zone = zone;
             DeliveryHarbour = deliveryHarbour;
@@ -28,6 +41,7 @@ namespace Dualog.eCatch.Shared.Messages
             CatchOnBoard = catchOnBoard;
             PositionAndTime = positionAndTime;
             DaysFishing = daysFishing;
+            FishingLicense = fishingLicense;
         }
 
         protected override void WriteBody(StringBuilder sb)
@@ -53,6 +67,10 @@ namespace Dualog.eCatch.Shared.Messages
             {
                 sb.Append($"//OB/{CatchOnBoard.ToNAF()}");
             }
+            if (!FishingLicense.IsNullOrEmpty())
+            {
+                sb.Append($"//FL/{FishingLicense}");
+            }
         }
 
         public override Dictionary<string, string> GetSummaryDictionary(EcatchLangauge lang)
@@ -76,6 +94,11 @@ namespace Dualog.eCatch.Shared.Messages
                 result.Add("FishOnBoard".Translate(lang), CatchOnBoard.ToDetailedWeightAndFishNameSummary(lang));
             }
 
+            if (!FishingLicense.IsNullOrEmpty())
+            {
+                result.Add("FishingLicense".Translate(lang), FishingLicense);
+            }
+
             return result;
         }
 
@@ -92,7 +115,8 @@ namespace Dualog.eCatch.Shared.Messages
                 values.ContainsKey("DF") ? Convert.ToInt32(values["DF"]) : 0,
                 values.ContainsKey("PO") ? values["PO"] : string.Empty,
                 values.ContainsKey("RA") ? values["RA"] : string.Empty,
-                values.ContainsKey("RE") ? values["RE"] : string.Empty)
+                values.ContainsKey("RE") ? values["RE"] : string.Empty,
+                fishingLicense: values.ContainsKey("FL") ? values["FL"] : string.Empty)
             {
                 Id = id,
                 ForwardTo = values.ContainsKey("FT") ? values["FT"] : string.Empty,

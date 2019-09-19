@@ -14,12 +14,22 @@ namespace Dualog.eCatch.Shared.Messages
         public IReadOnlyList<FishFAOAndWeight> CatchSummarized { get; }
         public string Zone { get; }
         public int FishingDaysTotal { get; }
-        public CATMessage(DateTime sent, string catchArea, IReadOnlyList<FishFAOAndWeight> catchSummarized, int fishingDaysTotal, string zone, string skipperName, Ship ship) : base(MessageType.CAT, sent, skipperName, ship)
+        public string FishingLicense { get; }
+        public CATMessage(
+            DateTime sent, 
+            string catchArea, 
+            IReadOnlyList<FishFAOAndWeight> catchSummarized, 
+            int fishingDaysTotal, 
+            string zone, 
+            string skipperName, 
+            Ship ship,
+            string fishingLicense = "") : base(MessageType.CAT, sent, skipperName, ship)
         {
             CatchArea = catchArea;
             CatchSummarized = catchSummarized;
             Zone = zone;
             FishingDaysTotal = fishingDaysTotal;
+            FishingLicense = fishingLicense;
         }
 
         protected override void WriteBody(StringBuilder sb)
@@ -27,6 +37,10 @@ namespace Dualog.eCatch.Shared.Messages
             sb.Append($"//CA/{CatchSummarized.ToNAF()}");
             sb.Append($"//RA/{CatchArea}");
             sb.Append($"//DF/{FishingDaysTotal}");
+            if (!FishingLicense.IsNullOrEmpty())
+            {
+                sb.Append($"//FL/{FishingLicense}");
+            }
         }
 
         public override Dictionary<string, string> GetSummaryDictionary(EcatchLangauge lang)
@@ -36,6 +50,10 @@ namespace Dualog.eCatch.Shared.Messages
             result.Add("FishingDays".Translate(lang), FishingDaysTotal.ToString());
             result.Add("CatchArea".Translate(lang), CatchArea);
             result.Add("DailyCatch".Translate(lang), string.Join(", ", CatchSummarized.Select(x => x.ToReadableFormat(lang))));
+            if (!FishingLicense.IsNullOrEmpty())
+            {
+                result.Add("FishingLicense".Translate(lang), FishingLicense);
+            }
 
             return result;
         }
@@ -49,7 +67,8 @@ namespace Dualog.eCatch.Shared.Messages
                 Convert.ToInt32(values["DF"]),
                 values.ContainsKey("ZO") ? values["ZO"] : string.Empty, 
                 values["MA"],
-                new Ship(values["NA"], values["RC"], values["XR"]))
+                new Ship(values["NA"], values["RC"], values["XR"]),
+                fishingLicense: values.ContainsKey("FL") ? values["FL"] : string.Empty)
             {
                 Id = id,
                 ForwardTo = values.ContainsKey("FT") ? values["FT"] : string.Empty,
