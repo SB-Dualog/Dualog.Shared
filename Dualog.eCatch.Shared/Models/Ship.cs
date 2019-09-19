@@ -12,6 +12,7 @@
         public int SequenceNumberRUS { get; set; }
         public int SequenceNumberXNE { get; set; }
         public int SequenceNumberISL { get; set; }
+        public int SequenceNumberGRL { get; set; }
         public string DisplayName => $"{Name} ({RadioCallSignal})";
         public bool RecordNumberStartIsUnknown { get; set; }
 

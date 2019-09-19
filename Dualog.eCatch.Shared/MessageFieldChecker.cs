@@ -30,7 +30,8 @@ namespace Dualog.eCatch.Shared
             {
                 Constants.Zones.Norway,
                 Constants.Zones.Svalbard,
-                Constants.Zones.NEAFC
+                Constants.Zones.NEAFC,
+                Constants.Zones.Greenland
             };
         }
 
