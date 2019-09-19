@@ -44,7 +44,7 @@ namespace Dualog.eCatch.Shared
             public const string Skagerrak = "XSK";
             public const string Havforskningsinstituttet = "ZZH";
             public const string GBR = "GBR";
-            public const string GRL = "GRL";
+            public const string Greenland = "GRL";
 
         }
 
@@ -94,7 +94,8 @@ namespace Dualog.eCatch.Shared
                 Zones.Norway,
                 Zones.Svalbard,
                 Zones.NEAFC,
-                Zones.SvalbardTerritorialWaters
+                Zones.SvalbardTerritorialWaters,
+                Zones.Greenland
             };
         }
     }

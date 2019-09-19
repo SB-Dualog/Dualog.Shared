@@ -10,7 +10,7 @@
             if (country == "FO") return Constants.Zones.FaroeIslands;
             if (country == "SJ") return Constants.Zones.Svalbard;
             if (country == "GB") return Constants.Zones.GBR;
-            //if (country == "GL") We dont have Greenland yet
+            if (country == "GL") return Constants.Zones.Greenland;
             return Constants.Zones.Norway;
         }
     }
