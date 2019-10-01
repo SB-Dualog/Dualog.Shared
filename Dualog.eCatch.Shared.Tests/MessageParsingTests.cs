@@ -11,7 +11,7 @@ namespace Dualog.eCatch.Shared.Tests
         public void ParseHISamples_should_parse_example_correctly()
         {
             var samples = MessageParsing.ParseHISamples("RADIO50-40-1 N RADIO50-45-5 Y RADIO50-47-8 Y");
-            samples.ShouldBeEquivalentTo(new List<HiSample>()
+            samples.Should().BeEquivalentTo(new List<HiSample>()
             {
                 new HiSample("RADIO50", 40, 1, "N"),
                 new HiSample("RADIO50", 45, 5, "Y"),

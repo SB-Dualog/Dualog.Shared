@@ -4,5 +4,6 @@
     {
         public string CurrentAppVersion { get; set; }
         public bool ClientVersionIsOutDated { get; set; }
+        public bool AppApiFeature { get; set; }
     }
 }

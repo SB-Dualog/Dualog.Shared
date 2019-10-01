@@ -107,7 +107,7 @@ namespace Dualog.eCatch.Shared.Tests.MessageTests
             var dca1 = new DCAMessage("", "", "NOTOS", new Haul[] { haul1 }, 
                 new DateTime(2018, 10, 16, 15, 3, 30), "Skipper", _ship);
 
-            dca1.ToString().ShouldBeEquivalentTo("//SR//TM/DCA//RN/0//MV/1//AD/NOR//RC/RC1//NA/Ship1//XR/REG1" +
+            dca1.ToString().Should().BeEquivalentTo("//SR//TM/DCA//RN/0//MV/1//AD/NOR//RC/RC1//NA/Ship1//XR/REG1" +
                                                  "//MA/Skipper//DA/20181016//TI/1503//QI///AC///PO/NOTOS//TS//" +
                                                  "BD/20181016//BT/1503//ZO///LT/00.000//LG/000.000//GE///GP///" +
                                                  "XT/00.000//XG/000.000//DU/0//CA/EGF 3//ER//");
@@ -118,7 +118,7 @@ namespace Dualog.eCatch.Shared.Tests.MessageTests
             var dca2 = new DCAMessage("", "", "NOTOS", new Haul[] { haul2 }, 
                 new DateTime(2018, 10, 16, 15, 3, 30), "Skipper", _ship);
             
-            dca2.ToString().ShouldBeEquivalentTo("//SR//TM/DCA//RN/0//MV/1//AD/NOR//RC/RC1//NA/Ship1//XR/REG1" +
+            dca2.ToString().Should().BeEquivalentTo("//SR//TM/DCA//RN/0//MV/1//AD/NOR//RC/RC1//NA/Ship1//XR/REG1" +
                                                  "//MA/Skipper//DA/20181016//TI/1503//QI///AC///PO/NOTOS//TS//" +
                                                  "BD/20181016//BT/1503//ZO///LT/00.000//LG/000.000//GE///GP///" +
                                                  "XT/00.000//XG/000.000//DU/0//CA/EGF 3 SXX 3//ER//");

@@ -19,7 +19,7 @@ namespace Dualog.eCatch.Shared.Tests.Extensions
                 new HiSample("RADIO50", 47, 8, "Y"),
             };
 
-            samples.ToNAF().ShouldBeEquivalentTo("RADIO50-40-1 N RADIO50-45-5 Y RADIO50-47-8 Y");
+            samples.ToNAF().Should().BeEquivalentTo("RADIO50-40-1 N RADIO50-45-5 Y RADIO50-47-8 Y");
         }
     }
 }

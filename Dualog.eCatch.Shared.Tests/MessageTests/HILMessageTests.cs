@@ -17,7 +17,7 @@ namespace Dualog.eCatch.Shared.Tests.MessageTests
                 "//SR//TM/HIL//RN/281//FT/ZZH//SQ/69//AD/NOR//RC/mcb8//NA/boaty mcboatface//XR/FF3333KK//MA/Dag Fisk//DA/20181128//TI/1453//PO/NOAAA//PD/20181128//PT/1553//LS/iiiii//MS/mcb8-279-68,mcb8-279-68,mcb8-279-68//ER//";
             var dict = MessageFactory.ParseNAFToDictionary(old_format);
             var message = HILMessage.ParseNAFFormat(1, new DateTime(), dict);
-            message.SamplesToDeliver.ShouldBeEquivalentTo(new List<HiSample>()
+            message.SamplesToDeliver.Should().BeEquivalentTo(new List<HiSample>()
             {
 
             });
@@ -38,7 +38,7 @@ namespace Dualog.eCatch.Shared.Tests.MessageTests
             sample2.SetTaken();
             var sample3 = new HiSample("mcb8", 281, 70);
             sample3.SetTaken();
-            message.SamplesToDeliver.ShouldBeEquivalentTo(new List<HiSample>()
+            message.SamplesToDeliver.Should().BeEquivalentTo(new List<HiSample>()
             {
                 sample1, sample2, sample3
             });
