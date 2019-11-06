@@ -14,31 +14,34 @@ namespace Dualog.eCatch.Shared.Messages
         public string Zone { get; }
         public string DeliveryHarbour { get; }
         public string CatchArea { get; }
-        public IReadOnlyList<FishFAOAndWeight> CatchSummarized { get;}
-        public PositionAndTime PositionAndTime { get;}
-        public IReadOnlyList<FishFAOAndWeight> CatchOnBoard { get;} 
+        public IReadOnlyList<FishFAOAndWeight> CatchSummarized { get; }
+        public PositionAndTime PositionAndTime { get; }
+        public IReadOnlyList<FishFAOAndWeight> CatchOnBoard { get; }
+        public IReadOnlyList<FishFAOAndWeight> CatchDiscarded { get; }
         public int DaysFishing { get; }
         public string FishingLicense { get; }
 
         public COXMessage(
-            DateTime sent, 
-            string zone, 
-            string skipperName, 
-            Ship ship, 
-            IReadOnlyList<FishFAOAndWeight> catchSummarized, 
-            IReadOnlyList<FishFAOAndWeight> catchOnBoard, 
-            PositionAndTime positionAndTime = null, 
-            int daysFishing = 0, 
-            string deliveryHarbour = "", 
-            string catchArea = "", 
+            DateTime sent,
+            string zone,
+            string skipperName,
+            Ship ship,
+            IReadOnlyList<FishFAOAndWeight> catchSummarized,
+            IReadOnlyList<FishFAOAndWeight> catchOnBoard,
+            PositionAndTime positionAndTime = null,
+            int daysFishing = 0,
+            string deliveryHarbour = "",
+            string catchArea = "",
             string errorCode = "",
-            string fishingLicense = "") : base(MessageType.COX, sent, skipperName, ship, errorCode)
+            string fishingLicense = "",
+            IReadOnlyList<FishFAOAndWeight> catchDiscarded = null) : base(MessageType.COX, sent, skipperName, ship, errorCode)
         {
             Zone = zone;
             DeliveryHarbour = deliveryHarbour;
             CatchArea = catchArea;
             CatchSummarized = catchSummarized;
             CatchOnBoard = catchOnBoard;
+            CatchDiscarded = catchDiscarded;
             PositionAndTime = positionAndTime;
             DaysFishing = daysFishing;
             FishingLicense = fishingLicense;
@@ -67,6 +70,10 @@ namespace Dualog.eCatch.Shared.Messages
             {
                 sb.Append($"//OB/{CatchOnBoard.ToNAF()}");
             }
+            if (CatchDiscarded != null && CatchDiscarded.Count > 0)
+            {
+                sb.Append($"//RJ/{CatchDiscarded.ToNAF()}");
+            }
             if (!FishingLicense.IsNullOrEmpty())
             {
                 sb.Append($"//FL/{FishingLicense}");
@@ -94,6 +101,11 @@ namespace Dualog.eCatch.Shared.Messages
                 result.Add("FishOnBoard".Translate(lang), CatchOnBoard.ToDetailedWeightAndFishNameSummary(lang));
             }
 
+            if (Zone == Constants.Zones.Greenland && CatchDiscarded != null)
+            {
+                result.Add("CatchDiscarded".Translate(lang), CatchDiscarded.ToDetailedWeightAndFishNameSummary(lang));
+            }
+
             if (!FishingLicense.IsNullOrEmpty())
             {
                 result.Add("FishingLicense".Translate(lang), FishingLicense);
@@ -111,12 +123,13 @@ namespace Dualog.eCatch.Shared.Messages
                 new Ship(values["NA"], values["RC"], values["XR"]),
                 values.ContainsKey("CA") ? MessageParsing.ParseFishWeights(values["CA"]) : new List<FishFAOAndWeight>(),
                 values.ContainsKey("OB") ? MessageParsing.ParseFishWeights(values["OB"]) : new List<FishFAOAndWeight>(),
-                values.ContainsKey("ZD") && values.ContainsKey("ZT") ? new PositionAndTime((values["ZD"] + values["ZT"]).FromFormattedDateTime(), Convert.ToDouble(values["ZA"], CultureInfo.InvariantCulture), Convert.ToDouble(values["ZG"], CultureInfo.InvariantCulture)) : null, 
+                values.ContainsKey("ZD") && values.ContainsKey("ZT") ? new PositionAndTime((values["ZD"] + values["ZT"]).FromFormattedDateTime(), Convert.ToDouble(values["ZA"], CultureInfo.InvariantCulture), Convert.ToDouble(values["ZG"], CultureInfo.InvariantCulture)) : null,
                 values.ContainsKey("DF") ? Convert.ToInt32(values["DF"]) : 0,
                 values.ContainsKey("PO") ? values["PO"] : string.Empty,
                 values.ContainsKey("RA") ? values["RA"] : string.Empty,
                 values.ContainsKey("RE") ? values["RE"] : string.Empty,
-                fishingLicense: values.ContainsKey("FL") ? values["FL"] : string.Empty)
+                fishingLicense: values.ContainsKey("FL") ? values["FL"] : string.Empty,
+                catchDiscarded: values.ContainsKey("RJ") ? MessageParsing.ParseFishWeights(values["RJ"]) : new List<FishFAOAndWeight>())
             {
                 Id = id,
                 ForwardTo = values.ContainsKey("FT") ? values["FT"] : string.Empty,
