@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <root>
-	<!-- 
+  <!-- 
     Microsoft ResX Schema 
     
     Version 2.0
@@ -59,407 +59,413 @@
             : using a System.ComponentModel.TypeConverter
             : and then encoded with base64 encoding.
     -->
-	<xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
-		<xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
-		<xsd:element name="root" msdata:IsDataSet="true">
-			<xsd:complexType>
-				<xsd:choice maxOccurs="unbounded">
-					<xsd:element name="metadata">
-						<xsd:complexType>
-							<xsd:sequence>
-								<xsd:element name="value" type="xsd:string" minOccurs="0" />
-							</xsd:sequence>
-							<xsd:attribute name="name" use="required" type="xsd:string" />
-							<xsd:attribute name="type" type="xsd:string" />
-							<xsd:attribute name="mimetype" type="xsd:string" />
-							<xsd:attribute ref="xml:space" />
-						</xsd:complexType>
-					</xsd:element>
-					<xsd:element name="assembly">
-						<xsd:complexType>
-							<xsd:attribute name="alias" type="xsd:string" />
-							<xsd:attribute name="name" type="xsd:string" />
-						</xsd:complexType>
-					</xsd:element>
-					<xsd:element name="data">
-						<xsd:complexType>
-							<xsd:sequence>
-								<xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
-								<xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
-							</xsd:sequence>
-							<xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
-							<xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
-							<xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
-							<xsd:attribute ref="xml:space" />
-						</xsd:complexType>
-					</xsd:element>
-					<xsd:element name="resheader">
-						<xsd:complexType>
-							<xsd:sequence>
-								<xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
-							</xsd:sequence>
-							<xsd:attribute name="name" type="xsd:string" use="required" />
-						</xsd:complexType>
-					</xsd:element>
-				</xsd:choice>
-			</xsd:complexType>
-		</xsd:element>
-	</xsd:schema>
-	<resheader name="resmimetype">
-		<value>text/microsoft-resx</value>
-	</resheader>
-	<resheader name="version">
-		<value>2.0</value>
-	</resheader>
-	<resheader name="reader">
-		<value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-	</resheader>
-	<resheader name="writer">
-		<value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-	</resheader>
-	<data name="Menu" xml:space="preserve">
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <data name="Menu" xml:space="preserve">
     <value>Meny</value>
   </data>
-	<data name="Skipper" xml:space="preserve">
+  <data name="Skipper" xml:space="preserve">
     <value>Skipper</value>
   </data>
-	<data name="FishPriceList" xml:space="preserve">
+  <data name="FishPriceList" xml:space="preserve">
     <value>Prisliste for fisk</value>
   </data>
-	<data name="Message" xml:space="preserve">
+  <data name="Message" xml:space="preserve">
     <value>Melding</value>
   </data>
-	<data name="DateAndTime" xml:space="preserve">
+  <data name="DateAndTime" xml:space="preserve">
     <value>Dato/tid</value>
   </data>
-	<data name="RecordNumber" xml:space="preserve">
+  <data name="RecordNumber" xml:space="preserve">
     <value>Meldingsnummer</value>
   </data>
-	<data name="RadioCallSignal" xml:space="preserve">
+  <data name="RadioCallSignal" xml:space="preserve">
     <value>Radiokallesignal</value>
   </data>
-	<data name="From" xml:space="preserve">
+  <data name="From" xml:space="preserve">
     <value>Fra</value>
   </data>
-	<data name="To" xml:space="preserve">
+  <data name="To" xml:space="preserve">
     <value>Til</value>
   </data>
-	<data name="Vessel" xml:space="preserve">
+  <data name="Vessel" xml:space="preserve">
     <value>Fartøy</value>
   </data>
-	<data name="HourOfDay" xml:space="preserve">
+  <data name="HourOfDay" xml:space="preserve">
     <value>Time på døgnet</value>
   </data>
-	<data name="Hour" xml:space="preserve">
+  <data name="Hour" xml:space="preserve">
     <value>Time</value>
   </data>
-	<data name="SkippersName" xml:space="preserve">
+  <data name="SkippersName" xml:space="preserve">
     <value>Skipperens navn</value>
   </data>
-	<data name="PhoneNumber" xml:space="preserve">
+  <data name="PhoneNumber" xml:space="preserve">
     <value>Telefonnummer</value>
   </data>
-	<data name="StreetAddress" xml:space="preserve">
+  <data name="StreetAddress" xml:space="preserve">
     <value>Gateadresse</value>
   </data>
-	<data name="ZipCode" xml:space="preserve">
+  <data name="ZipCode" xml:space="preserve">
     <value>Postnummer</value>
   </data>
-	<data name="PostCity" xml:space="preserve">
+  <data name="PostCity" xml:space="preserve">
     <value>Poststed</value>
   </data>
-	<data name="This" xml:space="preserve">
+  <data name="This" xml:space="preserve">
     <value>Dette</value>
   </data>
-	<data name="Onboard" xml:space="preserve">
+  <data name="Onboard" xml:space="preserve">
     <value>Om bord</value>
   </data>
-	<data name="ReturnMessagesInPlainText" xml:space="preserve">
+  <data name="ReturnMessagesInPlainText" xml:space="preserve">
     <value>Returnmeldinger i ren tekst</value>
   </data>
-	<data name="MessageLog" xml:space="preserve">
+  <data name="MessageLog" xml:space="preserve">
     <value>Meldingslogg</value>
   </data>
-	<data name="Russia" xml:space="preserve">
+  <data name="Russia" xml:space="preserve">
     <value>Russland</value>
   </data>
-	<data name="FaroeIslands" xml:space="preserve">
+  <data name="FaroeIslands" xml:space="preserve">
     <value>Færøyene</value>
   </data>
-	<data name="New" xml:space="preserve">
+  <data name="New" xml:space="preserve">
     <value>Nytt</value>
   </data>
-	<data name="ShowDetails" xml:space="preserve">
+  <data name="ShowDetails" xml:space="preserve">
     <value>Vis detaljer</value>
   </data>
-	<data name="Corrected" xml:space="preserve">
+  <data name="Corrected" xml:space="preserve">
     <value>Korrigert</value>
   </data>
-	<data name="Cancelled" xml:space="preserve">
+  <data name="Cancelled" xml:space="preserve">
     <value>kansellert</value>
   </data>
-	<data name="Departure" xml:space="preserve">
+  <data name="Departure" xml:space="preserve">
     <value>Avgang</value>
   </data>
-	<data name="ArrivalAt" xml:space="preserve">
+  <data name="ArrivalAt" xml:space="preserve">
     <value>Ankomst til</value>
   </data>
-	<data name="PlannedActivityIs" xml:space="preserve">
+  <data name="PlannedActivityIs" xml:space="preserve">
     <value>Planlagt aktivitet er</value>
   </data>
-	<data name="Is" xml:space="preserve">
+  <data name="Is" xml:space="preserve">
     <value>er</value>
   </data>
-	<data name="WeightAtDepartureIs" xml:space="preserve">
+  <data name="WeightAtDepartureIs" xml:space="preserve">
     <value>Rundtvekt ved avreise er</value>
   </data>
-	<data name="FishSpecies" xml:space="preserve">
+  <data name="FishSpecies" xml:space="preserve">
     <value>Fiskeslag</value>
   </data>
-	<data name="DistributedOver" xml:space="preserve">
+  <data name="DistributedOver" xml:space="preserve">
     <value>Fordelt over</value>
   </data>
-	<data name="Haul" xml:space="preserve">
+  <data name="Haul" xml:space="preserve">
     <value>Hal</value>
   </data>
-	<data name="Reported" xml:space="preserve">
+  <data name="Reported" xml:space="preserve">
     <value>Rapportert</value>
   </data>
-	<data name="Transshipment" xml:space="preserve">
+  <data name="Transshipment" xml:space="preserve">
     <value>Omlasting</value>
   </data>
-	<data name="TransferredAtPosition" xml:space="preserve">
+  <data name="TransferredAtPosition" xml:space="preserve">
     <value>overført ved posisjon</value>
   </data>
-	<data name="Sent" xml:space="preserve">
+  <data name="Sent" xml:space="preserve">
     <value>Sendt</value>
   </data>
-	<data name="WeightOnBoard" xml:space="preserve">
+  <data name="WeightOnBoard" xml:space="preserve">
     <value>Rundvekt om bord</value>
   </data>
-	<data name="Delivering" xml:space="preserve">
+  <data name="Delivering" xml:space="preserve">
     <value>Leverer</value>
   </data>
-	<data name="EnteringZone" xml:space="preserve">
+  <data name="EnteringZone" xml:space="preserve">
     <value>Går inn i sone</value>
   </data>
-	<data name="ExitingZone" xml:space="preserve">
+  <data name="ExitingZone" xml:space="preserve">
     <value>Går ut av sone</value>
   </data>
-	<data name="ArrivingAtPosition" xml:space="preserve">
+  <data name="ArrivingAtPosition" xml:space="preserve">
     <value>Ankommer posisjon</value>
   </data>
-	<data name="TargetSpecies" xml:space="preserve">
+  <data name="TargetSpecies" xml:space="preserve">
     <value>Målart</value>
   </data>
-	<data name="Norway" xml:space="preserve">
+  <data name="Norway" xml:space="preserve">
     <value>Norge</value>
   </data>
-	<data name="CatchArea" xml:space="preserve">
+  <data name="CatchArea" xml:space="preserve">
     <value>Fangstområde</value>
   </data>
-	<data name="ControlPoint" xml:space="preserve">
+  <data name="ControlPoint" xml:space="preserve">
     <value>Kontrollpunkt</value>
   </data>
-	<data name="Content" xml:space="preserve">
+  <data name="Content" xml:space="preserve">
     <value>Innhold</value>
   </data>
-	<data name="Position" xml:space="preserve">
+  <data name="Position" xml:space="preserve">
     <value>Posisjon</value>
   </data>
-	<data name="Harbour" xml:space="preserve">
+  <data name="Harbour" xml:space="preserve">
     <value>Havn</value>
   </data>
-	<data name="DeviceApproveAndGiveName" xml:space="preserve">
-		<value>Velg navn for enheten og godkjenn den</value>
-	</data>
-	<data name="ShowErrorLog" xml:space="preserve">
-		<value>Vis feillogg</value>
-	</data>
-	<data name="Current" xml:space="preserve">
-		<value>Nåværende</value>
-	</data>
-	<data name="Show" xml:space="preserve">
-		<value>Vis</value>
-	</data>
-	<data name="YesterdaysCatch" xml:space="preserve">
-		<value>Gårdagens fangst</value>
-	</data>
-	<data name="EstimatedCatchValue" xml:space="preserve">
-		<value>Estimert fangstverdi</value>
-	</data>
-	<data name="Name" xml:space="preserve">
-		<value>Navn</value>
-	</data>
-	<data name="DeliveryMethod" xml:space="preserve">
-		<value>Leveringsmetode</value>
-	</data>
-	<data name="CatchReport" xml:space="preserve">
-		<value>Fangstrapport</value>
-	</data>
-	<data name="HaulReport" xml:space="preserve">
-		<value>Halrapport</value>
-	</data>
-	<data name="Period" xml:space="preserve">
-		<value>Periode</value>
-	</data>
-	<data name="Date" xml:space="preserve">
-		<value>Dato</value>
-	</data>
-	<data name="Start" xml:space="preserve">
-		<value>Start</value>
-	</data>
-	<data name="End" xml:space="preserve">
-		<value>Slutt</value>
-	</data>
-	<data name="Duration" xml:space="preserve">
-		<value>Varighet</value>
-	</data>
-	<data name="StartPosition" xml:space="preserve">
-		<value>Startposisjon</value>
-	</data>
-	<data name="EndPosition" xml:space="preserve">
-		<value>Sluttposisjon</value>
-	</data>
-	<data name="Zone" xml:space="preserve">
-		<value>Sone</value>
-	</data>
-	<data name="Gear" xml:space="preserve">
-		<value>Redskap</value>
-	</data>
-	<data name="TotalWeight" xml:space="preserve">
-		<value>Total vekt</value>
-	</data>
-	<data name="HaulEnded" xml:space="preserve">
-		<value>Hal avsluttet</value>
-	</data>
-	<data name="NetWeight" xml:space="preserve">
-		<value>Nettovekt</value>
-	</data>
-	<data name="PricePerKilo" xml:space="preserve">
-		<value>Pris per kilo</value>
-	</data>
-	<data name="DeliveryDate" xml:space="preserve">
-		<value>Leveringsdato</value>
-	</data>
-	<data name="When" xml:space="preserve">
-		<value>Når</value>
-	</data>
-	<data name="Immediately" xml:space="preserve">
-		<value>Straks</value>
-	</data>
-	<data name="GearDetails" xml:space="preserve">
-		<value>Redskapsdetaljer</value>
-	</data>
-	<data name="Weight" xml:space="preserve">
-		<value>Vekt</value>
-	</data>
-	<data name="HaulDuration" xml:space="preserve">
-		<value>Halets varighet</value>
-	</data>
-	<data name="AirDraught" xml:space="preserve">
-		<value>Seilingshøyde</value>
-	</data>
-	<data name="ShowInTable" xml:space="preserve">
-		<value>Vis i tabell</value>
-	</data>
-	<data name="DeliveryTime" xml:space="preserve">
-		<value>Leveringstidspunkt</value>
-	</data>
-	<data name="ShipName" xml:space="preserve">
-		<value>Fartøynavn</value>
-	</data>
-	<data name="Other" xml:space="preserve">
-		<value>Annen</value>
-	</data>
-	<data name="Total" xml:space="preserve">
-		<value>Totalt</value>
-	</data>
-	<data name="Time" xml:space="preserve">
-		<value>Tid</value>
-	</data>
-	<data name="MessageType" xml:space="preserve">
-		<value>Meldingstype</value>
-	</data>
-	<data name="OtherSpecies" xml:space="preserve">
-		<value>Andre fiskeslag</value>
-	</data>
-	<data name="ToolType" xml:space="preserve">
-		<value>Redskapstype</value>
-	</data>
-	<data name="WeightOnBoardAllShips" xml:space="preserve">
-		<value>Rundvekt om bord alle fartøy</value>
-	</data>
-	<data name="FishingDays" xml:space="preserve">
-		<value>Fiskedager</value>
-	</data>
-	<data name="DailyCatch" xml:space="preserve">
-		<value>Daglig fangst</value>
-	</data>
-	<data name="ForwardedTo" xml:space="preserve">
-		<value>Videresendt til</value>
-	</data>
-	<data name="ControlTime" xml:space="preserve">
-		<value>Tidspunkt for kontroll</value>
-	</data>
-	<data name="DepartureFrom" xml:space="preserve">
-		<value>Avgang fra</value>
-	</data>
-	<data name="PlannedActivity" xml:space="preserve">
-		<value>Planlagt aktivitet</value>
-	</data>
-	<data name="EstimatedWeightAtDeparture" xml:space="preserve">
-		<value>Rundvekt ved avgang</value>
-	</data>
-	<data name="FishOnBoard" xml:space="preserve">
-		<value>Fisk om bord</value>
-	</data>
-	<data name="DeliveringTo" xml:space="preserve">
-		<value>Leverer til</value>
-	</data>
-	<data name="FishStart" xml:space="preserve">
-		<value>Fiskestart</value>
-	</data>
-	<data name="Catch" xml:space="preserve">
-		<value>Fangst</value>
-	</data>
-	<data name="DeliveryHarbour" xml:space="preserve">
-		<value>Leveringshavn</value>
-	</data>
-	<data name="TransferedFrom" xml:space="preserve">
-		<value>Omlastet fra</value>
-	</data>
-	<data name="TransferedTo" xml:space="preserve">
-		<value>Omlastet til</value>
-	</data>
-	<data name="TransferedFish" xml:space="preserve">
-		<value>Omlastet fisk</value>
-	</data>
-	<data name="Landed" xml:space="preserve">
-		<value>Landet</value>
-	</data>
-	<data name="Product" xml:space="preserve">
-		<value>Produkt</value>
-	</data>
-	<data name="FishingActivity" xml:space="preserve">
-		<value>Fiskeaktivitet</value>
-	</data>
-	<data name="Minutes" xml:space="preserve">
-		<value>Minutter</value>
-	</data>
-	<data name="Arrival" xml:space="preserve">
-		<value>Ankomst</value>
-	</data>
-	<data name="StartTime" xml:space="preserve">
-		<value>Starttidspunkt</value>
-	</data>
-	<data name="EndTime" xml:space="preserve">
-		<value>Stopptid</value>
-	</data>
-	<data name="Speed" xml:space="preserve">
-		<value>Hastighet</value>
-	</data>
-	<data name="Course" xml:space="preserve">
-		<value>Kurs</value>
-	</data>
+  <data name="DeviceApproveAndGiveName" xml:space="preserve">
+    <value>Velg navn for enheten og godkjenn den</value>
+  </data>
+  <data name="ShowErrorLog" xml:space="preserve">
+    <value>Vis feillogg</value>
+  </data>
+  <data name="Current" xml:space="preserve">
+    <value>Nåværende</value>
+  </data>
+  <data name="Show" xml:space="preserve">
+    <value>Vis</value>
+  </data>
+  <data name="YesterdaysCatch" xml:space="preserve">
+    <value>Gårdagens fangst</value>
+  </data>
+  <data name="EstimatedCatchValue" xml:space="preserve">
+    <value>Estimert fangstverdi</value>
+  </data>
+  <data name="Name" xml:space="preserve">
+    <value>Navn</value>
+  </data>
+  <data name="DeliveryMethod" xml:space="preserve">
+    <value>Leveringsmetode</value>
+  </data>
+  <data name="CatchReport" xml:space="preserve">
+    <value>Fangstrapport</value>
+  </data>
+  <data name="HaulReport" xml:space="preserve">
+    <value>Halrapport</value>
+  </data>
+  <data name="Period" xml:space="preserve">
+    <value>Periode</value>
+  </data>
+  <data name="Date" xml:space="preserve">
+    <value>Dato</value>
+  </data>
+  <data name="Start" xml:space="preserve">
+    <value>Start</value>
+  </data>
+  <data name="End" xml:space="preserve">
+    <value>Slutt</value>
+  </data>
+  <data name="Duration" xml:space="preserve">
+    <value>Varighet</value>
+  </data>
+  <data name="StartPosition" xml:space="preserve">
+    <value>Startposisjon</value>
+  </data>
+  <data name="EndPosition" xml:space="preserve">
+    <value>Sluttposisjon</value>
+  </data>
+  <data name="Zone" xml:space="preserve">
+    <value>Sone</value>
+  </data>
+  <data name="Gear" xml:space="preserve">
+    <value>Redskap</value>
+  </data>
+  <data name="TotalWeight" xml:space="preserve">
+    <value>Total vekt</value>
+  </data>
+  <data name="HaulEnded" xml:space="preserve">
+    <value>Hal avsluttet</value>
+  </data>
+  <data name="NetWeight" xml:space="preserve">
+    <value>Nettovekt</value>
+  </data>
+  <data name="PricePerKilo" xml:space="preserve">
+    <value>Pris per kilo</value>
+  </data>
+  <data name="DeliveryDate" xml:space="preserve">
+    <value>Leveringsdato</value>
+  </data>
+  <data name="When" xml:space="preserve">
+    <value>Når</value>
+  </data>
+  <data name="Immediately" xml:space="preserve">
+    <value>Straks</value>
+  </data>
+  <data name="GearDetails" xml:space="preserve">
+    <value>Redskapsdetaljer</value>
+  </data>
+  <data name="Weight" xml:space="preserve">
+    <value>Vekt</value>
+  </data>
+  <data name="HaulDuration" xml:space="preserve">
+    <value>Halets varighet</value>
+  </data>
+  <data name="AirDraught" xml:space="preserve">
+    <value>Seilingshøyde</value>
+  </data>
+  <data name="ShowInTable" xml:space="preserve">
+    <value>Vis i tabell</value>
+  </data>
+  <data name="DeliveryTime" xml:space="preserve">
+    <value>Leveringstidspunkt</value>
+  </data>
+  <data name="ShipName" xml:space="preserve">
+    <value>Fartøynavn</value>
+  </data>
+  <data name="Other" xml:space="preserve">
+    <value>Annen</value>
+  </data>
+  <data name="Total" xml:space="preserve">
+    <value>Totalt</value>
+  </data>
+  <data name="Time" xml:space="preserve">
+    <value>Tid</value>
+  </data>
+  <data name="MessageType" xml:space="preserve">
+    <value>Meldingstype</value>
+  </data>
+  <data name="OtherSpecies" xml:space="preserve">
+    <value>Andre fiskeslag</value>
+  </data>
+  <data name="ToolType" xml:space="preserve">
+    <value>Redskapstype</value>
+  </data>
+  <data name="WeightOnBoardAllShips" xml:space="preserve">
+    <value>Rundvekt om bord alle fartøy</value>
+  </data>
+  <data name="FishingDays" xml:space="preserve">
+    <value>Fiskedager</value>
+  </data>
+  <data name="DailyCatch" xml:space="preserve">
+    <value>Daglig fangst</value>
+  </data>
+  <data name="ForwardedTo" xml:space="preserve">
+    <value>Videresendt til</value>
+  </data>
+  <data name="ControlTime" xml:space="preserve">
+    <value>Tidspunkt for kontroll</value>
+  </data>
+  <data name="DepartureFrom" xml:space="preserve">
+    <value>Avgang fra</value>
+  </data>
+  <data name="PlannedActivity" xml:space="preserve">
+    <value>Planlagt aktivitet</value>
+  </data>
+  <data name="EstimatedWeightAtDeparture" xml:space="preserve">
+    <value>Rundvekt ved avgang</value>
+  </data>
+  <data name="FishOnBoard" xml:space="preserve">
+    <value>Fisk om bord</value>
+  </data>
+  <data name="DeliveringTo" xml:space="preserve">
+    <value>Leverer til</value>
+  </data>
+  <data name="FishStart" xml:space="preserve">
+    <value>Fiskestart</value>
+  </data>
+  <data name="Catch" xml:space="preserve">
+    <value>Fangst</value>
+  </data>
+  <data name="DeliveryHarbour" xml:space="preserve">
+    <value>Leveringshavn</value>
+  </data>
+  <data name="TransferedFrom" xml:space="preserve">
+    <value>Omlastet fra</value>
+  </data>
+  <data name="TransferedTo" xml:space="preserve">
+    <value>Omlastet til</value>
+  </data>
+  <data name="TransferedFish" xml:space="preserve">
+    <value>Omlastet fisk</value>
+  </data>
+  <data name="Landed" xml:space="preserve">
+    <value>Landet</value>
+  </data>
+  <data name="Product" xml:space="preserve">
+    <value>Produkt</value>
+  </data>
+  <data name="FishingActivity" xml:space="preserve">
+    <value>Fiskeaktivitet</value>
+  </data>
+  <data name="Minutes" xml:space="preserve">
+    <value>Minutter</value>
+  </data>
+  <data name="Arrival" xml:space="preserve">
+    <value>Ankomst</value>
+  </data>
+  <data name="StartTime" xml:space="preserve">
+    <value>Starttidspunkt</value>
+  </data>
+  <data name="EndTime" xml:space="preserve">
+    <value>Stopptid</value>
+  </data>
+  <data name="Speed" xml:space="preserve">
+    <value>Hastighet</value>
+  </data>
+  <data name="Course" xml:space="preserve">
+    <value>Kurs</value>
+  </data>
+  <data name="CatchDiscarded" xml:space="preserve">
+    <value>Fangst kastet ut</value>
+  </data>
+  <data name="FishingLicense" xml:space="preserve">
+    <value>Fiskelisens</value>
+  </data>
 </root>

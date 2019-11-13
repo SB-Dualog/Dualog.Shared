@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <root>
-	<!-- 
+  <!-- 
     Microsoft ResX Schema 
     
     Version 2.0
@@ -59,407 +59,413 @@
             : using a System.ComponentModel.TypeConverter
             : and then encoded with base64 encoding.
     -->
-	<xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
-		<xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
-		<xsd:element name="root" msdata:IsDataSet="true">
-			<xsd:complexType>
-				<xsd:choice maxOccurs="unbounded">
-					<xsd:element name="metadata">
-						<xsd:complexType>
-							<xsd:sequence>
-								<xsd:element name="value" type="xsd:string" minOccurs="0" />
-							</xsd:sequence>
-							<xsd:attribute name="name" use="required" type="xsd:string" />
-							<xsd:attribute name="type" type="xsd:string" />
-							<xsd:attribute name="mimetype" type="xsd:string" />
-							<xsd:attribute ref="xml:space" />
-						</xsd:complexType>
-					</xsd:element>
-					<xsd:element name="assembly">
-						<xsd:complexType>
-							<xsd:attribute name="alias" type="xsd:string" />
-							<xsd:attribute name="name" type="xsd:string" />
-						</xsd:complexType>
-					</xsd:element>
-					<xsd:element name="data">
-						<xsd:complexType>
-							<xsd:sequence>
-								<xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
-								<xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
-							</xsd:sequence>
-							<xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
-							<xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
-							<xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
-							<xsd:attribute ref="xml:space" />
-						</xsd:complexType>
-					</xsd:element>
-					<xsd:element name="resheader">
-						<xsd:complexType>
-							<xsd:sequence>
-								<xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
-							</xsd:sequence>
-							<xsd:attribute name="name" type="xsd:string" use="required" />
-						</xsd:complexType>
-					</xsd:element>
-				</xsd:choice>
-			</xsd:complexType>
-		</xsd:element>
-	</xsd:schema>
-	<resheader name="resmimetype">
-		<value>text/microsoft-resx</value>
-	</resheader>
-	<resheader name="version">
-		<value>2.0</value>
-	</resheader>
-	<resheader name="reader">
-		<value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-	</resheader>
-	<resheader name="writer">
-		<value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-	</resheader>
-	<data name="Menu" xml:space="preserve">
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <data name="Menu" xml:space="preserve">
     <value>Menu</value>
   </data>
-	<data name="Skipper" xml:space="preserve">
+  <data name="Skipper" xml:space="preserve">
     <value>Skipper</value>
   </data>
-	<data name="FishPriceList" xml:space="preserve">
+  <data name="FishPriceList" xml:space="preserve">
     <value>Price list for fish</value>
   </data>
-	<data name="Message" xml:space="preserve">
+  <data name="Message" xml:space="preserve">
     <value>Message</value>
   </data>
-	<data name="DateAndTime" xml:space="preserve">
+  <data name="DateAndTime" xml:space="preserve">
     <value>Date/time</value>
   </data>
-	<data name="RecordNumber" xml:space="preserve">
+  <data name="RecordNumber" xml:space="preserve">
     <value>Record number</value>
   </data>
-	<data name="RadioCallSignal" xml:space="preserve">
+  <data name="RadioCallSignal" xml:space="preserve">
     <value>Radio call signal</value>
   </data>
-	<data name="From" xml:space="preserve">
+  <data name="From" xml:space="preserve">
     <value>From</value>
   </data>
-	<data name="To" xml:space="preserve">
+  <data name="To" xml:space="preserve">
     <value>To</value>
   </data>
-	<data name="Vessel" xml:space="preserve">
+  <data name="Vessel" xml:space="preserve">
     <value>Vessel</value>
   </data>
-	<data name="HourOfDay" xml:space="preserve">
+  <data name="HourOfDay" xml:space="preserve">
     <value>Hour of the day</value>
   </data>
-	<data name="Hour" xml:space="preserve">
+  <data name="Hour" xml:space="preserve">
     <value>Hour</value>
   </data>
-	<data name="SkippersName" xml:space="preserve">
+  <data name="SkippersName" xml:space="preserve">
     <value>Skippers name</value>
   </data>
-	<data name="PhoneNumber" xml:space="preserve">
+  <data name="PhoneNumber" xml:space="preserve">
     <value>Phone number</value>
   </data>
-	<data name="StreetAddress" xml:space="preserve">
+  <data name="StreetAddress" xml:space="preserve">
     <value>Street address</value>
   </data>
-	<data name="ZipCode" xml:space="preserve">
+  <data name="ZipCode" xml:space="preserve">
     <value>Zip code</value>
   </data>
-	<data name="PostCity" xml:space="preserve">
+  <data name="PostCity" xml:space="preserve">
     <value>City</value>
   </data>
-	<data name="This" xml:space="preserve">
+  <data name="This" xml:space="preserve">
     <value>This</value>
   </data>
-	<data name="Onboard" xml:space="preserve">
+  <data name="Onboard" xml:space="preserve">
     <value>On board</value>
   </data>
-	<data name="MessageLog" xml:space="preserve">
+  <data name="MessageLog" xml:space="preserve">
     <value>Message log</value>
   </data>
-	<data name="ReturnMessagesInPlainText" xml:space="preserve">
+  <data name="ReturnMessagesInPlainText" xml:space="preserve">
     <value>Return messages in plain text</value>
   </data>
-	<data name="FaroeIslands" xml:space="preserve">
+  <data name="FaroeIslands" xml:space="preserve">
     <value>Faroe Islands</value>
   </data>
-	<data name="Russia" xml:space="preserve">
+  <data name="Russia" xml:space="preserve">
     <value>Russia</value>
   </data>
-	<data name="New" xml:space="preserve">
+  <data name="New" xml:space="preserve">
     <value>New</value>
   </data>
-	<data name="ShowDetails" xml:space="preserve">
+  <data name="ShowDetails" xml:space="preserve">
     <value>Show details</value>
   </data>
-	<data name="Corrected" xml:space="preserve">
+  <data name="Corrected" xml:space="preserve">
     <value>Corrected</value>
   </data>
-	<data name="Cancelled" xml:space="preserve">
+  <data name="Cancelled" xml:space="preserve">
     <value>Cancelled</value>
   </data>
-	<data name="Departure" xml:space="preserve">
+  <data name="Departure" xml:space="preserve">
     <value>Departure</value>
   </data>
-	<data name="ArrivalAt" xml:space="preserve">
+  <data name="ArrivalAt" xml:space="preserve">
     <value>Arrival at</value>
   </data>
-	<data name="PlannedActivityIs" xml:space="preserve">
+  <data name="PlannedActivityIs" xml:space="preserve">
     <value>Planned activity is</value>
   </data>
-	<data name="Is" xml:space="preserve">
+  <data name="Is" xml:space="preserve">
     <value>is</value>
   </data>
-	<data name="WeightAtDepartureIs" xml:space="preserve">
+  <data name="WeightAtDepartureIs" xml:space="preserve">
     <value>Weight at departure is</value>
   </data>
-	<data name="FishSpecies" xml:space="preserve">
+  <data name="FishSpecies" xml:space="preserve">
     <value>Fish species</value>
   </data>
-	<data name="DistributedOver" xml:space="preserve">
+  <data name="DistributedOver" xml:space="preserve">
     <value>Distributed over</value>
   </data>
-	<data name="Haul" xml:space="preserve">
+  <data name="Haul" xml:space="preserve">
     <value>Haul</value>
   </data>
-	<data name="Reported" xml:space="preserve">
+  <data name="Reported" xml:space="preserve">
     <value>Reported</value>
   </data>
-	<data name="Transshipment" xml:space="preserve">
+  <data name="Transshipment" xml:space="preserve">
     <value>Transshipment</value>
   </data>
-	<data name="TransferredAtPosition" xml:space="preserve">
+  <data name="TransferredAtPosition" xml:space="preserve">
     <value>transferred at position</value>
   </data>
-	<data name="Sent" xml:space="preserve">
+  <data name="Sent" xml:space="preserve">
     <value>Sent</value>
   </data>
-	<data name="WeightOnBoard" xml:space="preserve">
+  <data name="WeightOnBoard" xml:space="preserve">
     <value>Weight on board</value>
   </data>
-	<data name="Delivering" xml:space="preserve">
+  <data name="Delivering" xml:space="preserve">
     <value>Delivering</value>
   </data>
-	<data name="EnteringZone" xml:space="preserve">
+  <data name="EnteringZone" xml:space="preserve">
     <value>Entering zone</value>
   </data>
-	<data name="ExitingZone" xml:space="preserve">
+  <data name="ExitingZone" xml:space="preserve">
     <value>Exiting zone</value>
   </data>
-	<data name="ArrivingAtPosition" xml:space="preserve">
+  <data name="ArrivingAtPosition" xml:space="preserve">
     <value>Arriving at position</value>
   </data>
-	<data name="TargetSpecies" xml:space="preserve">
+  <data name="TargetSpecies" xml:space="preserve">
     <value>Target species</value>
   </data>
-	<data name="Norway" xml:space="preserve">
+  <data name="Norway" xml:space="preserve">
     <value>Norway</value>
   </data>
-	<data name="CatchArea" xml:space="preserve">
+  <data name="CatchArea" xml:space="preserve">
     <value>Catch area</value>
   </data>
-	<data name="ControlPoint" xml:space="preserve">
+  <data name="ControlPoint" xml:space="preserve">
     <value>Control point</value>
   </data>
-	<data name="Content" xml:space="preserve">
+  <data name="Content" xml:space="preserve">
     <value>Content</value>
   </data>
-	<data name="Position" xml:space="preserve">
+  <data name="Position" xml:space="preserve">
     <value>Position</value>
   </data>
-	<data name="Harbour" xml:space="preserve">
+  <data name="Harbour" xml:space="preserve">
     <value>Harbour</value>
   </data>
-	<data name="DeviceApproveAndGiveName" xml:space="preserve">
-		<value>Choose name for device and approve it</value>
-	</data>
-	<data name="ShowErrorLog" xml:space="preserve">
-		<value>Show error log</value>
-	</data>
-	<data name="Current" xml:space="preserve">
-		<value>Current</value>
-	</data>
-	<data name="Show" xml:space="preserve">
-		<value>Show</value>
-	</data>
-	<data name="YesterdaysCatch" xml:space="preserve">
-		<value>Yesterdays catch</value>
-	</data>
-	<data name="EstimatedCatchValue" xml:space="preserve">
-		<value>Estimated catch value</value>
-	</data>
-	<data name="Name" xml:space="preserve">
-		<value>Name</value>
-	</data>
-	<data name="DeliveryMethod" xml:space="preserve">
-		<value>Delivery method</value>
-	</data>
-	<data name="CatchReport" xml:space="preserve">
-		<value>Catch report</value>
-	</data>
-	<data name="HaulReport" xml:space="preserve">
-		<value>Haul report</value>
-	</data>
-	<data name="Period" xml:space="preserve">
-		<value>Period</value>
-	</data>
-	<data name="Date" xml:space="preserve">
-		<value>Date</value>
-	</data>
-	<data name="Start" xml:space="preserve">
-		<value>Start</value>
-	</data>
-	<data name="End" xml:space="preserve">
-		<value>End</value>
-	</data>
-	<data name="Duration" xml:space="preserve">
-		<value>Duration</value>
-	</data>
-	<data name="StartPosition" xml:space="preserve">
-		<value>Start position</value>
-	</data>
-	<data name="EndPosition" xml:space="preserve">
-		<value>End position</value>
-	</data>
-	<data name="Zone" xml:space="preserve">
-		<value>Zone</value>
-	</data>
-	<data name="Gear" xml:space="preserve">
-		<value>Gear</value>
-	</data>
-	<data name="TotalWeight" xml:space="preserve">
-		<value>Total weight</value>
-	</data>
-	<data name="HaulEnded" xml:space="preserve">
-		<value>Haul ended</value>
-	</data>
-	<data name="NetWeight" xml:space="preserve">
-		<value>Net weight</value>
-	</data>
-	<data name="PricePerKilo" xml:space="preserve">
-		<value>Price per kilo</value>
-	</data>
-	<data name="DeliveryDate" xml:space="preserve">
-		<value>Delivery date</value>
-	</data>
-	<data name="When" xml:space="preserve">
-		<value>When</value>
-	</data>
-	<data name="Immediately" xml:space="preserve">
-		<value>Immediately</value>
-	</data>
-	<data name="Weight" xml:space="preserve">
-		<value>Weight</value>
-	</data>
-	<data name="GearDetails" xml:space="preserve">
-		<value>Gear details</value>
-	</data>
-	<data name="HaulDuration" xml:space="preserve">
-		<value>Haul duration</value>
-	</data>
-	<data name="AirDraught" xml:space="preserve">
-		<value>Air draught</value>
-	</data>
-	<data name="ShowInTable" xml:space="preserve">
-		<value>Show in table</value>
-	</data>
-	<data name="DeliveryTime" xml:space="preserve">
-		<value>Delivery time</value>
-	</data>
-	<data name="ShipName" xml:space="preserve">
-		<value>Ship name</value>
-	</data>
-	<data name="Other" xml:space="preserve">
-		<value>Other</value>
-	</data>
-	<data name="Total" xml:space="preserve">
-		<value>Total</value>
-	</data>
-	<data name="Time" xml:space="preserve">
-		<value>Time</value>
-	</data>
-	<data name="MessageType" xml:space="preserve">
-		<value>Message type</value>
-	</data>
-	<data name="OtherSpecies" xml:space="preserve">
-		<value>Other fish species</value>
-	</data>
-	<data name="ToolType" xml:space="preserve">
-		<value>Tool type</value>
-	</data>
-	<data name="WeightOnBoardAllShips" xml:space="preserve">
-		<value>Weight on board all ships</value>
-	</data>
-	<data name="FishingDays" xml:space="preserve">
-		<value>Fishing days</value>
-	</data>
-	<data name="DailyCatch" xml:space="preserve">
-		<value>Daily catch</value>
-	</data>
-	<data name="ForwardedTo" xml:space="preserve">
-		<value>Forwarded to</value>
-	</data>
-	<data name="ControlTime" xml:space="preserve">
-		<value>Time for control</value>
-	</data>
-	<data name="DepartureFrom" xml:space="preserve">
-		<value>Departure from</value>
-	</data>
-	<data name="PlannedActivity" xml:space="preserve">
-		<value>Planned activity</value>
-	</data>
-	<data name="EstimatedWeightAtDeparture" xml:space="preserve">
-		<value>Estimated weight at departure</value>
-	</data>
-	<data name="FishOnBoard" xml:space="preserve">
-		<value>Fish on board</value>
-	</data>
-	<data name="DeliveringTo" xml:space="preserve">
-		<value>Delivering to</value>
-	</data>
-	<data name="FishStart" xml:space="preserve">
-		<value>Fish start</value>
-	</data>
-	<data name="Catch" xml:space="preserve">
-		<value>Catch</value>
-	</data>
-	<data name="DeliveryHarbour" xml:space="preserve">
-		<value>Delivery harbour</value>
-	</data>
-	<data name="TransferedFrom" xml:space="preserve">
-		<value>Transfered from</value>
-	</data>
-	<data name="TransferedTo" xml:space="preserve">
-		<value>Transfered to</value>
-	</data>
-	<data name="TransferedFish" xml:space="preserve">
-		<value>Transfered fish</value>
-	</data>
-	<data name="Landed" xml:space="preserve">
-		<value>Landed</value>
-	</data>
-	<data name="Product" xml:space="preserve">
-		<value>Product</value>
-	</data>
-	<data name="FishingActivity" xml:space="preserve">
-		<value>Fishing activity</value>
-	</data>
-	<data name="Minutes" xml:space="preserve">
-		<value>Minutes</value>
-	</data>
-	<data name="Arrival" xml:space="preserve">
-		<value>Arrival</value>
-	</data>
-	<data name="StartTime" xml:space="preserve">
-		<value>Start time</value>
-	</data>
-	<data name="EndTime" xml:space="preserve">
-		<value>End time</value>
-	</data>
-	<data name="Speed" xml:space="preserve">
-		<value>Speed</value>
-	</data>
-	<data name="Course" xml:space="preserve">
-		<value>Course</value>
-	</data>
+  <data name="DeviceApproveAndGiveName" xml:space="preserve">
+    <value>Choose name for device and approve it</value>
+  </data>
+  <data name="ShowErrorLog" xml:space="preserve">
+    <value>Show error log</value>
+  </data>
+  <data name="Current" xml:space="preserve">
+    <value>Current</value>
+  </data>
+  <data name="Show" xml:space="preserve">
+    <value>Show</value>
+  </data>
+  <data name="YesterdaysCatch" xml:space="preserve">
+    <value>Yesterdays catch</value>
+  </data>
+  <data name="EstimatedCatchValue" xml:space="preserve">
+    <value>Estimated catch value</value>
+  </data>
+  <data name="Name" xml:space="preserve">
+    <value>Name</value>
+  </data>
+  <data name="DeliveryMethod" xml:space="preserve">
+    <value>Delivery method</value>
+  </data>
+  <data name="CatchReport" xml:space="preserve">
+    <value>Catch report</value>
+  </data>
+  <data name="HaulReport" xml:space="preserve">
+    <value>Haul report</value>
+  </data>
+  <data name="Period" xml:space="preserve">
+    <value>Period</value>
+  </data>
+  <data name="Date" xml:space="preserve">
+    <value>Date</value>
+  </data>
+  <data name="Start" xml:space="preserve">
+    <value>Start</value>
+  </data>
+  <data name="End" xml:space="preserve">
+    <value>End</value>
+  </data>
+  <data name="Duration" xml:space="preserve">
+    <value>Duration</value>
+  </data>
+  <data name="StartPosition" xml:space="preserve">
+    <value>Start position</value>
+  </data>
+  <data name="EndPosition" xml:space="preserve">
+    <value>End position</value>
+  </data>
+  <data name="Zone" xml:space="preserve">
+    <value>Zone</value>
+  </data>
+  <data name="Gear" xml:space="preserve">
+    <value>Gear</value>
+  </data>
+  <data name="TotalWeight" xml:space="preserve">
+    <value>Total weight</value>
+  </data>
+  <data name="HaulEnded" xml:space="preserve">
+    <value>Haul ended</value>
+  </data>
+  <data name="NetWeight" xml:space="preserve">
+    <value>Net weight</value>
+  </data>
+  <data name="PricePerKilo" xml:space="preserve">
+    <value>Price per kilo</value>
+  </data>
+  <data name="DeliveryDate" xml:space="preserve">
+    <value>Delivery date</value>
+  </data>
+  <data name="When" xml:space="preserve">
+    <value>When</value>
+  </data>
+  <data name="Immediately" xml:space="preserve">
+    <value>Immediately</value>
+  </data>
+  <data name="Weight" xml:space="preserve">
+    <value>Weight</value>
+  </data>
+  <data name="GearDetails" xml:space="preserve">
+    <value>Gear details</value>
+  </data>
+  <data name="HaulDuration" xml:space="preserve">
+    <value>Haul duration</value>
+  </data>
+  <data name="AirDraught" xml:space="preserve">
+    <value>Air draught</value>
+  </data>
+  <data name="ShowInTable" xml:space="preserve">
+    <value>Show in table</value>
+  </data>
+  <data name="DeliveryTime" xml:space="preserve">
+    <value>Delivery time</value>
+  </data>
+  <data name="ShipName" xml:space="preserve">
+    <value>Ship name</value>
+  </data>
+  <data name="Other" xml:space="preserve">
+    <value>Other</value>
+  </data>
+  <data name="Total" xml:space="preserve">
+    <value>Total</value>
+  </data>
+  <data name="Time" xml:space="preserve">
+    <value>Time</value>
+  </data>
+  <data name="MessageType" xml:space="preserve">
+    <value>Message type</value>
+  </data>
+  <data name="OtherSpecies" xml:space="preserve">
+    <value>Other fish species</value>
+  </data>
+  <data name="ToolType" xml:space="preserve">
+    <value>Tool type</value>
+  </data>
+  <data name="WeightOnBoardAllShips" xml:space="preserve">
+    <value>Weight on board all ships</value>
+  </data>
+  <data name="FishingDays" xml:space="preserve">
+    <value>Fishing days</value>
+  </data>
+  <data name="DailyCatch" xml:space="preserve">
+    <value>Daily catch</value>
+  </data>
+  <data name="ForwardedTo" xml:space="preserve">
+    <value>Forwarded to</value>
+  </data>
+  <data name="ControlTime" xml:space="preserve">
+    <value>Time for control</value>
+  </data>
+  <data name="DepartureFrom" xml:space="preserve">
+    <value>Departure from</value>
+  </data>
+  <data name="PlannedActivity" xml:space="preserve">
+    <value>Planned activity</value>
+  </data>
+  <data name="EstimatedWeightAtDeparture" xml:space="preserve">
+    <value>Estimated weight at departure</value>
+  </data>
+  <data name="FishOnBoard" xml:space="preserve">
+    <value>Fish on board</value>
+  </data>
+  <data name="DeliveringTo" xml:space="preserve">
+    <value>Delivering to</value>
+  </data>
+  <data name="FishStart" xml:space="preserve">
+    <value>Fish start</value>
+  </data>
+  <data name="Catch" xml:space="preserve">
+    <value>Catch</value>
+  </data>
+  <data name="DeliveryHarbour" xml:space="preserve">
+    <value>Delivery harbour</value>
+  </data>
+  <data name="TransferedFrom" xml:space="preserve">
+    <value>Transfered from</value>
+  </data>
+  <data name="TransferedTo" xml:space="preserve">
+    <value>Transfered to</value>
+  </data>
+  <data name="TransferedFish" xml:space="preserve">
+    <value>Transfered fish</value>
+  </data>
+  <data name="Landed" xml:space="preserve">
+    <value>Landed</value>
+  </data>
+  <data name="Product" xml:space="preserve">
+    <value>Product</value>
+  </data>
+  <data name="FishingActivity" xml:space="preserve">
+    <value>Fishing activity</value>
+  </data>
+  <data name="Minutes" xml:space="preserve">
+    <value>Minutes</value>
+  </data>
+  <data name="Arrival" xml:space="preserve">
+    <value>Arrival</value>
+  </data>
+  <data name="StartTime" xml:space="preserve">
+    <value>Start time</value>
+  </data>
+  <data name="EndTime" xml:space="preserve">
+    <value>End time</value>
+  </data>
+  <data name="Speed" xml:space="preserve">
+    <value>Speed</value>
+  </data>
+  <data name="Course" xml:space="preserve">
+    <value>Course</value>
+  </data>
+  <data name="CatchDiscarded" xml:space="preserve">
+    <value>Catch Discarded</value>
+  </data>
+  <data name="FishingLicense" xml:space="preserve">
+    <value>Fishing License</value>
+  </data>
 </root>
