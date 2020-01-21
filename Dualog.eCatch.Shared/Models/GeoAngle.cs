@@ -36,6 +36,11 @@ namespace Dualog.eCatch.Shared.Models
             //gets the degree
             result.Degrees = (int)Math.Floor(angleInDegrees);
             var delta = angleInDegrees - result.Degrees;
+            delta = Math.Round(delta, 3);
+            if (delta == 1)
+            {
+                delta = 0.999;
+            }
 
             //gets minutes and seconds
             var seconds = (int)Math.Floor(3600.0 * delta);
