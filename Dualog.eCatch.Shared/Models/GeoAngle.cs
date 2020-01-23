@@ -74,7 +74,7 @@ namespace Dualog.eCatch.Shared.Models
         public override string ToString()
         {
             var degrees = IsNegative ? -Degrees : Degrees;
-            return $"{degrees}° {Minutes:00}' {Seconds:00.000}\"";
+            return $"{degrees}° {Minutes:00}' {Seconds.ToString("00.000", CultureInfo.InvariantCulture)}\"";
         }
 
         public string ToWgsFormat(CoordinateType coordinateType)
