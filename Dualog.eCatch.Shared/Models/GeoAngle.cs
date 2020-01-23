@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Globalization;
 using Dualog.eCatch.Shared.Enums;
 
 namespace Dualog.eCatch.Shared.Models
@@ -90,10 +91,14 @@ namespace Dualog.eCatch.Shared.Models
             {
                 case "NS":
                     //return $"{Degrees}° {Minutes:00}' {Seconds:00}\".{Milliseconds:000} {(IsNegative ? "SouthShort".Localize() : "NorthShort".Localize())}"; // TODO Localize
-                    return $"{Degrees}° {Minutes:00}' {Seconds:00.000}\" {(IsNegative ? "S" : "N")}";
+                    var returnString = string.Format(CultureInfo.InvariantCulture, $"{Degrees}° {Minutes:00}' {Seconds:00.000}\" {(IsNegative ? "S" : "N")}");
+                    return returnString;
+
                 case "WE":
                     //return $"{Degrees}° {Minutes:00}' {Seconds:00}\".{Milliseconds:000} {(IsNegative ? "WestShort".Localize() : "EastShort".Localize())}"; // TODO Localize
-                    return $"{Degrees}° {Minutes:00}' {Seconds:00.000}\" {(IsNegative ? "W" : "E")}";
+                    returnString = string.Format(CultureInfo.InvariantCulture, $"{Degrees}° {Minutes:00}' {Seconds:00.000}\" {(IsNegative ? "W" : "E")}");
+                    return returnString;
+                    //return $"{Degrees}° {Minutes:00}' {Seconds:00.000}\" {(IsNegative ? "W" : "E")}";
                 default:
                     throw new NotImplementedException();
             }
