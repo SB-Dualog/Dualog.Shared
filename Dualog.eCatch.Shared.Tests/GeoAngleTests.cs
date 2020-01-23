@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Globalization;
 using System.Text;
 using Dualog.eCatch.Shared.Models;
 using FluentAssertions;
@@ -24,6 +25,17 @@ namespace Dualog.eCatch.Shared.Tests
             Assert.Equal(expectedDegrees, geoAngle.Degrees);
             Assert.Equal(expectedMinutes, geoAngle.Minutes);
             Assert.Equal(expectedSeconds, geoAngle.Seconds);
+        }
+
+        [Theory]
+        [InlineData(70.051326, 24.971782, "70° 03' 04.774\" N", "24° 58' 18.415\" E") ]
+        public void ToString_should_display_correct_value(double latInDegrees, double lonInDegrees, string expectedLat, string expectedLon)
+        {
+            var geoAngleLatString = GeoAngle.FromDouble(latInDegrees).ToString("NS");
+            var geoAngleLonString = GeoAngle.FromDouble(lonInDegrees).ToString("WE");
+            
+            geoAngleLatString.Should().Be(expectedLat);
+            geoAngleLonString.Should().Be(expectedLon);
         }
     }
 }

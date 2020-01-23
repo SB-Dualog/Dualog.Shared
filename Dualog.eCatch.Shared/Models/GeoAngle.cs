@@ -74,7 +74,7 @@ namespace Dualog.eCatch.Shared.Models
         public override string ToString()
         {
             var degrees = IsNegative ? -Degrees : Degrees;
-            return $"{degrees}° {Minutes:00}' {Seconds:00}\"";
+            return $"{degrees}° {Minutes:00}' {Seconds:00.000}\"";
         }
 
         public string ToWgsFormat(CoordinateType coordinateType)
@@ -87,18 +87,18 @@ namespace Dualog.eCatch.Shared.Models
 
         public string ToString(string format)
         {
+
+            
+
             switch (format)
             {
                 case "NS":
                     //return $"{Degrees}° {Minutes:00}' {Seconds:00}\".{Milliseconds:000} {(IsNegative ? "SouthShort".Localize() : "NorthShort".Localize())}"; // TODO Localize
-                    var returnString = string.Format(CultureInfo.InvariantCulture, $"{Degrees}° {Minutes:00}' {Seconds:00.000}\" {(IsNegative ? "S" : "N")}");
-                    return returnString;
+                    return string.Format(CultureInfo.InvariantCulture, $"{Degrees}° {Minutes:00}' {Seconds.ToString("00.000", CultureInfo.InvariantCulture)}\" {(IsNegative ? "S" : "N")}");
 
                 case "WE":
                     //return $"{Degrees}° {Minutes:00}' {Seconds:00}\".{Milliseconds:000} {(IsNegative ? "WestShort".Localize() : "EastShort".Localize())}"; // TODO Localize
-                    returnString = string.Format(CultureInfo.InvariantCulture, $"{Degrees}° {Minutes:00}' {Seconds:00.000}\" {(IsNegative ? "W" : "E")}");
-                    return returnString;
-                    //return $"{Degrees}° {Minutes:00}' {Seconds:00.000}\" {(IsNegative ? "W" : "E")}";
+                    return string.Format(CultureInfo.InvariantCulture, $"{Degrees}° {Minutes:00}' {Seconds.ToString("00.000", CultureInfo.InvariantCulture)}\" {(IsNegative ? "W" : "E")}");
                 default:
                     throw new NotImplementedException();
             }
