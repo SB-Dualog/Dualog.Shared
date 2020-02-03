@@ -62,6 +62,7 @@ namespace Dualog.eCatch.Shared.Models
             var decimalDegrees = Math.Abs(angleInDegrees);
             var result = new GeoAngle();
 
+            result.IsNegative = angleInDegrees < 0;
             result.Degrees = (int)Math.Truncate(decimalDegrees);
             result.Minutes = (int)Math.Truncate((decimalDegrees * 60) % 60);
             result.Seconds = Math.Round(decimalDegrees * 3600 % 60, 3);
@@ -87,9 +88,6 @@ namespace Dualog.eCatch.Shared.Models
 
         public string ToString(string format)
         {
-
-            
-
             switch (format)
             {
                 case "NS":
