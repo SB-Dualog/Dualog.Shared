@@ -20,24 +20,5 @@
         public string DeviceSerial { get; set; }
         public string DeviceVersion { get; set; }
         public string AppVersion { get; set; }
-
-        public ActivateLinkDeviceRequest(
-            string linkAuthToken, 
-            string publicKey, string installTime, 
-            string shipName, string radioCallSignal, string registrationNumber, string vesselEmail, 
-            string deviceModel, string deviceSerial, string deviceVersion, string appVersion)
-        {
-            LinkAuthToken = linkAuthToken;
-            PublicKey = publicKey;
-            InstallTime = installTime;
-            ShipName = shipName;
-            RadioCallSignal = radioCallSignal;
-            RegistrationNumber = registrationNumber;
-            VesselEmail = vesselEmail;
-            DeviceModel = deviceModel;
-            DeviceSerial = deviceSerial;
-            DeviceVersion = deviceVersion;
-            AppVersion = appVersion;
-        }
     }
 }
