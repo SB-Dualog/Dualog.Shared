@@ -41,7 +41,10 @@ namespace Dualog.eCatch.Shared.Messages
                 values.ContainsKey("MS") ? values["MS"] : string.Empty, 
                 sent, 
                 values["MA"], 
-                new Ship(values["NA"], values["RC"], values["XR"]))
+                new Ship(
+                    values.ContainsKey("NA") ? values["NA"] : string.Empty, 
+                    values["RC"],
+                    values.ContainsKey("XR") ? values["XR"] : string.Empty))
             {
                 Id = id,
                 ForwardTo = values.ContainsKey("FT") ? values["FT"] : string.Empty,
