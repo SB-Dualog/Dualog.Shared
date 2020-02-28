@@ -130,7 +130,10 @@ namespace Dualog.eCatch.Shared.Messages
                 MessageParsing.ParseFishWeights(values["KG"]),
                 purpose == ReloadingPurpose.Receiving ? values["TF"] : values["TT"],
                 values["MA"], 
-                new Ship(values["NA"], values["RC"], values["XR"]),
+                new Ship(
+                    values.ContainsKey("NA") ? values["NA"] : string.Empty,
+                    values["RC"],
+                    values.ContainsKey("XR") ? values["XR"] : string.Empty),
                 values.ContainsKey("RE") ? values["RE"] : string.Empty,
                 values.ContainsKey("PO") ? values["PO"] : string.Empty,
                 fishingLicense: values.ContainsKey("FL") ? values["FL"] : string.Empty)
