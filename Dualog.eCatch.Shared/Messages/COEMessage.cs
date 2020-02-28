@@ -178,15 +178,18 @@ namespace Dualog.eCatch.Shared.Messages
             var coeMessage = new COEMessage(
                 sent,
                 values.ContainsKey("RA") ? values["RA"] : string.Empty,
-                (values["PD"] + values["PT"]).FromFormattedDateTime(),
+                (values.ContainsKey("PD") && values.ContainsKey("PT")) ? (values["PD"] + values["PT"]).FromFormattedDateTime() : DateTime.MinValue,
                 values.ContainsKey("DS") ? values["DS"] : string.Empty,
                 currentLat,
                 currentLon,
                 fishStartLat,
                 fishStartLon,
                 MessageParsing.ParseFishWeights(values["OB"]),
-                values["MA"],
-                new Ship(values["NA"], values["RC"], values["XR"]),
+                values.ContainsKey("MA") ? values["MA"] : string.Empty,
+                new Ship(
+                    values.ContainsKey("NA") ? values["NA"] : "N/A", 
+                    values["RC"],
+                    values.ContainsKey("XR") ? values["XR"] : "N/A"),
                 values.ContainsKey("RE") ? values["RE"] : string.Empty,
                 fishingLicense: values.ContainsKey("FL") ? values["FL"] : string.Empty)
             {

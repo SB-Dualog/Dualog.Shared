@@ -119,7 +119,7 @@ namespace Dualog.eCatch.Shared.Messages
             return new COXMessage(
                 sent,
                 values.ContainsKey("FT") ? values["FT"] : string.Empty,
-                values["MA"],
+                values.ContainsKey("MA") ? values["MA"] : string.Empty,
                 new Ship(values["NA"], values["RC"], values["XR"]),
                 values.ContainsKey("CA") ? MessageParsing.ParseFishWeights(values["CA"]) : new List<FishFAOAndWeight>(),
                 values.ContainsKey("OB") ? MessageParsing.ParseFishWeights(values["OB"]) : new List<FishFAOAndWeight>(),

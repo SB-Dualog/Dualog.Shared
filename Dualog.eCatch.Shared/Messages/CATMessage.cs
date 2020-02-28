@@ -16,12 +16,12 @@ namespace Dualog.eCatch.Shared.Messages
         public int FishingDaysTotal { get; }
         public string FishingLicense { get; }
         public CATMessage(
-            DateTime sent, 
-            string catchArea, 
-            IReadOnlyList<FishFAOAndWeight> catchSummarized, 
-            int fishingDaysTotal, 
-            string zone, 
-            string skipperName, 
+            DateTime sent,
+            string catchArea,
+            IReadOnlyList<FishFAOAndWeight> catchSummarized,
+            int fishingDaysTotal,
+            string zone,
+            string skipperName,
             Ship ship,
             string fishingLicense = "") : base(MessageType.CAT, sent, skipperName, ship)
         {
@@ -62,12 +62,15 @@ namespace Dualog.eCatch.Shared.Messages
         {
             return new CATMessage(
                 sent,
-                values["RA"],
+                values.ContainsKey("RA") ? values["RA"] : string.Empty,
                 MessageParsing.ParseFishWeights(values["CA"]),
                 Convert.ToInt32(values["DF"]),
-                values.ContainsKey("ZO") ? values["ZO"] : string.Empty, 
-                values["MA"],
-                new Ship(values["NA"], values["RC"], values["XR"]),
+                values.ContainsKey("ZO") ? values["ZO"] : string.Empty,
+                values.ContainsKey("MA") ? values["MA"] : string.Empty,
+                new Ship(
+                    values.ContainsKey("NA") ? values["NA"] : string.Empty,
+                    values["RC"],
+                    values.ContainsKey("XR") ? values["XR"] : string.Empty),
                 fishingLicense: values.ContainsKey("FL") ? values["FL"] : string.Empty)
             {
                 Id = id,
