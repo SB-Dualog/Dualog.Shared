@@ -25,11 +25,11 @@ namespace Dualog.eCatch.Shared.Messages
 
         public COEMessage(
                         DateTime sent,
-                        string catchArea, 
-                        DateTime fishStart, 
-                        string targetSpecies, 
-                        string currentLatitude, 
-                        string currentLongitude, 
+                        string catchArea,
+                        DateTime fishStart,
+                        string targetSpecies,
+                        string currentLatitude,
+                        string currentLongitude,
                         string fishStartLatitude,
                         string fishStartLongitude,
                         IReadOnlyList<FishFAOAndWeight> fishOnBoard,
@@ -41,9 +41,9 @@ namespace Dualog.eCatch.Shared.Messages
             CatchArea = catchArea;
             FishStart = fishStart;
             TargetSpecies = targetSpecies;
-		    CurrentLatitude = currentLatitude;
-		    CurrentLongitude = currentLongitude;
-		    FishOnBoard = fishOnBoard;
+            CurrentLatitude = currentLatitude;
+            CurrentLongitude = currentLongitude;
+            FishOnBoard = fishOnBoard;
             FishStartLatitude = fishStartLatitude;
             FishStartLongitude = fishStartLongitude;
             FishingLicense = fishingLicense;
@@ -187,9 +187,9 @@ namespace Dualog.eCatch.Shared.Messages
                 MessageParsing.ParseFishWeights(values["OB"]),
                 values.ContainsKey("MA") ? values["MA"] : string.Empty,
                 new Ship(
-                    values.ContainsKey("NA") ? values["NA"] : "N/A", 
+                    values.ContainsKey("NA") ? values["NA"] : string.Empty,
                     values["RC"],
-                    values.ContainsKey("XR") ? values["XR"] : "N/A"),
+                    values.ContainsKey("XR") ? values["XR"] : string.Empty),
                 values.ContainsKey("RE") ? values["RE"] : string.Empty,
                 fishingLicense: values.ContainsKey("FL") ? values["FL"] : string.Empty)
             {
