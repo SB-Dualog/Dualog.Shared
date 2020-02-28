@@ -119,8 +119,11 @@ namespace Dualog.eCatch.Shared.Messages
                 MessageParsing.ParseFishWeights(values.ContainsKey("OB") ? values["OB"] : string.Empty),
                 MessageParsing.ParseFishWeights(values.ContainsKey("KG") ? values["KG"] : string.Empty),
                 values.ContainsKey("LS") ? values["LS"] : string.Empty,
-                values["MA"], 
-                new Ship(values["NA"], values["RC"], values["XR"]),
+                values.ContainsKey("MA") ? values["MA"] : string.Empty,
+                new Ship(
+                    values.ContainsKey("NA") ? values["NA"] : string.Empty, 
+                    values["RC"],
+                    values.ContainsKey("XR") ? values["XR"] : string.Empty),
                 values.ContainsKey("RE") ? values["RE"] : string.Empty,
                 fishingLicense: values.ContainsKey("FL") ? values["FL"] : string.Empty)
             {

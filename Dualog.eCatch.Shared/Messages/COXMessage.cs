@@ -119,8 +119,11 @@ namespace Dualog.eCatch.Shared.Messages
             return new COXMessage(
                 sent,
                 values.ContainsKey("FT") ? values["FT"] : string.Empty,
-                values["MA"],
-                new Ship(values["NA"], values["RC"], values["XR"]),
+                values.ContainsKey("MA") ? values["MA"] : string.Empty,
+                new Ship(
+                    values.ContainsKey("NA") ? values["NA"] : string.Empty,
+                    values["RC"],
+                    values.ContainsKey("XR") ? values["XR"] : string.Empty),
                 values.ContainsKey("CA") ? MessageParsing.ParseFishWeights(values["CA"]) : new List<FishFAOAndWeight>(),
                 values.ContainsKey("OB") ? MessageParsing.ParseFishWeights(values["OB"]) : new List<FishFAOAndWeight>(),
                 values.ContainsKey("ZD") && values.ContainsKey("ZT") ? new PositionAndTime((values["ZD"] + values["ZT"]).FromFormattedDateTime(), Convert.ToDouble(values["ZA"], CultureInfo.InvariantCulture), Convert.ToDouble(values["ZG"], CultureInfo.InvariantCulture)) : null,

@@ -37,7 +37,14 @@ namespace Dualog.eCatch.Shared.Messages
 
         public static AUDMessage ParseNAFFormat(int id, DateTime sent, IReadOnlyDictionary<string, string> values)
         {
-            return new AUDMessage(values["MS"], sent, values["MA"], new Ship(values["NA"], values["RC"], values["XR"]))
+            return new AUDMessage(
+                values.ContainsKey("MS") ? values["MS"] : string.Empty, 
+                sent, 
+                values["MA"], 
+                new Ship(
+                    values.ContainsKey("NA") ? values["NA"] : string.Empty, 
+                    values["RC"],
+                    values.ContainsKey("XR") ? values["XR"] : string.Empty))
             {
                 Id = id,
                 ForwardTo = values.ContainsKey("FT") ? values["FT"] : string.Empty,
