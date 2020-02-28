@@ -180,8 +180,11 @@ namespace Dualog.eCatch.Shared.Messages
                     ).ToList(),
                 sent,
                 values["MA"], 
-                new Ship(values["NA"], values["RC"], values["XR"]),
-                Convert.ToInt32(values["MV"]),
+                new Ship(
+                    values.ContainsKey("NA") ? values["NA"] : string.Empty,
+                    values["RC"],
+                    values.ContainsKey("XR") ? values["XR"] : string.Empty),
+                Convert.ToInt32(values.ContainsKey("MV") ? values["MV"] : "0"),
                 values.ContainsKey("RE") ? values["RE"] : string.Empty,
                 pumpingFrom,
                 fishingLicense: values.ContainsKey("FL") ? values["FL"] : string.Empty)
