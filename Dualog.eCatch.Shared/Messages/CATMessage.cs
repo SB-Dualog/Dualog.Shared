@@ -15,6 +15,7 @@ namespace Dualog.eCatch.Shared.Messages
         public string Zone { get; }
         public int FishingDaysTotal { get; }
         public string FishingLicense { get; }
+
         public CATMessage(
             DateTime sent,
             string catchArea,
@@ -64,7 +65,7 @@ namespace Dualog.eCatch.Shared.Messages
                 sent,
                 values.ContainsKey("RA") ? values["RA"] : string.Empty,
                 MessageParsing.ParseFishWeights(values["CA"]),
-                Convert.ToInt32(values["DF"]),
+                values.ContainsKey("DF") ? Convert.ToInt32(values["DF"]) : 0,
                 values.ContainsKey("ZO") ? values["ZO"] : string.Empty,
                 values.ContainsKey("MA") ? values["MA"] : string.Empty,
                 new Ship(
