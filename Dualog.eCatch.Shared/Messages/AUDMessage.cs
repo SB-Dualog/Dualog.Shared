@@ -39,8 +39,8 @@ namespace Dualog.eCatch.Shared.Messages
         {
             return new AUDMessage(
                 values.ContainsKey("MS") ? values["MS"] : string.Empty, 
-                sent, 
-                values["MA"], 
+                sent,
+                values.ContainsKey("MA") ? values["MA"] : string.Empty,
                 new Ship(
                     values.ContainsKey("NA") ? values["NA"] : string.Empty, 
                     values["RC"],
