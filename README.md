@@ -8,3 +8,7 @@ We use NuGet as a package host. When pushing to master, it will increment the bu
 In order to consume this pacakge, just add the Dualog.eCatch.Shared package as you do for any other package.
 
 https://www.nuget.org/packages/Dualog.eCatch.Shared/
+
+17.09.2020
+
+NuGet API updated: oy2hudnkqcw6csbfdaqazz2gaeoix7aubnp3b7nh5gxxny
