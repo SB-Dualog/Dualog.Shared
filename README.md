@@ -11,4 +11,4 @@ https://www.nuget.org/packages/Dualog.eCatch.Shared/
 
 17.09.2020
 
-NuGet API updated: oy2hudnkqcw6csbfdaqazz2gaeoix7aubnp3b7nh5gxxny
+NuGet API key updated: oy2hudnkqcw6csbfdaqazz2gaeoix7aubnp3b7nh5gxxny
