@@ -1,6 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Text;
 using Dualog.eCatch.Shared.Messages.HiSampling;
 using Dualog.eCatch.Shared.Models;
 using FluentAssertions;
@@ -19,9 +18,8 @@ namespace Dualog.eCatch.Shared.Tests.MessageTests
             var message = HILMessage.ParseNAFFormat(1, new DateTime(), dict);
             message.SamplesToDeliver.Should().BeEquivalentTo(new List<HiSample>()
             {
-
             });
-        }       
+        }
 
         [Fact]
         public void ParseNAFFormat_should_support_current_format()
@@ -42,6 +40,13 @@ namespace Dualog.eCatch.Shared.Tests.MessageTests
             {
                 sample1, sample2, sample3
             });
+        }
+
+        [Fact]
+        public void ParseHiaFromeFangst()
+        {
+            var message = MessageFactory.Parse("//SR//TM/HIA//AD/NOR//DA/20200924//TI/1757//RC/RCSIG72//RN/192//FT/ZZH//SQ/74//NA/HI-Grim//MA/Torgrim Bakke//PO/DKASN//ZD/20200924//ZT/1757//PD/20200924//PT/1757//LA/N6943//LO/E01859//AC/FIS//DS/HER//OB/HER 1900000//ER//");
+            Assert.True(message.MessageType == Enums.MessageType.HIA);
         }
     }
 }

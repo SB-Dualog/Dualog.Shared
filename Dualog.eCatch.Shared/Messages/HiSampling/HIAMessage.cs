@@ -85,7 +85,10 @@ namespace Dualog.eCatch.Shared.Messages.HiSampling
                 values["LO"],
                 MessageParsing.ParseFishWeights(values["OB"]),
                 values["MA"],
-                new Ship(values["NA"], values["RC"], values["XR"]),
+                new Ship(
+                    values.ContainsKey("NA") ? values["NA"] : string.Empty,
+                    values["RC"],
+                    values.ContainsKey("XR") ? values["XR"] : string.Empty),
                 values.ContainsKey("RE") ? values["RE"] : string.Empty,
                 values.ContainsKey("GE") ? values["GE"] : string.Empty)
             {

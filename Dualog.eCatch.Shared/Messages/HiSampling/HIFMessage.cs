@@ -18,13 +18,13 @@ namespace Dualog.eCatch.Shared.Messages.HiSampling
         public string PumpingFromBoat { get; }
 
         public HIFMessage(
-            string fishingPermission, 
-            string fishingActivity, 
-            string arrivalHarbour, 
-            IReadOnlyCollection<Haul> hauls, 
-            DateTime sent, 
-            string skipperName, 
-            Ship ship, 
+            string fishingPermission,
+            string fishingActivity,
+            string arrivalHarbour,
+            IReadOnlyCollection<Haul> hauls,
+            DateTime sent,
+            string skipperName,
+            Ship ship,
             int messageVersion = 1,
             string correctionCode = "",
             string pumpingFromBoat = "") : base(MessageType.HIF, sent, skipperName, ship, errorCode: correctionCode, messageVersion: messageVersion)
@@ -37,10 +37,10 @@ namespace Dualog.eCatch.Shared.Messages.HiSampling
             ForwardTo = Constants.Zones.Havforskningsinstituttet;
         }
 
-		public IReadOnlyList<FishFAOAndWeight> GetFishAndWeights()
-		{
-			return Hauls.SelectMany(m => m.FishDistribution).ToList();
-		}
+        public IReadOnlyList<FishFAOAndWeight> GetFishAndWeights()
+        {
+            return Hauls.SelectMany(m => m.FishDistribution).ToList();
+        }
 
         protected override void WriteBody(StringBuilder sb)
         {
@@ -83,7 +83,6 @@ namespace Dualog.eCatch.Shared.Messages.HiSampling
             sb.Append($"//XT/{stopLat}");
             sb.Append($"//XG/{stopLon}");
             sb.Append($"//DU/{haul.GetDuration()}");
-
 
             if (!haul.HerringType.IsNullOrEmpty())
             {
@@ -137,16 +136,16 @@ namespace Dualog.eCatch.Shared.Messages.HiSampling
                 values["QI"],
                 values["AC"],
                 values.ContainsKey("PO") ? values["PO"] : string.Empty,
-                haulValues.Select(haul => 
+                haulValues.Select(haul =>
                     new Haul(
                         (haul["BD"] + haul["BT"]).FromFormattedDateTime(),
                         (haul["BD"] + haul["BT"]).FromFormattedDateTime().AddMinutes(Convert.ToDouble(haul["DU"], CultureInfo.InvariantCulture)),
-                        Convert.ToDouble(haul["LT"], CultureInfo.InvariantCulture), 
+                        Convert.ToDouble(haul["LT"], CultureInfo.InvariantCulture),
                         Convert.ToDouble(haul["LG"], CultureInfo.InvariantCulture),
                         Convert.ToDouble(haul["XT"], CultureInfo.InvariantCulture),
                         Convert.ToDouble(haul["XG"], CultureInfo.InvariantCulture),
-                        haul["GE"], 
-                        haul["GP"], 
+                        haul["GE"],
+                        haul["GP"],
                         MessageParsing.ParseFishWeights(haul["CA"]),
                         haul.ContainsKey("ME") ? Convert.ToInt32(haul["ME"]) : 0,
                         haul.ContainsKey("GS") ? Convert.ToInt32(haul["GS"]) : 0,
@@ -157,8 +156,11 @@ namespace Dualog.eCatch.Shared.Messages.HiSampling
                         )
                     ).ToList(),
                 sent,
-                values["MA"], 
-                new Ship(values["NA"], values["RC"], values["XR"]),
+                values["MA"],
+                new Ship(
+                    values.ContainsKey("NA") ? values["NA"] : string.Empty,
+                    values["RC"],
+                    values.ContainsKey("XR") ? values["XR"] : string.Empty),
                 Convert.ToInt32(values["MV"]),
                 values.ContainsKey("RE") ? values["RE"] : string.Empty,
                 pumpingFrom)
