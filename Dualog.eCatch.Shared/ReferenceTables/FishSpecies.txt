@@ -83,8 +83,7 @@ APG	Russisk stør	Danube sturgeon (=Osetr)	Acipenser gueldenstaedtii)
 CTG	Rutet teppeskjell	Grooved carpet shell	Ruditapes decussatus	
 URS	Rød kråkebolle	European edible sea urchin	Echinus esculentus	
 HKR	Rød lysing	Red hake	Urophycis chuss	
-TVK	Rød sjøpølse	Red sea cucumber	Parastichopus tremulus	
-GUU	Rødknurr	Tub gurnard	Chelidonichthys lucernus (lucerna)	
+TVK	Rød sjøpølse	Red sea cucumber	Parastichopus tremulus		
 PAC	Rødpagell	Common pandora	Pagellus erythrinus	
 PLE	Rødspette	European plaice	Pleuronectes platessa	
 ACH	Røye	Arctic char	Salvelinus alpinus	
