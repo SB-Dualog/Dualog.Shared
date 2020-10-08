@@ -83,8 +83,7 @@ APG	Russisk stør	Danube sturgeon (=Osetr)	Acipenser gueldenstaedtii)
 CTG	Rutet teppeskjell	Grooved carpet shell	Ruditapes decussatus	
 URS	Rød kråkebolle	European edible sea urchin	Echinus esculentus	
 HKR	Rød lysing	Red hake	Urophycis chuss	
-TVK	Rød sjøpølse	Red sea cucumber	Parastichopus tremulus	
-GUU	Rødknurr	Tub gurnard	Chelidonichthys lucernus (lucerna)	
+TVK	Rød sjøpølse	Red sea cucumber	Parastichopus tremulus		
 PAC	Rødpagell	Common pandora	Pagellus erythrinus	
 PLE	Rødspette	European plaice	Pleuronectes platessa	
 ACH	Røye	Arctic char	Salvelinus alpinus	
@@ -138,3 +137,9 @@ BHG	Nordlig lysprikkfisk	Glacier lanternfish	Benthosema glaciale
 MAV	Laksesild	Silvery lightfish (Pearlsides)	Maurolicus muelleri
 MZZ	Annen marin fisk	Marine fishes	Osteichthyes
 ARY	Strømsild	Argentine	Argentina sphyraena
+MEG	Glassvar	Megrim	Lepidorhombus whiffiagonis
+GUU	Rødknurr	Tub gurnard	Chelidonichthys lucernus (lucerna)
+GUX	Knurr uspes.	Gurnards, searobins	Triglidae
+GUG	Knurr	Grey gurnard	Eutrigla (= Trigla) gurnardus
+NEP	Sjøkreps	Norway lobster	Nephrops norvegicus
+ETX	Svarthå	Velvet belly	Etmopterus spinax
