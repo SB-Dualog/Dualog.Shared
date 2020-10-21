@@ -76,15 +76,14 @@ RJC	Piggskate	Thornback ray	Raja clavata
 TUR	Piggvar	Turbot	Psetta maxima	
 POC	Polartorsk	Polar cod	Boreogadus saida	
 JCM	Raudåte	Copepod	Calanus finmarchicus	
-PRA	Reke (dypvanns )	Northern prawn	Pandalus borealis	
+PRA	Reke (dypvanns)	Northern prawn	Pandalus borealis	
 LUM	Rognkjeks (felles)	Lumpfish (=Lumpsucker)	Cyclopterus lumpus	
 RJY	Rundskate	Round ray	Rajella (Raja) fyllae	
 APG	Russisk stør	Danube sturgeon (=Osetr)	Acipenser gueldenstaedtii)	
 CTG	Rutet teppeskjell	Grooved carpet shell	Ruditapes decussatus	
 URS	Rød kråkebolle	European edible sea urchin	Echinus esculentus	
 HKR	Rød lysing	Red hake	Urophycis chuss	
-TVK	Rød sjøpølse	Red sea cucumber	Parastichopus tremulus	
-GUU	Rødknurr	Tub gurnard	Chelidonichthys lucernus (lucerna)	
+TVK	Rød sjøpølse	Red sea cucumber	Parastichopus tremulus		
 PAC	Rødpagell	Common pandora	Pagellus erythrinus	
 PLE	Rødspette	European plaice	Pleuronectes platessa	
 ACH	Røye	Arctic char	Salvelinus alpinus	
@@ -95,7 +94,7 @@ RJI	Sandskate	Sandy ray	Leucoraja (Raja) circularis
 CLS	Sandskjell	Sand gaper	Mya arenaria	
 SOS	Sandtunge	Sand sole	Solea lascaris	
 JOD	Sanktpetersfisk	John dory	Zeus faber	
-PIL	Sardinella	European pilchard	Sardina pilchardus	
+PIL	Sardin	European pilchard	Sardina pilchardus	
 DAI	Sebrafisk	Zebra danio	Danio rerio	
 POK	Sei	Saithe (= Pollock)	Pollachius virens	
 HER	Sild	Herring	Clupea harengus	
@@ -138,3 +137,13 @@ BHG	Nordlig lysprikkfisk	Glacier lanternfish	Benthosema glaciale
 MAV	Laksesild	Silvery lightfish (Pearlsides)	Maurolicus muelleri
 MZZ	Annen marin fisk	Marine fishes	Osteichthyes
 ARY	Strømsild	Argentine	Argentina sphyraena
+MEG	Glassvar	Megrim	Lepidorhombus whiffiagonis
+GUU	Rødknurr	Tub gurnard	Chelidonichthys lucernus (lucerna)
+GUX	Knurr uspes.	Gurnards, searobins	Triglidae
+GUG	Knurr	Grey gurnard	Eutrigla (= Trigla) gurnardus
+ETX	Svarthå	Velvet belly	Etmopterus spinax
+AMS	Saltsjøkreps	Brine shrimp	Artemia salina
+FAC	Rødglassreke	Crimson pasiphaeid	Pasiphaea tarda
+PIN	Pukkellaks	Pink(=Humpback) salmon	Oncorhynchus gorbuscha
+VNA	Gullskjell	Golden carpet shell	Polititapes aureus
+VUC	Teppeskjell	Corrugated venus/Pullet carpet shell	Veneruois corrugata
