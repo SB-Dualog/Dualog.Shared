@@ -48,5 +48,12 @@ namespace Dualog.eCatch.Shared.Tests.MessageTests
             var message = MessageFactory.Parse("//SR//TM/HIA//AD/NOR//DA/20200924//TI/1757//RC/RCSIG72//RN/192//FT/ZZH//SQ/74//NA/HI-Grim//MA/Torgrim Bakke//PO/DKASN//ZD/20200924//ZT/1757//PD/20200924//PT/1757//LA/N6943//LO/E01859//AC/FIS//DS/HER//OB/HER 1900000//ER//");
             Assert.True(message.MessageType == Enums.MessageType.HIA);
         }
+
+        [Fact]
+        public void ParseHilFromeFangstWithEmptyPOandLS()
+        {
+            var message = MessageFactory.Parse("//SR//TM/HIL//AD/NOR//DA/20201106//TI/1334//RC/MCFC01//XR/F-0055-BD//RN/418//FT/ZZH//SQ/170//NA/Jonasguten//MA/Janthima Karlsen//PO///PD/20201106//PT/1334//LS///SH/MCFC01-390-162 N//ER//");
+            Assert.True(message.MessageType == Enums.MessageType.HIL);
+        }
     }
 }

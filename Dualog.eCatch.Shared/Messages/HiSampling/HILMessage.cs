@@ -27,13 +27,20 @@ namespace Dualog.eCatch.Shared.Messages.HiSampling
 
             if (SamplesToDeliver.Count > 0)
             {
-                if (string.IsNullOrWhiteSpace(deliveryFacility))
-                    throw new ArgumentException("Delivery facility is required when delivering samples",
-                        nameof(deliveryFacility));
+                foreach (var samples in SamplesToDeliver)
+                {
+                    if (samples.Status.Equals("N", StringComparison.OrdinalIgnoreCase))
+                    {
+                        continue;
+                    }
+                    if (string.IsNullOrWhiteSpace(deliveryFacility))
+                        throw new ArgumentException("Delivery facility is required when delivering samples",
+                            nameof(deliveryFacility));
 
-                if (deliveryFacility.Length > 60)
-                    throw new ArgumentException("Delivery facility has a max length of 60 characters",
-                        nameof(deliveryFacility));
+                    if (deliveryFacility.Length > 60)
+                        throw new ArgumentException("Delivery facility has a max length of 60 characters",
+                            nameof(deliveryFacility));
+                }
             }
         }
 
