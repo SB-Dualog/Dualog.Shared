@@ -18,6 +18,7 @@ namespace Dualog.eCatch.Shared.Messages
         public int SequenceNumber { get; }
         public string SentFrom { get; }
         public string FishingLicense { get; }
+        public string Message { get; }
 
         public RETMessage(
             int id,
@@ -28,7 +29,8 @@ namespace Dualog.eCatch.Shared.Messages
             int sequenceNumber = 0,
             int messageVersion = 0,
             string from = "NOR",
-            string fishingLicense = "")
+            string fishingLicense = "",
+            string message = "")
         {
             Id = id;
             Sent = sent;
@@ -39,15 +41,16 @@ namespace Dualog.eCatch.Shared.Messages
             MessageVersion = messageVersion;
             SentFrom = from;
             FishingLicense = fishingLicense;
+            Message = message;
         }
 
         public override string ToString()
         {
             var sb = new StringBuilder();
             sb.Append("//SR");
+            sb.Append($"//FR/{SentFrom}");
             sb.Append($"//TM/{MessageType}");
             sb.Append($"//RN/{Id}");
-            sb.Append($"//FR/{SentFrom}");
             sb.Append($"//RC/{RadioCallSignal}");
             sb.Append($"//RS/{MessageStatus}");
 
@@ -63,14 +66,21 @@ namespace Dualog.eCatch.Shared.Messages
             {
                 sb.Append($"//RE/{ErrorCode}");
             }
+
             sb.Append($"//DA/{Sent.ToFormattedDate()}");
             sb.Append($"//TI/{Sent.ToFormattedTime()}");
-            sb.Append("//ER//");
 
             if (!FishingLicense.IsNullOrEmpty())
             {
                 sb.Append($"//FL/{FishingLicense}");
             }
+            if (!Message.IsNullOrEmpty())
+            {
+                sb.Append($"//MS/{Message}");
+            }
+
+            sb.Append("//ER//");
+
             return sb.ToString();
         }
 
@@ -96,7 +106,8 @@ namespace Dualog.eCatch.Shared.Messages
                 values.ContainsKey("SQ") ? int.Parse(values["SQ"]) : 0,
                 values.ContainsKey("MV") ? int.Parse(values["MV"]) : 0,
                 values.ContainsKey("FR") ? values["FR"] : "NOR",
-                fishingLicense: values.ContainsKey("FL") ? values["FL"] : string.Empty
+                fishingLicense: values.ContainsKey("FL") ? values["FL"] : string.Empty,
+                message: values.ContainsKey("MS") ? values["MS"] : string.Empty
                 );
         }
     }
