@@ -147,3 +147,5 @@ FAC	Rødglassreke	Crimson pasiphaeid	Pasiphaea tarda
 PIN	Pukkellaks	Pink(=Humpback) salmon	Oncorhynchus gorbuscha
 VNA	Gullskjell	Golden carpet shell	Polititapes aureus
 VUC	Teppeskjell	Corrugated venus/Pullet carpet shell	Veneruois corrugata
+SOL	Tunge	Common sole	Solea solea
+OAL	Tunge (Senegal)	Senegalese sole	Solea senegalensis
