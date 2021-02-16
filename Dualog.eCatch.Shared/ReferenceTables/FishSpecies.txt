@@ -149,8 +149,8 @@ VNA	Gullskjell	Golden carpet shell	Polititapes aureus
 VUC	Teppeskjell	Corrugated venus/Pullet carpet shell	Veneruois corrugata
 SOL	Tunge	Common sole	Solea solea
 OAL	Tunge (Senegal)	Senegalese sole	Solea senegalensis
-CPR Common prawn *  Common prawn    Palaemon serratus
-PAA Strandreke  Baltic prawn    Palaemon adspersus
-TRR Regnbueørret    Rainbow trout   Oncorhynchus mykiss/ Salmo gairdneri
-TRS Ørret   Sea trout   Salmo trutta
-UYD Drøbaksjøpiggsvin   Strongylocentrotus droebachiensis **    Strongylocentrotus droebachiensis
+CPR	Common prawn *	Common prawn	Palaemon serratus
+PAA	Strandreke	Baltic prawn	Palaemon adspersus
+TRR	Regnbueørret	Rainbow trout	Oncorhynchus mykiss/ Salmo gairdneri
+TRS	Ørret	Sea trout	Salmo trutta
+UYD	Drøbaksjøpiggsvin	Strongylocentrotus droebachiensis **	Strongylocentrotus droebachiensis

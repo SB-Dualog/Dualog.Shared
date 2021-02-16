@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.IO;
 using System.Reflection;
 using Dualog.eCatch.Shared.Enums;
@@ -20,7 +21,16 @@ namespace Dualog.eCatch.Shared.Services
                 {
                     var line = streamReader.ReadLine();
                     var items = line.Split('\t');
-                    result.Add(items[0], items[langauge.ToReferenceTableIndex(filename)]);
+                    if (items.Length == 0)
+                    {
+                        throw new Exception($"filename: {filename} line: '{line}'");
+                    }
+                    var index = langauge.ToReferenceTableIndex(filename);
+                    if (index >= items.Length)
+                    {
+                        throw new Exception($"filename: {filename} line: '{line}'");
+                    }
+                    result.Add(items[0], items[index]);
                 }
             }
 
