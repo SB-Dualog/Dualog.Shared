@@ -22,7 +22,7 @@ namespace Dualog.eCatch.Shared.Models
         public string HerringType { get; }
         public IReadOnlyList<AnimalAndCount> AnimalCount { get; } 
 
-        public Haul(DateTime startTime, DateTime stopTime, double startLatitude, double startLongitude, double stopLatitude, double stopLongitude, string tool, string problem, IReadOnlyList<FishFAOAndWeight> fishDistribution, int maskWidth, int numberOfTrawls, int extraToolInfo, string zone, string herringType, IReadOnlyList<AnimalAndCount> animalCount)
+        public Haul(DateTime startTime, DateTime stopTime, double startLatitude, double startLongitude, double stopLatitude, double stopLongitude, string tool, string problem, IReadOnlyList<FishFAOAndWeight> fishDistribution, int maskWidth, int numberOfTrawls, int extraToolInfo, string zone, string herringType, IReadOnlyList<AnimalAndCount> animalCount, string routeNumber = "")
         {
             StartTime = startTime;
             StopTime = stopTime;
@@ -30,6 +30,7 @@ namespace Dualog.eCatch.Shared.Models
             StartLongitude = startLongitude;
             StopLatitude = stopLatitude;
             StopLongitude = stopLongitude;
+            RouteNumber = routeNumber;
             Tool = tool;
             Problem = problem;
             FishDistribution = fishDistribution;
