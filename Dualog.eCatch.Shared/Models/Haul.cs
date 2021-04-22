@@ -11,6 +11,7 @@ namespace Dualog.eCatch.Shared.Models
         public double StartLongitude { get; }
         public double StopLatitude { get; }
         public double StopLongitude { get; }
+        public string RouteNumber { get; }
         public string Tool { get; }
         public string Problem { get; }
         public IReadOnlyList<FishFAOAndWeight> FishDistribution { get; }
